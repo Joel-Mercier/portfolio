@@ -1,0 +1,34 @@
+---
+layout: page
+title: Blog
+---
+<div class="wrapper">
+  <h1 class="page-heading">Articles</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-meta" href="{{ post.url | prepend: site.baseurl | append: '#disqus_thread' }}" data-disqus-identifier="{{ post.title }}"></a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <!-- Pagination links -->
+  <div class="post-pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace:'//','/' }}" class="post-previous" title="Vers la page précédente">Précédent</a>
+    {% endif %}
+    <span class="post-page-number ">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace:'//','/' }}" class="post-next" title="Vers la page suivante">Suivant</a>
+    {% endif %}
+  </div>
+
+  <p class="post-rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
+<script id="dsq-count-scr" src="//jomercier.disqus.com/count.js" async></script>

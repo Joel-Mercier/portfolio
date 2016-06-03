@@ -1,0 +1,25 @@
+# Site settings
+title: Portfolio de Joel Mercier
+email: jomercier@sfr.fr
+description: > # this means to ignore newlines until "baseurl:"
+  Joel Mercier - Développeur web
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://jomercier.com" # the base hostname & protocol for your site
+twitter_username: joelmrcr
+github_username:  Joel-Mercier
+
+# Build settings
+markdown: kramdown
+highlighter: pygments
+destination : _site/
+exclude: ['node_modules', 'package.json', 'gulpfile.js', 'Gemfile', 'Gemfile.lock', 'sources', 'Readme.md'] 
+permalink: /:categories/:title/
+paginate: 1
+paginate_path: /blog/page:num
+languages: ["fr", "en"]
+# exclude_from_localizations: ["img", "js", "css"]
+collections:
+  portfolio:
+    output: true
+  skills:
+    output: false

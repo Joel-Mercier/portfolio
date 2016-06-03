@@ -1,0 +1,226 @@
+/**
+* Site header
+*/
+.site-header {
+  min-height: 56px;
+  // Positioning context for the mobile navigation icon
+  position: relative;
+
+  .wrapper {
+    padding: 0;
+  }
+}
+
+.site-header-hero {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  z-index: -1;
+  background-image: url('../img/noisy-texture.png'), $gradient ;
+}
+
+.site-header-title {
+  position: absolute;
+  color: #fff;
+  font-size: 56px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &.type-it {
+    top: 20%;
+  }
+
+  .site-header-title__cursor {
+    font-size: 50px;
+    font-style: normal;
+  }
+}
+
+.site-header-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 40%;
+  margin: 0 auto;
+  background: url('../img/hero-img.svg') no-repeat center center;
+}
+
+.site-title {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 56px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  float: left;
+
+  &,
+  &:visited {
+    color: $grey-color-dark;
+  }
+
+}
+
+.site-nav {
+  float: right;
+  line-height: 56px;
+
+  .menu-icon {
+    display: none;
+  }
+
+  .page-link {
+    color: $text-color;
+    line-height: $base-line-height;
+
+    // Gaps between nav items, but not on the last one
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  @include media-query($on-palm) {
+    position: absolute;
+    top: 9px;
+    right: $spacing-unit / 2;
+    background-color: $background-color;
+    border: 1px solid $grey-color-light;
+    border-radius: 5px;
+    text-align: right;
+
+    .menu-icon {
+      display: block;
+      float: right;
+      width: 36px;
+      height: 26px;
+      line-height: 0;
+      padding-top: 10px;
+      text-align: center;
+
+      > svg {
+        width: 18px;
+        height: 15px;
+
+        path {
+          fill: $grey-color-dark;
+        }
+      }
+    }
+
+    .trigger {
+      clear: both;
+      display: none;
+    }
+
+    &:hover .trigger {
+      display: block;
+      padding-bottom: 5px;
+    }
+
+    .page-link {
+      display: block;
+      padding: 5px 10px;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      margin-left: 20px;
+    }
+  }
+}
+
+.site-home-fluid {
+  position: absolute;
+  padding-left: 30px;
+  top: 0;
+  right: 0;
+}
+
+#portfolio, #blog {
+  position: relative;
+  margin-bottom: 298px;
+}
+
+.site-transition {
+  background: url('https://unsplash.it/1600/700') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 120px 0 110px;
+}
+/**
+* Page content
+*/
+.page-content {
+  z-index: 1;
+}
+
+.post-list {
+  margin-left: 0;
+  list-style: none;
+
+  > li {
+    margin-bottom: $spacing-unit;
+  }
+}
+
+.post-meta {
+  font-size: $small-font-size;
+  color: $grey-color;
+}
+
+.post-link {
+  display: block;
+  font-size: 24px;
+}
+
+
+
+/**
+* Posts
+*/
+.post-header {
+  margin-bottom: $spacing-unit;
+}
+
+.post-title {
+  font-size: 42px;
+  letter-spacing: -1px;
+  line-height: 1;
+
+  @include media-query($on-laptop) {
+    font-size: 36px;
+  }
+}
+
+.post-content {
+  margin-bottom: $spacing-unit;
+
+  h2 {
+    font-size: 32px;
+
+    @include media-query($on-laptop) {
+      font-size: 28px;
+    }
+  }
+
+  h3 {
+    font-size: 26px;
+
+    @include media-query($on-laptop) {
+      font-size: 22px;
+    }
+  }
+
+  h4 {
+    font-size: 20px;
+
+    @include media-query($on-laptop) {
+      font-size: 18px;
+    }
+  }
+}
