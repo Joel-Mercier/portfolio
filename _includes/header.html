@@ -1,31 +1,45 @@
-<header class="site-header">
-  <div class="wrapper">
+<header class="header">
+  <nav class="nav nav--transparent">
+    <div class="wrapper">
 
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+      <a class="nav__title" href="{{ site.baseurl }}/">{{ site.title }}</a>
 
-    <nav class="site-nav">
-      <a href="#" class="menu-icon">
-        <svg viewBox="0 0 18 15">
-          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
-          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
-          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
-        </svg>
-      </a>
-
-      <div class="trigger">
+      <div class="nav__links">
         {% assign current = page.url | downcase | split: '/' %}
-        <a class="page-link {% if current[1] == 'about' %}active{% endif %}" href="{{ '/about' | prepend: site.baseurl }}">A propos</a>
-        <a class="page-link {% if current[1] == 'portfolio' %}active{% endif %}" href="{{ '/portfolio' | prepend: site.baseurl }}">Portfolio</a>
-        <a class="page-link {% if current[1] == 'blog' %}active{% endif %}" href="{{ '/blog' | prepend: site.baseurl }}">Blog</a>
+        <a class="nav__link {% if current[1] == 'about' %}nav__link--active{% endif %}" href="{{ '/about' | prepend: site.baseurl }}">A propos</a>
+        <a class="nav__link {% if current[1] == 'portfolio' %}nav__link--active{% endif %}" href="{{ '/portfolio' | prepend: site.baseurl }}">Portfolio</a>
+        <a class="nav__link {% if current[1] == 'blog' %}nav__link--active{% endif %}" href="{{ '/blog' | prepend: site.baseurl }}">Blog</a>
       </div>
-    </nav>
+
+    </div>
+  </nav>
+
+  {% if page.url == '/' %}
+  <div class="header__hero header__hero--full">
+    <h1 class="header__title type-it"></h1>
+    <div class="header__img animated fade-in-up"></div>
+    {% for i in (1..16) %}
+      <div class="header__bubble header__bubble--small" id="bubble{{ i }}"></div>
+    {% endfor %}
+    {% for i in (17..24) %}
+      <div class="header__bubble header__bubble--medium" id="bubble{{ i }}"></div>
+    {% endfor %}
+    {% for i in (25..26) %}
+      <div class="header__bubble header__bubble--large" id="bubble{{ i }}"></div>
+    {% endfor %}
   </div>
-  <div class="site-header-hero">
-    {% if page.url == '/' %}
-    <h1 class="site-header-title type-it"></h1>
-    <div class="site-header-img animated fadeInUp"></div>
-    {% else %}
-    <h1 class="site-header-title">{{ page.title }}</h1>
-    {% endif %}
+  {% else %}
+  <div class="header__hero">
+    <h1 class="header__title">{{ page.title }}</h1>
+    {% for i in (1..16) %}
+      <div class="header__bubble header__bubble--small" id="bubble{{ i }}"></div>
+    {% endfor %}
+    {% for i in (17..24) %}
+      <div class="header__bubble header__bubble--medium" id="bubble{{ i }}"></div>
+    {% endfor %}
+    {% for i in (25..26) %}
+      <div class="header__bubble header__bubble--large" id="bubble{{ i }}"></div>
+    {% endfor %}
   </div>
+  {% endif %}
 </header>

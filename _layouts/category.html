@@ -6,13 +6,13 @@ layout: default
   <p>{{ page.content }}</p>
 {% endunless %}
 
-<ul class="post-list">
+<ul class="post__list">
 {% for post in site.categories.[page.category] %}
   <li>
-    <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+    <span class="post__meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
     <h2>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      <a class="post__link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
     </h2>
   </li>
 {% endfor %}

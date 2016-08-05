@@ -177,21 +177,23 @@ pre {
   }
 }
 
-.site-altbg {
+.site__altbg {
   background: $grey-color-light;
 }
 
-.site-lead {
+.site__lead {
   width: 80%;
   margin: 20px auto;
   font-weight: 300;
   font-size: $base-font-size + 6;
 }
 
-.site-browserupgrade {
+.site__browserupgrade {
   padding: 0 0 10px 0;
   border-bottom: 1px solid $grey-color-light;
   text-align: center;
+  margin: 0;
+  font-size: 0.75em;
 }
 
 .animated {
@@ -213,7 +215,7 @@ pre {
   }
 }
 
-.fadeIn {
+.fade-in {
   animation-name: fadeIn;
 }
 
@@ -229,6 +231,6 @@ pre {
   }
 }
 
-.fadeInUp {
+.fade-in-up {
   animation-name: fadeInUp;
 }

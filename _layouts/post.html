@@ -4,8 +4,8 @@ layout: default
 <div class="wrapper">
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <header class="post-header">
-      <p class="post-meta">
+    <header class="post__header">
+      <p class="post__meta">
         <span>{{ page.categories }}</span>
         <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {% assign m = page.date | date: "%-m" %}
@@ -33,7 +33,7 @@ layout: default
       </p>
     </header>
 
-    <div class="post-content" itemprop="articleBody">
+    <div class="post__content" itemprop="articleBody">
       {{ content }}
     </div>
 

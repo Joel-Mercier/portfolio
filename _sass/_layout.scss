@@ -1,7 +1,7 @@
 /**
 * Site header
 */
-.site-header {
+.header {
   min-height: 56px;
   // Positioning context for the mobile navigation icon
   position: relative;
@@ -11,15 +11,20 @@
   }
 }
 
-.site-header-hero {
+.header__hero {
   position: relative;
   width: 100%;
   height: 450px;
   z-index: -1;
   background-image: url('../img/noisy-texture.png'), $gradient ;
+  overflow: hidden;
+
+  &.header__hero--full {
+    height: 100vh;
+  }
 }
 
-.site-header-title {
+.header__title {
   position: absolute;
   color: #fff;
   font-size: 56px;
@@ -28,107 +33,219 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 
   &.type-it {
     top: 20%;
   }
 
-  .site-header-title__cursor {
-    font-size: 50px;
+  .header__title--cursor {
     font-style: normal;
   }
 }
 
-.site-header-img {
+.header__img {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 10px;
+  right: 10px;
   top: 40%;
-  margin: 0 auto;
   background: url('../img/hero-img.svg') no-repeat center center;
 }
 
-.site-title {
-  font-size: 26px;
-  font-weight: 300;
-  line-height: 56px;
-  letter-spacing: -1px;
-  margin-bottom: 0;
-  float: left;
+.header__bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 100%;
+  opacity: 0;
 
-  &,
-  &:visited {
-    color: $grey-color-dark;
+  &.header__bubble--small {
+    width: 8px;
+    height: 8px;
+
+    &#bubble1 {
+      left: 5%;
+      animation: BubbleAnimation 30s linear 0s infinite;
+    }
+
+    &#bubble2 {
+      left: 12%;
+      animation: BubbleAnimation 30s linear 2s infinite;
+    }
+
+    &#bubble3 {
+      left: 23%;
+      animation: BubbleAnimation 30s linear 1s infinite;
+    }
+
+    &#bubble4 {
+      left: 36%;
+      animation: BubbleAnimation 30s linear 4s infinite;
+    }
+
+    &#bubble5 {
+      left: 68%;
+      animation: BubbleAnimation 30s linear 2.4s infinite;
+    }
+
+    &#bubble6 {
+      left: 77%;
+      animation: BubbleAnimation 30s linear 2s infinite;
+    }
+
+    &#bubble7 {
+      left: 82%;
+      animation: BubbleAnimation 30s linear 6s infinite;
+    }
+
+    &#bubble8 {
+      left: 85%;
+      animation: BubbleAnimation 30s linear 0.8s infinite;
+    }
+
+    &#bubble9 {
+      left: 8%;
+      animation: BubbleAnimation 30s linear 4s infinite;
+    }
+
+    &#bubble10 {
+      left: 17%;
+      animation: BubbleAnimation 30s linear 8s infinite;
+    }
+
+    &#bubble11 {
+      left: 28%;
+      animation: BubbleAnimation 30s linear 15s infinite;
+    }
+
+    &#bubble12 {
+      left: 36%;
+      animation: BubbleAnimation 30s linear 20s infinite;
+    }
+
+    &#bubble13 {
+      left: 42%;
+      animation: BubbleAnimation 30s linear 19s infinite;
+    }
+
+    &#bubble14 {
+      left: 60%;
+      animation: BubbleAnimation 30s linear 9s infinite;
+    }
+
+    &#bubble15 {
+      left: 72%;
+      animation: BubbleAnimation 30s linear 17s infinite;
+    }
+
+    &#bubble16 {
+      left: 94%;
+      animation: BubbleAnimation 30s linear 23s infinite;
+    }
   }
 
+  &.header__bubble--medium {
+    width: 16px;
+    height: 16px;
+
+    &#bubble17 {
+      left: 4%;
+      animation: BubbleAnimation 20s linear 1s infinite;
+    }
+    &#bubble18 {
+      left: 14%;
+      animation: BubbleAnimation 20s linear 4s infinite;
+    }
+    &#bubble19 {
+      left: 30%;
+      animation: BubbleAnimation 20s linear 6s infinite;
+    }
+    &#bubble20 {
+      left: 46%;
+      animation: BubbleAnimation 20s linear 2.5s infinite;
+    }
+    &#bubble21 {
+      left: 67%;
+      animation: BubbleAnimation 20s linear 10s infinite;
+    }
+    &#bubble22 {
+      left: 75%;
+      animation: BubbleAnimation 20s linear 6s infinite;
+    }
+    &#bubble23 {
+      left: 80%;
+      animation: BubbleAnimation 20s linear 15s infinite;
+    }
+    &#bubble24 {
+      left: 90%;
+      animation: BubbleAnimation 20s linear 6.4s infinite;
+    }
+  }
+
+  &.header__bubble--large {
+    width: 24px;
+    height: 24px;
+
+    &#bubble25 {
+      left: 30%;
+      animation: BubbleAnimation 10s linear 7s infinite;
+    }
+
+    &#bubble26 {
+      left: 70%;
+      animation: BubbleAnimation 10s linear 1s infinite;
+    }
+  }
 }
 
-.site-nav {
-  float: right;
-  line-height: 56px;
+@keyframes BubbleAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
-  .menu-icon {
-    display: none;
+.nav {
+  height: 56px;
+  line-height: 56px;
+  color: $text-color;
+
+  .nav__title {
+    font-size: 26px;
+    letter-spacing: -1px;
+    float: left;
+    color: inherit;
   }
 
-  .page-link {
-    color: $text-color;
-    line-height: $base-line-height;
+  .nav__links {
+    float: right;
+  }
 
+  .nav__link {
+    color: inherit;
     // Gaps between nav items, but not on the last one
     &:not(:last-child) {
       margin-right: 20px;
     }
+
+    &:after {
+      clear: both;
+    }
   }
 
-  @include media-query($on-palm) {
+  &.nav--transparent {
     position: absolute;
-    top: 9px;
-    right: $spacing-unit / 2;
-    background-color: $background-color;
-    border: 1px solid $grey-color-light;
-    border-radius: 5px;
-    text-align: right;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    color: #fff;
 
-    .menu-icon {
-      display: block;
-      float: right;
-      width: 36px;
-      height: 26px;
-      line-height: 0;
-      padding-top: 10px;
-      text-align: center;
-
-      > svg {
-        width: 18px;
-        height: 15px;
-
-        path {
-          fill: $grey-color-dark;
-        }
-      }
-    }
-
-    .trigger {
-      clear: both;
-      display: none;
-    }
-
-    &:hover .trigger {
-      display: block;
-      padding-bottom: 5px;
-    }
-
-    .page-link {
-      display: block;
-      padding: 5px 10px;
-
-      &:not(:last-child) {
-        margin-right: 0;
-      }
-      margin-left: 20px;
-    }
   }
 }
 
@@ -144,7 +261,7 @@
   margin-bottom: 298px;
 }
 
-.site-transition {
+.site__transition {
   background: url('https://unsplash.it/1600/700') no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -156,11 +273,11 @@
 /**
 * Page content
 */
-.page-content {
+.page__content {
   z-index: 1;
 }
 
-.post-list {
+.post__list {
   margin-left: 0;
   list-style: none;
 
@@ -169,12 +286,12 @@
   }
 }
 
-.post-meta {
+.post__meta {
   font-size: $small-font-size;
   color: $grey-color;
 }
 
-.post-link {
+.post__link {
   display: block;
   font-size: 24px;
 }
@@ -184,11 +301,11 @@
 /**
 * Posts
 */
-.post-header {
+.post__header {
   margin-bottom: $spacing-unit;
 }
 
-.post-title {
+.post__title {
   font-size: 42px;
   letter-spacing: -1px;
   line-height: 1;
@@ -198,7 +315,7 @@
   }
 }
 
-.post-content {
+.post__content {
   margin-bottom: $spacing-unit;
 
   h2 {
