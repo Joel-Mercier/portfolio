@@ -1,32 +1,16 @@
 
 @charset "utf-8";
-@font-face {
-    font-family: 'avalonbold';
-    src: url('../fonts/avalon_bold-webfont.woff2') format('woff2'),
-         url('../fonts/avalon_bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'avalon';
-    src: url('../fonts/avalon-webfont.woff2') format('woff2'),
-         url('../fonts/avalon-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
 
 // Our variables
-$base-font-family: "avalon", Helvetica, Arial, sans-serif;
+$base-font-family: "Open Sans", Helvetica, Arial, sans-serif;
 $base-font-size:   18px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$heading-font-family: "avalonbold", Helvetica, Arial, sans-serif;
+$heading-font-family: "Montserrat", Helvetica, Arial, sans-serif;
 $heading-font-size:   30px;
-$heading-font-weight: normal;
+$heading-font-weight: 700;
 $heading-color:       #111;
 
 $button-font-size:    16px;

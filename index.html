@@ -5,60 +5,32 @@ layout: default
   <div class="wrapper">
     <h2 class="home__title">Bienvenue !</h2>
     <p class="site__lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, facere corporis voluptatem aspernatur repellendus facilis, earum.</p>
-    <a class="button empty" href="{{ '/about' | prepend: site.baseurl }}"><span>Découvrir mes compétences</span></a>
+    <a class="button button--primary" href="{{ '/about' | prepend: site.baseurl }}"><span>Découvrir mes compétences</span></a>
   </div>
 </div>
-<section id="portfolio">
-  <div class="wrapper">
-    <div class="grid-3-small-1">
-      <div>
-        <h2>Mes dernières réalisations</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, ad dolor, culpa ipsam quae voluptates maiores amet expedita ullam tempora soluta perferendis, deserunt quod quibusdam sequi deleniti numquam quisquam molestias?</p>
-        <a class="button button--primary" href="{{ '/portfolio' | prepend: site.baseurl }}">Voir le portfolio</a>
-      </div>
-      <div class="flex-item-double site-home-fluid">
-        <div class="grid-2-small-1">
-          <div>
-            <img src="https://unsplash.it/400">
-          </div>
-          <div>
-            <img src="https://unsplash.it/400">
-          </div>
-        </div>
-        <div>
-          <img src="https://unsplash.it/1000/400">
-        </div>
+<section id="portfolio" class="portfolio">
+  <div class="portfolio__container">
+    <div class="wrapper">
+      <h2>Mes dernières réalisations</h2>
+      <div class="grid-2-small-1">
+        <ul class="portfolio__list">
+          <li class="portfolio__list__item">Projet 1</li>
+          <li class="portfolio__list__item">Projet 1</li>
+          <li class="portfolio__list__item">Projet 1</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
-<section id="download" class="site__transition">
+<section id="cv-download" class="site__transition">
   <div class="wrapper txtcenter">
-    <a class="button button--primary button--ghost" href="{{ '/downloads/test.pdf' | prepend: site.baseurl }}" target="_blank">Télécharger mon CV</a>
+    <a class="button button--ghost" href="{{ '/downloads/test.pdf' | prepend: site.baseurl }}" target="_blank"><span>Télécharger mon CV</span></a>
     <p class="button__caption">PDF • 1,7Mo • cv-mercier.pdf</p>
   </div>
 </section>
 <section id="blog">
   <div class="wrapper">
-    <div class="grid-3-small-1">
-      <div>
-        <h2>Mes derniers articles</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, ad dolor, culpa ipsam quae voluptates maiores amet expedita ullam tempora soluta perferendis, deserunt quod quibusdam sequi deleniti numquam quisquam molestias?</p>
-        <a class="button button--primary" href="{{ '/blog' | prepend: site.baseurl }}">Lire le blog</a>
-      </div>
-      <div class="flex-item-double site-home-fluid">
-        <div class="grid-2-small-1">
-          <div>
-            <img src="https://unsplash.it/400">
-          </div>
-          <div>
-            <img src="https://unsplash.it/400">
-          </div>
-        </div>
-        <div>
-          <img src="https://unsplash.it/1000/400">
-        </div>
-      </div>
-    </div>
+    <h2>Mes derniers articles</h2>
+
   </div>
 </section>

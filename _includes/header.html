@@ -4,12 +4,12 @@
 
       <a class="nav__title" href="{{ site.baseurl }}/">{{ site.title }}</a>
 
-      <div class="nav__links">
+      <ul class="nav__list">
         {% assign current = page.url | downcase | split: '/' %}
-        <a class="nav__link {% if current[1] == 'about' %}nav__link--active{% endif %}" href="{{ '/about' | prepend: site.baseurl }}">A propos</a>
-        <a class="nav__link {% if current[1] == 'portfolio' %}nav__link--active{% endif %}" href="{{ '/portfolio' | prepend: site.baseurl }}">Portfolio</a>
-        <a class="nav__link {% if current[1] == 'blog' %}nav__link--active{% endif %}" href="{{ '/blog' | prepend: site.baseurl }}">Blog</a>
-      </div>
+        <li class="nav__item {% if current[1] == 'about' %}nav__item--current{% endif %}"><a class="nav__link" href="{{ '/about' | prepend: site.baseurl }}">A propos</a></li>
+        <li class="nav__item {% if current[1] == 'portfolio' %}nav__item--current{% endif %}"><a class="nav__link" href="{{ '/portfolio' | prepend: site.baseurl }}">Portfolio</a></li>
+        <li class="nav__item {% if current[1] == 'blog' %}nav__item--current{% endif %}"><a class="nav__link" href="{{ '/blog' | prepend: site.baseurl }}">Blog</a></li>
+      </ul>
 
     </div>
   </nav>

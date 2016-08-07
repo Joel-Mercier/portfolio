@@ -1,112 +1,69 @@
 .button {
   display: inline-block;
+	background-color: $brand-color;
+	border: solid 2px $brand-color;
+  border-radius: 100px;
+	color: #fff;
+	position: relative;
+	transition: all 0.2s ease-in-out;
+  padding: 15px 30px;
   font-size: $button-font-size;
-  color: #fff;
   font-family: $heading-font-family;
   font-weight: $heading-font-weight;
-  border-radius: 100px;
   overflow: hidden;
 
+  & span {
+    position:relative;
+    z-index: 2;
+  }
+
+  &:before {
+    content: "";
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%,-50%);
+  	height: 0px;
+  	width: 0px;
+  	border-radius: 50%;
+  	transition: all .2s ease-in-out;
+  }
+
+  &:hover:before {
+    height: 150px;
+    width: 400px;
+    border-radius: 0;
+  }
+
   &.button--primary {
-    position: relative;
-    padding: 10px 40px;
-    background-color: $brand-color;
-    border: 2px solid $brand-color;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.4s ease;
-    min-width: 150px;
+    padding: 15px 40px;
+
+    &:before {
+      background-color: $background-color;
+    }
 
     &:hover {
       color: $brand-color;
     }
-
-    &:before {
-      content: "";
-      position: absolute;
-      top:50%;
-      left: 50%;
-      -webkit-transform:translate(-50%,-50%);
-              transform:translate(-50%,-50%);
-      height: 0px;
-      width: 0px;
-      border-radius: 50%;
-      transition:all .2s ease-in-out;
-      background: transparent;
-    }
-
-    &:hover:before {
-      height: 200px;
-  		width: 200px;
-  		border-radius: 0;
-    }
-
-
   }
 
   &.button--ghost {
-    border: 2px solid #fff;
-    color: #fff;
-    background: #fff;
-    transition: all 0.4s ease;
+    background-color: transparent;
+  	border: solid 2px #fff;
 
-    &:hover, :active {
-      color: $heading-color;
-      background: #fff;
-      opacity: 1;
+    &:before {
+      background-color: #fff;
+    }
+
+    &:hover {
+      color: $text-color;
     }
   }
 }
+
 
 .button__caption {
   font-size: $base-font-size - 6;
   color: #fff;
   font-style: italic;
 }
-
-.button {
-	background-color: $brand-color;
-	border:solid 2px $brand-color;
-	color:#fff;
-	position: relative;
-	transition:all .2s ease-in-out;
-  padding: 15px 30px;
-}
-	.button.white:hover{color: $brand-color;}
-	.button.white:hover:before{
-		height: 200px;
-		width: 300px;
-		border-radius: 0;
-	}
-
-.button.empty{
-	background-color: transparent;
-	border:solid 2px white;
-	color:white;
-	position: relative;
-	transition:all .2s ease-in-out;
-}
-	.button.empty:hover{color:#7f7f7f;}
-	.button.empty:hover:before{
-		height: 200px;
-		width: 300px;
-		border-radius: 0;
-	}
-
-.button.white:before, .button.empty:before {
-	content: "";
-	position: absolute;
-	top:50%;
-	left: 50%;
-	-webkit-transform:translate(-50%,-50%);
-	        transform:translate(-50%,-50%);
-	height: 0px;
-	width: 0px;
-	border-radius: 50%;
-	transition:all .2s ease-in-out;
-}
-.button.white:before{background-color: #f5f4f4;}
-.button.empty:before{background-color: white;}
-.button.blue:before{background-color: #1c1d20;}
-
-.button > span{position:relative;z-index: 2}
