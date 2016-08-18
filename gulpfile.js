@@ -106,7 +106,7 @@ gulp.task('img', function () {
 gulp.task('watch', function () {
     gulp.watch(['_sass/*.scss', 'css/*.scss'], ['sass']);
     gulp.watch(['_js/*.js'], ['js']);
-    gulp.watch(['**/*.html', '_layouts/*.html', '_includes/*.html', 'blog/_posts/*', '_config.yml', '_images/*', 'js/*'], ['jekyll-rebuild']);
+    gulp.watch(['**/*.html', '_layouts/*.html', '_includes/*.html', 'blog/_posts/*', '_config.yml', '_images/*', 'js/*', '**/*.md'], ['jekyll-rebuild']);
 });
 
 /**

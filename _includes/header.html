@@ -5,7 +5,7 @@
       <ul class="nav__list">
         {% assign current = page.url | downcase | split: '/' %}
         <li class="nav__item {% if current[1] == 'about' %}nav__item--current{% endif %}"><a class="nav__link" href="{{ '/about/' | prepend: site.baseurl }}">A propos</a></li>
-        <li class="nav__item {% if current[1] == 'portfolio' %}nav__item--current{% endif %}"><a class="nav__link" href="{{ '#portfolio' | prepend: site.baseurl }}">Portfolio</a></li>
+        <li class="nav__item {% if current[1] == 'portfolio' %}nav__item--current{% endif %}"><a class="nav__link" href="{{ '/#portfolio' | prepend: site.baseurl }}">Portfolio</a></li>
         <li class="nav__item {% if current[1] == 'blog' %}nav__item--current{% endif %}"><a class="nav__link" href="{{ '/blog/' | prepend: site.baseurl }}">Blog</a></li>
       </ul>
     </div>
