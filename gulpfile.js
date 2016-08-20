@@ -62,12 +62,12 @@ gulp.task('sass', function () {
             onError: browserSync.notify,
             errLogToConsole: true
         }))
-        .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+        .pipe(prefix(['last 15 versions', '> 1%'], { cascade: true }))
         .pipe(cssnano())
         .pipe(rename({
           suffix: '.min'
         }))
-        .pipe(sourcemaps.write())
+        // .pipe(sourcemaps.write())
         .pipe(gulp.dest('_site/css'))
         .pipe(browserSync.reload({stream:true}))
         .pipe(gulp.dest('css'));
@@ -90,7 +90,7 @@ gulp.task('js', function () {
  * Image magnification
  */
 gulp.task('img', function () {
-    return gulp.src('./_images/*')
+    return gulp.src('./_images/**/*')
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],

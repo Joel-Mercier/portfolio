@@ -26,11 +26,12 @@
 
 .header__title {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
   color: #fff;
   font-size: 56px;
   text-align: center;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
 
@@ -220,13 +221,13 @@
 .nav {
   height: 56px;
   line-height: 56px;
-  color: $text-color;
+  color: $base-color;
 
   &.nav--transparent {
     position: absolute;
     top: 0px;
     left: 0px;
-    right: 0px;
+    width: 100%;
     color: #fff;
 
   }
@@ -278,7 +279,7 @@
   }
 
   &:after {
-    background: $brand-color;
+    background: $alpha-color;
   }
 
   &:before, &:after {
@@ -355,75 +356,4 @@
 
 .cv-icon-animation {
   animation-name: cv-icon-reveal-animation;
-}
-/**
-* Page content
-*/
-.page__content {
-  z-index: 1;
-}
-
-.post__list {
-  margin-left: 0;
-  list-style: none;
-
-  > li {
-    margin-bottom: $spacing-unit;
-  }
-}
-
-.post__meta {
-  font-size: $small-font-size;
-  color: $grey-color;
-}
-
-.post__link {
-  display: block;
-  font-size: 24px;
-}
-
-
-
-/**
-* Posts
-*/
-.post__header {
-  margin-bottom: $spacing-unit;
-}
-
-.post__title {
-  font-size: 42px;
-  line-height: 1;
-
-  @include media-query($on-laptop) {
-    font-size: 36px;
-  }
-}
-
-.post__content {
-  margin-bottom: $spacing-unit;
-
-  h2 {
-    font-size: 32px;
-
-    @include media-query($on-laptop) {
-      font-size: 28px;
-    }
-  }
-
-  h3 {
-    font-size: 26px;
-
-    @include media-query($on-laptop) {
-      font-size: 22px;
-    }
-  }
-
-  h4 {
-    font-size: 20px;
-
-    @include media-query($on-laptop) {
-      font-size: 18px;
-    }
-  }
 }

@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Joel Mercier développeur web
 ---
 <div class="site__altbg txtcenter">
   <div class="wrapper">
@@ -9,45 +10,47 @@ layout: default
   </div>
 </div>
 <section id="portfolio" class="portfolio__container">
-  <svg id="js-projects--pattern" class="portfolio__overlay" viewBox="0 0 1596 1000" preserveAspectRatio="xMidYMid slice">
-  	<defs>
-  		<mask id="portfolioMask">
-  			<rect width="1596" height="1000" fill="#fff"></rect>
-  			<path class="js-shape js-shape--top" d="M523.602,499.965c25.555,0,51.004-9.793,70.328-29.062l549.008-549.087
-  				c38.752-38.829,38.752-101.904,0-140.734c-38.855-38.855-101.801-38.855-140.76,0L453.273,329.984
-  				c-39.012,38.961-39.012,101.957,0,140.918C472.648,490.172,498.203,499.965,523.602,499.965z"></path>
-  			<path class="js-shape js-shape--bottom" d="M1002.125,529.158l-548.904,549.035c-38.959,38.934-38.959,101.879,0,140.709
-  				c19.402,19.453,44.852,29.168,70.381,29.168c25.424,0,50.953-9.715,70.406-29.168l548.824-548.904
-  				c38.883-38.961,38.883-101.904,0-140.84C1103.924,490.252,1041.006,490.252,1002.125,529.158z"></path>
-  		</mask>
-  	</defs>
-  	<rect id="js-projects--mask" width="1596" height="1000" style="mask:url(#portfolioMask)"></rect>
-  </svg>
-  <div class="portfolio__image portfolio__image--current"></div>
-  <div class="portfolio__image"></div>
-  <div class="portfolio__content">
-    <div class="wrapper">
-      <h2>Mes dernières réalisations</h2>
-      <div class="grid-2-small-1">
-        <ul class="portfolio__list">
-          {% for portfolio_item in site.portfolio | limit: 8 %}
-            <li class="portfolio__item wow fade-in" data-img="img/{{ portfolio_item.cover}}">
-              <a  class="portfolio__link" href="{{ portfolio_item.url }}">{{ portfolio_item.title}}</a>
-            </li>
-          {% endfor %}
-          <li class="portfolio__item" data-img="https://source.unsplash.com/category/technology/1600x800"><a  class="portfolio__link" href="#">Projet 2</a></li>
-          <li class="portfolio__item" data-img="img/pro-bg.jpg"><a  class="portfolio__link" href="#">Projet 3</a></li>
-          <li class="portfolio__item" data-img="img/bg.jpg"><a  class="portfolio__link" href="#">Projet 4</a></li>
-        </ul>
-        <ul class="portfolio__list">
-          <li class="portfolio__item" data-img="img/pro-bg.jpg"><a  class="portfolio__link" href="#">Projet 5</a></li>
-          <li class="portfolio__item" data-img="img/bg.jpg"><a  class="portfolio__link" href="#">Projet 6</a></li>
-          <li class="portfolio__item" data-img="img/pro-bg.jpg"><a  class="portfolio__link" href="#">Projet 7</a></li>
-          <li class="portfolio__item" data-img="img/bg.jpg"><a  class="portfolio__link" href="#">Projet 8</a></li>
-        </ul>
+  <!-- <div class="portfolio__container"> -->
+    <svg id="js-projects--pattern" class="portfolio__overlay" viewBox="0 0 1596 1000" preserveAspectRatio="xMidYMid slice">
+    	<defs>
+    		<mask id="portfolioMask">
+    			<rect width="1596" height="1000" fill="#fff"></rect>
+    			<path class="js-shape js-shape--top" d="M523.602,499.965c25.555,0,51.004-9.793,70.328-29.062l549.008-549.087
+    				c38.752-38.829,38.752-101.904,0-140.734c-38.855-38.855-101.801-38.855-140.76,0L453.273,329.984
+    				c-39.012,38.961-39.012,101.957,0,140.918C472.648,490.172,498.203,499.965,523.602,499.965z"></path>
+    			<path class="js-shape js-shape--bottom" d="M1002.125,529.158l-548.904,549.035c-38.959,38.934-38.959,101.879,0,140.709
+    				c19.402,19.453,44.852,29.168,70.381,29.168c25.424,0,50.953-9.715,70.406-29.168l548.824-548.904
+    				c38.883-38.961,38.883-101.904,0-140.84C1103.924,490.252,1041.006,490.252,1002.125,529.158z"></path>
+    		</mask>
+    	</defs>
+    	<rect id="js-projects--mask" width="1596" height="1000" style="mask:url(#portfolioMask)"></rect>
+    </svg>
+    <div class="portfolio__image portfolio__image--current"></div>
+    <div class="portfolio__image"></div>
+    <div class="portfolio__content">
+      <div class="wrapper">
+        <h2>Mes dernières réalisations</h2>
+        <div class="grid-2-small-1">
+          <ul class="portfolio__list">
+            {% for portfolio_item in site.portfolio | limit: 8 %}
+              <li class="portfolio__item wow fade-in" data-img="img/{{ portfolio_item.cover}}">
+                <a  class="portfolio__link" href="{{ portfolio_item.url }}">{{ portfolio_item.title}}</a>
+              </li>
+            {% endfor %}
+            <li class="portfolio__item" data-img="https://source.unsplash.com/category/technology/1600x800"><a  class="portfolio__link" href="#">Projet 2</a></li>
+            <li class="portfolio__item" data-img="img/pro-bg.jpg"><a  class="portfolio__link" href="#">Projet 3</a></li>
+            <li class="portfolio__item" data-img="img/bg.jpg"><a  class="portfolio__link" href="#">Projet 4</a></li>
+          </ul>
+          <ul class="portfolio__list">
+            <li class="portfolio__item" data-img="img/pro-bg.jpg"><a  class="portfolio__link" href="#">Projet 5</a></li>
+            <li class="portfolio__item" data-img="img/bg.jpg"><a  class="portfolio__link" href="#">Projet 6</a></li>
+            <li class="portfolio__item" data-img="img/pro-bg.jpg"><a  class="portfolio__link" href="#">Projet 7</a></li>
+            <li class="portfolio__item" data-img="img/bg.jpg"><a  class="portfolio__link" href="#">Projet 8</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 </section>
 <section id="cv-download" class="site__transition site__transition--cv-download">
   <div class="site__transition__icon wow cv-icon-animation">
@@ -74,14 +77,51 @@ layout: default
   </svg>
   </div>
   <div class="wrapper txtcenter">
-
     <a class="button button--ghost" href="{{ '/downloads/test.pdf' | prepend: site.baseurl }}" target="_blank"><span>Télécharger mon CV</span></a>
     <p class="button__caption">PDF • 1,7Mo • cv-mercier.pdf</p>
   </div>
 </section>
-<section id="blog">
+<section id="blog" class="blog__container">
   <div class="wrapper">
     <h2>Mes derniers articles</h2>
-
+    <div class="blog__content">
+      <div class="grid-2-small-1">
+        {% for post in site.posts | limit: 1 %}
+        <article class="blog__item blog__item--full wow fade-in" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('img/blog/{{ post.featured-img }}') no-repeat center center;">
+          <time class="blog__date" datetime="{{ post.date }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+          <h3 class="blog__title">{{ post.title }}</h3>
+          <div class="blog__excerpt">
+            <p class="blog__lead">{{ post.lead }}</p>
+            <span class="blog__dots">
+              <span class="blog__dot">&nbsp;</span>
+              <span class="blog__dot">&nbsp;</span>
+              <span class="blog__dot">&nbsp;</span>
+            </span>
+          </div>
+          <a href="{{ post.url | prepend: site.baseurl }}" class="blog__link">&nbsp;</a>
+        </article>
+        {% endfor %}
+        <div>
+          {% for post in site.posts | offset:1 limit: 2 %}
+          <article class="blog__item wow fade-in">
+            <time class="blog__date" datetime="{{ post.date }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <h3 class="blog__title">{{ post.title }}</h3>
+            <div class="blog__excerpt">
+              <p class="blog__lead">{{ post.lead }}</p>
+              <span class="blog__dots">
+                <span class="blog__dot">&nbsp;</span>
+                <span class="blog__dot">&nbsp;</span>
+                <span class="blog__dot">&nbsp;</span>
+              </span>
+            </div>
+            <a href="{{ post.url | prepend: site.baseurl }}" class="blog__link">&nbsp;</a>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="txtcenter">
+        <a class="button button--primary" href="{{ '/blog' | prepend: site.baseurl }}"><span>Lire mon blog</span></a>
+    </div>
   </div>
 </section>

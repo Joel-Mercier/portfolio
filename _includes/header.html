@@ -1,7 +1,7 @@
 <header class="header">
   <nav class="nav nav--transparent">
     <div class="wrapper">
-      <a class="nav__title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+      <!-- <a class="nav__title" href="{{ site.baseurl }}/">{{ site.title }}</a> -->
       <ul class="nav__list">
         {% assign current = page.url | downcase | split: '/' %}
         <li class="nav__item {% if current[1] == 'about' %}nav__item--current{% endif %}"><a class="nav__link" href="{{ '/about/' | prepend: site.baseurl }}">A propos</a></li>
@@ -27,7 +27,7 @@
   </div>
   {% else %}
   <div class="header__hero">
-    <h1 class="header__title animated fade-in">{{ page.title }}</h1>
+    <h1 class="header__title animated fade-in">{% if page.page-name %}{{ page.page-name }}{% else %}{{ page.title }}{% endif %}</h1>
     {% for i in (1..16) %}
       <div class="header__bubble header__bubble--small" id="bubble{{ i }}"></div>
     {% endfor %}

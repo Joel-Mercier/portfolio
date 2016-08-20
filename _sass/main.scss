@@ -1,61 +1,69 @@
+/*!
+* www.KNACSS.com V5.0.1 (24 mai 2016) @author: Alsacreations, Raphael Goetter
+* Licence WTFPL http://www.wtfpl.net/
+*/
 
-@charset "utf-8";
+/* ----------------------------- */
+/* ==Table Of Content            */ 
+/* ----------------------------- */
 
-// Our variables
-$base-font-family: "Open Sans", Helvetica, Arial, sans-serif;
-$base-font-size:   18px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+/* 1- Normalize (basic reset) */
+/* 2- Base (basic styles) */
+/* 3- Print (print quick reset) */
+/* 4- Stylings (minor stylings) */
+/* 5- Misc (skip links, hyphens) */
+/* (6- WordPress reset (disabled by default)) */
+/* 7- Global Layout (alignment, modules, positionning) */
+/* 8- Grid Layout (grillade) */
+/* 9- Tables (data tables consistency) */
+/* 10- Forms (forms consistency) */
+/* 11- Helpers (width and spacers helpers) */
+/* 12- Responsive (Responsive Web Design helpers) */
 
-$heading-font-family: "Montserrat", Helvetica, Arial, sans-serif;
-$heading-font-size:   30px;
-$heading-font-weight: 700;
-$heading-color:       #111;
+/* ---------------------------------- */
+/* ==Normalize (basic reset)          */
+/* ---------------------------------- */
 
-$button-font-size:    16px;
+@import "_knacss/_normalize/_normalize.scss"; // normalize (basic reset)
+@import "_knacss/_include-media/_include-media.scss"; // include-media
 
-$spacing-unit:        30px;
+// WARNING : you should comment the following @import (config)
+// and move config file from knacss folder to your own project folder!
+@import "_knacss/_config-variables.scss";
 
-$text-color:       #2b2b2b;
-$background-color: #fdfdfd;
-$brand-color:      #EB6361;
-$gradient:         linear-gradient(135deg, rgba(235, 99, 97, 1) 0%,rgba(103, 58, 93, 1) 100%);
-$gradient-transparent: linear-gradient(135deg, rgba(235, 99, 97, 0.7) 0%,rgba(103, 58, 93, 0.7) 100%);
-$complementary-gradient: linear-gradient(135deg, #417b9c 0%, #419C7E  100%);
+// Libraries
+@import "_knacss/_library-base.scss"; // basic styles
+@import "_knacss/_library-print.scss"; // print quick reset
+@import "_knacss/_library-styling.scss"; // minor stylings
+@import "_knacss/_library-misc.scss"; // skip links, hyphens
+// @import "_library-wordpress.scss"; // WordPress reset and basic styles
 
-$grey-color:       #828282;
-$grey-color-light: #F5F4F4;
-$grey-color-dark:  darken($grey-color, 25%);
+// Layout
+@import "_knacss/_layout-general.scss"; // alignment, modules, positionning
+@import "_knacss/_layout-grids.scss"; // grids
 
-// Width of the content area
-$content-width:    1200px;
+// Objects
+@import "_knacss/_object-tables.scss"; // data tables consistency
+@import "_knacss/_object-forms.scss"; // forms consistency
 
-$on-palm:          600px;
-$on-laptop:        1200px;
-
-
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-      @content;
-    }
-}
+// Overrides
+@import "_knacss/_override-helpers.scss"; // width and spacers helpers
+@import "_knacss/_override-responsive.scss"; // Responsive Web Design helpers
 
 
+/* ----------------------------- */
+/* ==Own stylesheet              */
+/* ----------------------------- */
 
-// Import partials from `sass_dir` (defaults to `_sass`)
+/* Here should go your own CSS styles */
+// You can also link them with a Sass @import
+// @import "my-styles";
+
 @import
   "base",
   "layout",
   "buttons",
   "portfolio",
+  "blog",
   "syntax-highlighting"
 ;

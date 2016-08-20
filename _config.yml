@@ -12,7 +12,7 @@ github_username:  Joel-Mercier
 markdown: kramdown
 highlighter: pygments
 destination : _site/
-exclude: ['node_modules', 'package.json', 'gulpfile.js', 'Gemfile', 'Gemfile.lock', 'sources', 'Readme.md']
+exclude: ['node_modules', 'package.json', 'gulpfile.js', 'Gemfile', 'Gemfile.lock', 'sources', 'README.md', 'composer.json', 'composer.lock']
 permalink: /:categories/:title/
 paginate: 1
 paginate_path: /blog/page:num
@@ -20,7 +20,7 @@ languages: ["fr", "en"]
 # exclude_from_localizations: ["img", "js", "css"]
 collections:
   portfolio:
-    permalink: /realisations/:title/
+    permalink: /works/:title/
     output: true
   skills:
     output: false

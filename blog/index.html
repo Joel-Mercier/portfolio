@@ -3,10 +3,10 @@ layout: page
 title: Blog
 ---
 <div class="wrapper">
-  <h1 class="page-heading">Articles</h1>
+  <h2 class="page-heading">Articles</h2>
 
   <ul class="post-list">
-    {% for post in site.posts %}
+    {% for post in site.posts | limit: 6 %}
       <li>
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
@@ -27,8 +27,6 @@ title: Blog
       <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace:'//','/' }}" class="post-next" title="Vers la page suivante">Suivant</a>
     {% endif %}
   </div>
-
-  <p class="post-rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>
 <script id="dsq-count-scr" src="//jomercier.disqus.com/count.js" async></script>

@@ -1,15 +1,14 @@
 .button {
   display: inline-block;
-	background-color: $brand-color;
-	border: solid 2px $brand-color;
+	background-color: $alpha-color;
+	border: solid 2px $alpha-color;
   border-radius: 100px;
 	color: #fff;
 	position: relative;
 	transition: all 0.2s ease-in-out;
   padding: 15px 30px;
-  font-size: $button-font-size;
-  font-family: $heading-font-family;
-  font-weight: $heading-font-weight;
+  font-size: $button-size;
+  font-family: $font-stack-headings;
   overflow: hidden;
 
   & span {
@@ -39,11 +38,11 @@
     padding: 15px 40px;
 
     &:before {
-      background-color: $background-color;
+      background-color: $base-background;
     }
 
     &:hover {
-      color: $brand-color;
+      color: $alpha-color;
     }
   }
 
@@ -56,14 +55,14 @@
     }
 
     &:hover {
-      color: $text-color;
+      color: $base-color;
     }
   }
 }
 
 
 .button__caption {
-  font-size: $base-font-size - 6;
+  font-size: $base-font-size - 0.6;
   color: #fff;
   font-style: italic;
 }

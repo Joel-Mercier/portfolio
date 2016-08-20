@@ -1,0 +1,13 @@
+{
+    "name": "joelmercier/portfolio",
+    "description": "personal portfolio website",
+    "require": {
+        "phpmailer/phpmailer": "^5.2"
+    },
+    "authors": [
+        {
+            "name": "Joel Mercier",
+            "email": "jomercier@sfr.fr"
+        }
+    ]
+}

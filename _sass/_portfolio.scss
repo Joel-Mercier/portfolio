@@ -1,5 +1,6 @@
 .portfolio__container {
   height: 100vh;
+  position: relative;
   color: #fff;
   background: $gradient-transparent;
 }
@@ -27,7 +28,7 @@
 
 .portfolio__link {
   position: relative;
-  font-size: $heading-font-size - 6;
+  font-size: $h3-size;
   font-weight: 700;
   color: inherit;
 
@@ -36,12 +37,12 @@
   }
 
   &:before {
-    background: $brand-color;
+    background: $alpha-color;
   	transition-delay: 0.4s;
   }
 
   &:after {
-    background: $brand-color;
+    background: $alpha-color;
   }
 
   &:before, &:after {
