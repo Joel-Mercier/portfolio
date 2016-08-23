@@ -35,6 +35,11 @@ $( document ).ready(function() {
 
   wow.init();
 
+  var skrollrInstance = skrollr.init({
+    forceHeight: false,
+    skrollrBody: 'top'
+  });
+
   $('#barba__wrapper').on('mouseover', '.portfolio__link', function(event) {
     var currentImage = $('.portfolio__image--current');
     var portfolioImg = $(this).parent().data('img');
@@ -49,7 +54,6 @@ $( document ).ready(function() {
     currentImage.stop().fadeOut(500);
     currentImage.one(animationEnd, function() {
       currentImage.css('background-image', '');
-
     });
   });
 
@@ -64,7 +68,11 @@ $( document ).ready(function() {
 
   Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
     typeTitle('.header__title.type-it', ['Joel Mercier', 'Développeur web']);
-
+    skrollrInstance.refresh();
   });
+
+  // Barba.Dispatcher.on('initStateChange', function() {
+  //
+  // });
 
 });

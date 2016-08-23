@@ -44,6 +44,7 @@ a {
   margin: 20px auto;
   font-weight: 300;
   font-size: $h3-size;
+  text-align: center;
 }
 
 .site__browserupgrade {
@@ -136,11 +137,6 @@ a {
   }
 }
 
-.bounce {
-  animation-name: bounce;
-  transform-origin: center bottom;
-}
-
 .fade-in-right {
   animation-name: fadeInRight;
 }
@@ -168,10 +164,10 @@ a {
 
   &:before {
     content: "";
-    border-left:12px solid transparent;
-    border-right:12px solid transparent;
-    border-top:12px solid #fff;
-    position:absolute;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #fff;
+    position: absolute;
     bottom: 0px;
     left: 50%;
     margin-left: -4px;
@@ -185,5 +181,10 @@ a {
     &:before {
       border-top: 12px solid $base-color;
     }
+  }
+
+  &.site__scroll--up {
+    position: static;
+    transform: rotate(225deg);
   }
 }

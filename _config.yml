@@ -17,6 +17,7 @@ permalink: /:categories/:title/
 paginate: 6
 paginate_path: /blog/page:num
 languages: ["fr", "en"]
+excerpt_separator: "<!--split-->"
 # exclude_from_localizations: ["img", "js", "css"]
 collections:
   portfolio:

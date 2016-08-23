@@ -80,7 +80,7 @@ gulp.task('sass', function () {
 // Concatenate & JS build
 // <--
 gulp.task('js', function () {
-    gulp.src('./_js/*.js')      
+    gulp.src(['./_js/barba.js', './_js/picturefill.js', './_js/typeit.js', './_js/wow.js', './_js/skrollr.js', './_js/main.js'])
         .pipe(uglify())
         .pipe(concat('bundle.js'))
         .pipe(rename({

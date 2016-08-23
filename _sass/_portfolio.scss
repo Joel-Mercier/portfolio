@@ -73,3 +73,81 @@
 .portfolio__content {
   position: relative;
 }
+
+.project__content {
+  position: relative;
+}
+
+.project__info {
+
+  & h3 {
+    margin-bottom: 0;
+  }
+
+  & p {
+    margin-top: 0;
+  }
+}
+
+.project__design-showcase {
+
+  &.project__design-showcase--text {
+    position: absolute;
+    color: #fff;
+    width: 20%;
+    padding: $medium-value;
+    font-size: $h6-size;
+    background: $gradient;
+
+    &.project__design-showcase--text-large {
+      width: 35%
+    }
+
+    & h2 {
+      font-weight: 300;
+      font-family: $font-stack-common;
+      font-size: $h3-size;
+      margin-top: 0;
+    }
+  }
+
+  &:nth-child(2) {
+    top: 50px;
+    right: 0;
+  }
+
+  &:nth-child(3) {
+    top: 150px;
+    left: 6%;
+  }
+
+  &:nth-child(4) {
+    top: 450px;
+    left: 0;
+  }
+
+  &:nth-child(5) {
+    top: 850px;
+    right: 0;
+  }
+
+  &.project__design-showcase--main {
+    display: block;
+    width: 70%;
+    margin: auto;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  &.project__design-showcase--image {
+    position: absolute;
+    display: block;
+    width: 16%;
+
+    & img {
+      width: 100%;
+    }
+  }
+}

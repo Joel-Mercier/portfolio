@@ -2,18 +2,18 @@
 layout: default
 ---
 <div class="site__altbg">
-  <div class="wrapper">
-    <div class="grid-3-small-1 txtcenter">
+  <div class="wrapper txtcenter">
+    <div class="grid-3-small-1">
       <div class="project__info">
-        <h3>Client :</h3>
+        <h3>Client</h3>
         <p>{{ page.client }}</p>
       </div>
       <div class="project__info">
-        <h3>Rôle :</h3>
+        <h3>Rôle</h3>
         <p>{{ page.roles }}</p>
       </div>
       <div class="project__info">
-        <h3>Date :</h3>
+        <h3>Date</h3>
         <p>{% assign m = page.date | date: "%-m" %}
         {% case m %}
           {% when '1' %}Janvier
@@ -32,11 +32,29 @@ layout: default
         {{ page.date | date: "%Y" }}</p>
       </div>
     </div>
-    <p class="site__lead txtcenter">{{ page.lead }}</p>
+    <p class="site__lead">{{ page.lead }}</p>
+    <a class="button button--primary" href="{{ page.website-url }}" target="_blank"><span>Voir le site</span></a>
   </div>
 </div>
 <div class="wrapper">
-  <div class="project__content">
-    {{ content }}
+  <div class="project__content"> 
+    {% assign contentArray = page.content | split: site.excerpt_separator %}
+    <picture class="project__design-showcase project__design-showcase--main">
+			<source srcset="/img/portfolio/{{ page.full-img }}@1x.webp 1x, /img/portfolio/{{ page.full-img }}@2x.webp 2x" type="image/webp">
+			<source srcset="/img/portfolio/{{ page.full-img }}@1x.png 1x,
+                /img/portfolio/{{ page.full-img }}@2x.png 2x">
+			<img src="/img/portfolio/{{ page.full-img }}@1x.png" alt="Design de la page d'accueil d'Almedia">
+		</picture>
+    <div class="project__design-showcase project__design-showcase--text" data-bottom="transform:translate3d(0, 100%, 0);" data-top="transform:translate3d(0, 0%, 0);">
+      {{ contentArray[0] }}
+    </div>
+    <picture class="project__design-showcase project__design-showcase--image" data-bottom="transform:translate3d(0, 100%, 0) rotate(10deg);" data-top="transform:translate3d(0, 0%, 0) rotate(0);">
+      <source srcset="/img/portfolio/{{ page.decorative-img}}@1x.webp 1x, /img/portfolio/{{ page.decorative-img}}@2x.webp 2x" type="image/webp"></source>
+      <source srcset="/img/portfolio/{{ page.decorative-img}}@1x.png 1x, /img/portfolio/{{ page.decorative-img}}@2x.png 2x"></source>
+      <img src="/img/portfolio/{{ page.decorative-img }}@1x.png">
+    </picture>
+    <div class="project__design-showcase project__design-showcase--text project__design-showcase--text-large" data-bottom="transform:translate3d(0, 100%, 0);" data-top="transform:translate3d(0, 0%, 0);">
+      {{ contentArray[1] }}
+    </div>
   </div>
 </div>
