@@ -4,13 +4,13 @@ title: Joel Mercier développeur web
 ---
 <div class="site__altbg txtcenter">
   <div class="wrapper">
-    <h2 class="home__title">Bienvenue !</h2>
-    <p class="site__lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, facere corporis voluptatem aspernatur repellendus facilis, earum.</p>
+    <h2>Bienvenue !</h2>
+    <p class="site__lead wow fade-in">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, facere corporis voluptatem aspernatur repellendus facilis, earum.</p>
     <a class="button button--primary" href="{{ '/about' | prepend: site.baseurl }}"><span>Découvrir mes compétences</span></a>
   </div>
 </div>
-<section id="portfolio" class="portfolio__container">
-  <!-- <div class="portfolio__container"> -->
+<section id="portfolio" class="">
+  <div class="portfolio__container">
     <svg id="js-projects--pattern" class="portfolio__overlay" viewBox="0 0 1596 1000" preserveAspectRatio="xMidYMid slice">
     	<defs>
     		<mask id="portfolioMask">
@@ -26,7 +26,6 @@ title: Joel Mercier développeur web
     	<rect id="js-projects--mask" width="1596" height="1000" style="mask:url(#portfolioMask)"></rect>
     </svg>
     <div class="portfolio__image portfolio__image--current"></div>
-    <div class="portfolio__image"></div>
     <div class="portfolio__content">
       <div class="wrapper">
         <h2>Mes dernières réalisations</h2>
@@ -50,7 +49,7 @@ title: Joel Mercier développeur web
         </div>
       </div>
     </div>
-  <!-- </div> -->
+  </div>
 </section>
 <section id="cv-download" class="site__transition site__transition--cv-download">
   <div class="site__transition__icon wow cv-icon-animation">

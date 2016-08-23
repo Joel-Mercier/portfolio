@@ -39,4 +39,10 @@
     {% endfor %}
   </div>
   {% endif %}
+  {% if page.url == '/' %}
+  <a href="#top" class="site__scroll site__scroll--black"></a>
+  {% else %}
+  <a href="#top" class="site__scroll"></a>
+  {% endif %}
+
 </header>

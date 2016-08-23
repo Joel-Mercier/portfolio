@@ -14,7 +14,7 @@ highlighter: pygments
 destination : _site/
 exclude: ['node_modules', 'package.json', 'gulpfile.js', 'Gemfile', 'Gemfile.lock', 'sources', 'README.md', 'composer.json', 'composer.lock']
 permalink: /:categories/:title/
-paginate: 1
+paginate: 6
 paginate_path: /blog/page:num
 languages: ["fr", "en"]
 # exclude_from_localizations: ["img", "js", "css"]
@@ -23,4 +23,6 @@ collections:
     permalink: /works/:title/
     output: true
   skills:
+    output: false
+  work-experiences:
     output: false

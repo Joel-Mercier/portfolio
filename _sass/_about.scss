@@ -1,0 +1,49 @@
+.resume__container {
+  margin: $medium-value 0;
+}
+
+.resume__list {
+  list-style: none;
+  border-left: 2px solid $alpha-color;
+}
+
+.resume__item {
+  padding: $medium-value;
+  margin: $medium-plus-value 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.resume__infos {
+  // display: flex;
+  // justify-content: center;
+  // flex-direction: column;
+}
+
+.resume__position, .resume__date {
+  color: $grey-color;
+}
+
+.resume__position {
+  margin-bottom: $tiny-value;
+}
+
+.resume__date {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.resume__company {
+  font-size: $h1-size;
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: $alpha-color;
+  margin-bottom: $small-value;
+}
+
+.resume__description {
+  margin-bottom: $medium-value;
+}

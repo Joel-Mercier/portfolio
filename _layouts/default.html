@@ -11,14 +11,18 @@
     <div id="barba__wrapper">
       <div class="barba__container">
         {% include header.html %}
-        <div class="page__content">
-            {{ content }}
+        {% if page.url == '/' %}
+        <div id="top" class="page__content page__content--full">
+        {% else %}
+        <div id="top" class="page__content">
+        {% endif %}
+          {{ content }}
+          {% include footer.html %}
         </div>
       </div>
       <!-- END barba__container -->
     </div>
     <!-- END barba__wrapper -->
-    {% include footer.html %}
 
   </body>
 

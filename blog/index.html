@@ -6,7 +6,7 @@ title: Blog
   <h2 class="page-heading">Articles</h2>
 
   <ul class="post-list">
-    {% for post in site.posts | limit: 6 %}
+    {% for post in paginator.posts | limit: 6 %}
       <li>
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>

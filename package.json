@@ -4,6 +4,7 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
+    "gulp-concat": "^2.6.0",
     "node-sass": "^3.4.2"
   },
   "devDependencies": {

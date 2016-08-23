@@ -1,10 +1,21 @@
+.page__content {
+  margin-top: 450px;
+  z-index: 1;
+  background: $base-background;
+
+  &.page__content--full {
+    margin-top: 100vh;
+  }
+}
 /**
 * Site header
 */
 .header {
-  min-height: 56px;
-  // Positioning context for the mobile navigation icon
-  position: relative;
+  min-height: 450px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
 
   .wrapper {
     padding: 0;

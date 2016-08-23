@@ -10,6 +10,7 @@
   font-size: $button-size;
   font-family: $font-stack-headings;
   overflow: hidden;
+  z-index: 2;
 
   & span {
     position:relative;

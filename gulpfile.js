@@ -10,6 +10,8 @@ var rename      = require('gulp-rename');
 var imagemin    = require('gulp-imagemin');
 var pngquant    = require('imagemin-pngquant');
 var shell       = require('gulp-shell');
+var concat      = require('gulp-concat');
+
 
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -78,11 +80,12 @@ gulp.task('sass', function () {
 // Concatenate & JS build
 // <--
 gulp.task('js', function () {
-    gulp.src('./_js/*.js')
+    gulp.src('./_js/*.js')      
+        .pipe(uglify())
+        .pipe(concat('bundle.js'))
         .pipe(rename({
           suffix: '.min'
         }))
-        .pipe(uglify())
         .pipe(gulp.dest('./js'));
 });
 

@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<div class="site__altbg">
+  <div class="wrapper">
+    <div class="grid-3-small-1 txtcenter">
+      <div class="project__info">
+        <h3>Client :</h3>
+        <p>{{ page.client }}</p>
+      </div>
+      <div class="project__info">
+        <h3>Rôle :</h3>
+        <p>{{ page.roles }}</p>
+      </div>
+      <div class="project__info">
+        <h3>Date :</h3>
+        <p>{% assign m = page.date | date: "%-m" %}
+        {% case m %}
+          {% when '1' %}Janvier
+          {% when '2' %}Février
+          {% when '3' %}Mars
+          {% when '4' %}Avril
+          {% when '5' %}Mai
+          {% when '6' %}Juin
+          {% when '7' %}Juillet
+          {% when '8' %}Août
+          {% when '9' %}Septembre
+          {% when '10' %}Octobre
+          {% when '11' %}Novembre
+          {% when '12' %}Décembre
+        {% endcase %}
+        {{ page.date | date: "%Y" }}</p>
+      </div>
+    </div>
+    <p class="site__lead txtcenter">{{ page.lead }}</p>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="project__content">
+    {{ content }}
+  </div>
+</div>
