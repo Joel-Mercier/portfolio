@@ -25,26 +25,28 @@ title: Joel Mercier développeur web
     	</defs>
     	<rect id="js-projects--mask" width="1596" height="1000" style="mask:url(#portfolioMask)"></rect>
     </svg>
-    <div class="portfolio__image portfolio__image--current"></div>
+    <div class="portfolio__image"></div>
     <div class="portfolio__content">
       <div class="wrapper">
         <h2>Mes dernières réalisations</h2>
         <div class="grid-2-small-1">
           <ul class="portfolio__list">
-            {% for portfolio_item in site.portfolio | limit: 8 %}
-              <li class="portfolio__item wow fade-in" data-img="img/{{ portfolio_item.cover}}">
-                <a  class="portfolio__link" href="{{ portfolio_item.url }}">{{ portfolio_item.title}}</a>
-              </li>
-            {% endfor %}
-            <li class="portfolio__item" data-img="https://source.unsplash.com/category/technology/1600x800"><a  class="portfolio__link" href="#">Projet 2</a></li>
-            <li class="portfolio__item" data-img="img/pro-bg.jpg"><a  class="portfolio__link" href="#">Projet 3</a></li>
-            <li class="portfolio__item" data-img="img/bg.jpg"><a  class="portfolio__link" href="#">Projet 4</a></li>
+            {% if site.portfolio %}
+              {% for portfolio_item in site.portfolio | limit: 4 %}
+                <li class="portfolio__item wow fade-in" data-img="img/{{ portfolio_item.cover}}">
+                  <a  class="portfolio__link" href="{{ portfolio_item.url }}">{{ portfolio_item.title}}</a>
+                </li>
+              {% endfor %}
+            {% endif %}
           </ul>
           <ul class="portfolio__list">
-            <li class="portfolio__item" data-img="img/pro-bg.jpg"><a  class="portfolio__link" href="#">Projet 5</a></li>
-            <li class="portfolio__item" data-img="img/bg.jpg"><a  class="portfolio__link" href="#">Projet 6</a></li>
-            <li class="portfolio__item" data-img="img/pro-bg.jpg"><a  class="portfolio__link" href="#">Projet 7</a></li>
-            <li class="portfolio__item" data-img="img/bg.jpg"><a  class="portfolio__link" href="#">Projet 8</a></li>
+            {% if site.portfolio %}
+              {% for portfolio_item in site.portfolio | offset:4 limit: 4 %}
+                <li class="portfolio__item wow fade-in" data-img="img/{{ portfolio_item.cover}}">
+                  <a  class="portfolio__link" href="{{ portfolio_item.url }}">{{ portfolio_item.title}}</a>
+                </li>
+              {% endfor %}
+            {% endif %}
           </ul>
         </div>
       </div>

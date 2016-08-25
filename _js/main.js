@@ -29,7 +29,7 @@ $( document ).ready(function() {
     boxClass:     'wow',      // default
     animateClass: 'animated', // default
     offset:       0,          // default
-    mobile:       true,       // default
+    mobile:       false,       // not default
     live:         true        // default
   });
 
@@ -41,7 +41,7 @@ $( document ).ready(function() {
   });
 
   $('#barba__wrapper').on('mouseover', '.portfolio__link', function(event) {
-    var currentImage = $('.portfolio__image--current');
+    var currentImage = $('.portfolio__image');
     var portfolioImg = $(this).parent().data('img');
     var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
     currentImage.css('background-image', 'url('+ portfolioImg +')');
@@ -49,7 +49,7 @@ $( document ).ready(function() {
   });
 
   $('#barba__wrapper').on('mouseleave', '.portfolio__link', function(event) {
-    var currentImage = $('.portfolio__image--current');
+    var currentImage = $('.portfolio__image');
     var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
     currentImage.stop().fadeOut(500);
     currentImage.one(animationEnd, function() {

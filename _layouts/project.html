@@ -37,7 +37,8 @@ layout: default
   </div>
 </div>
 <div class="wrapper">
-  <div class="project__content"> 
+  <div class="project__content">
+    {% if page.content %}
     {% assign contentArray = page.content | split: site.excerpt_separator %}
     <picture class="project__design-showcase project__design-showcase--main">
 			<source srcset="/img/portfolio/{{ page.full-img }}@1x.webp 1x, /img/portfolio/{{ page.full-img }}@2x.webp 2x" type="image/webp">
@@ -56,5 +57,39 @@ layout: default
     <div class="project__design-showcase project__design-showcase--text project__design-showcase--text-large" data-bottom="transform:translate3d(0, 100%, 0);" data-top="transform:translate3d(0, 0%, 0);">
       {{ contentArray[1] }}
     </div>
+    {% endif %}
+
+    {% assign  document = site.portfolio  %}
+    {% for links in document  %}
+      {% if links.title == page.title %}
+        {% unless forloop.first %}
+          {% assign prevurl = prev.url %}
+          {% assign prevtitle = prev.title %}
+        {% endunless %}
+        {% unless forloop.last %}
+          {% assign next = document[forloop.index] %}
+          {% assign nexturl = next.url %}
+          {% assign nexttitle = next.title %}
+        {% endunless %}
+      {% endif %}
+      {% assign prev = links %}
+    {% endfor %}
+
+    {% if nexturl %}
+    <div class="project__navigation project__navigation--left wow fade-in" data-wow-offset="650">
+      <a href="{{ nexturl }}">
+        <span class="project__navigation-direction">Prochain / </span>
+        <span class="project__navigation-name">{{ nexttitle }}</span>
+      </a>
+    </div>
+    {% endif %}
+    {% if prevurl %}
+    <div class="project__navigation project__navigation--right wow fade-in" data-wow-offset="650">
+      <a href="{{ prevurl }}">
+        <span class="project__navigation-direction">Précédent / </span>
+        <span class="project__navigation-name">{{ prevtitle }}</span>
+      </a>
+    </div>
+    {% endif %}
   </div>
 </div>

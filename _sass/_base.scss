@@ -187,4 +187,12 @@ a {
     position: static;
     transform: rotate(225deg);
   }
+
+  &.site__scroll--right {
+    transform: rotate(135deg);
+  }
+
+  &.site__scroll--left {
+    transform: rotate(-45deg);
+  }
 }
