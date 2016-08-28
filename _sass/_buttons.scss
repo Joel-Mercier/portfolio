@@ -11,6 +11,7 @@
   font-family: $font-stack-headings;
   overflow: hidden;
   z-index: 2;
+  cursor: pointer;
 
   & span {
     position:relative;
@@ -61,9 +62,12 @@
   }
 }
 
-
 .button__caption {
   font-size: $base-font-size - 0.6;
   color: #fff;
   font-style: italic;
+}
+
+.site__altbg .button--primary:before {
+  background-color: $alpha-background;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html id="top" lang="fr">
 
   {% include head.html %}
 
@@ -12,17 +12,18 @@
       <div class="barba__container">
         {% include header.html %}
         {% if page.url == '/' %}
-        <div id="top" class="page__content page__content--full">
+        <div class="page__content page__content--full">
         {% else %}
-        <div id="top" class="page__content">
+        <div class="page__content">
         {% endif %}
           {{ content }}
-          {% include footer.html %}
+          <a class="site__scroll site__scroll--black site__scroll--up" href="#top"></a>
         </div>
       </div>
       <!-- END barba__container -->
     </div>
     <!-- END barba__wrapper -->
+    {% include footer.html %}
 
   </body>
 

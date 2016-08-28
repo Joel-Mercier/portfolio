@@ -34,7 +34,7 @@ title: Joel Mercier développeur web
             {% if site.portfolio %}
               {% for portfolio_item in site.portfolio | limit: 4 %}
                 <li class="portfolio__item wow fade-in" data-img="img/{{ portfolio_item.cover}}">
-                  <a  class="portfolio__link" href="{{ portfolio_item.url }}">{{ portfolio_item.title}}</a>
+                  <a  class="portfolio__link" href="{{ portfolio_item.url | prepend: site.baseurl }}">{{ portfolio_item.title}}</a>
                 </li>
               {% endfor %}
             {% endif %}
@@ -43,7 +43,7 @@ title: Joel Mercier développeur web
             {% if site.portfolio %}
               {% for portfolio_item in site.portfolio | offset:4 limit: 4 %}
                 <li class="portfolio__item wow fade-in" data-img="img/{{ portfolio_item.cover}}">
-                  <a  class="portfolio__link" href="{{ portfolio_item.url }}">{{ portfolio_item.title}}</a>
+                  <a  class="portfolio__link" href="{{ portfolio_item.url | prepend: site.baseurl }}">{{ portfolio_item.title}}</a>
                 </li>
               {% endfor %}
             {% endif %}
@@ -88,7 +88,7 @@ title: Joel Mercier développeur web
     <div class="blog__content">
       <div class="grid-2-small-1">
         {% for post in site.posts | limit: 1 %}
-        <article class="blog__item blog__item--full wow fade-in" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('img/blog/{{ post.featured-img }}') no-repeat center center;">
+        <article class="blog__item blog__item--full wow fade-in" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('{{ post.featured-img | prepend: "/img/blog/" | prepend: site.baseurl }}') no-repeat center center;">
           <time class="blog__date" datetime="{{ post.date }}">{{ post.date | date: "%b %-d, %Y" }}</time>
           <h3 class="blog__title">{{ post.title }}</h3>
           <div class="blog__excerpt">
@@ -122,7 +122,7 @@ title: Joel Mercier développeur web
       </div>
     </div>
     <div class="txtcenter">
-        <a class="button button--primary" href="{{ '/blog' | prepend: site.baseurl }}"><span>Lire mon blog</span></a>
+        <a class="button button--primary" href="{{ '/blog' | prepend: site.baseurl }}"><span>Parcourir mon blog</span></a>
     </div>
   </div>
 </section>

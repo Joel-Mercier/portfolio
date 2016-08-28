@@ -2,6 +2,7 @@
   margin-top: 450px;
   z-index: 1;
   background: $base-background;
+  padding-bottom: $medium-plus-value;
 
   &.page__content--full {
     margin-top: 100vh;
@@ -367,4 +368,9 @@
 
 .cv-icon-animation {
   animation-name: cv-icon-reveal-animation;
+}
+
+.footer__container {
+  background: #000;
+  color: #fff;
 }

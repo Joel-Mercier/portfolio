@@ -37,6 +37,10 @@ a {
 
 .site__altbg {
   background: $alpha-background;
+
+  & .button--primary:before {
+    background-color: $alpha-background;
+  }
 }
 
 .site__lead {
