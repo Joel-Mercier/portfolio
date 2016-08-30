@@ -10,6 +10,9 @@ website-url: "http://www.almedia.fr"
 cover: "bg.jpg"
 full-img: "portfolio/accueil-full"
 decorative-img: "portfolio/game-controller"
+gradient-colors:
+  - "#B79E57"
+  - "#131317"
 lead: "Refonte du site web d'Almédia. L'ancien avait été crée avec Wordpress, il était temps d'appliquer les nouvelles techniques apprises au fil de mon apprentissage !"
 ---
 ##This is a title

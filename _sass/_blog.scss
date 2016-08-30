@@ -155,3 +155,29 @@
   height: 100%;
   z-index: 2;
 }
+
+.post__meta {
+  color: $grey-color;
+  text-align: center;
+  font-style: italic;
+}
+
+.post__content {
+  padding: $medium-value 0;
+}
+
+.post__hero {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.post__hero-caption {
+  margin-top: 0;
+  color: $grey-color;
+  font-size: $h6-size;
+  font-weight: 300; 
+  font-style: italic;
+  text-align: center;
+}

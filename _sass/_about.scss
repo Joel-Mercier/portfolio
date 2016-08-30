@@ -82,13 +82,16 @@
       transition: transform 0.5s ease-in-out;
     }
     &:hover {
+
       & #vynil {
         animation: vynil-animation 1s 0.5s infinite linear;
         transform-origin: center;
+        will-change: transform;
       }
 
       & #vynil-arm {
         transform: rotate(0);
+        will-change: transform;
       }
     }
   }
@@ -96,15 +99,39 @@
   &.hobbies__item--technology {
 
     &:hover {
+
       & #stars {
         animation: stars-animation 1s infinite linear;
+        will-change: transform;
       }
 
       & #rocket {
-        animation: rocket-animation 1s infinite linear;
+        animation: rocket-animation 3s infinite linear;
         transform-origin: center center;
-        transform: rotate(-10deg);
-        transition: transform 0.4s;
+        will-change: transform;
+      }
+
+      & #rocket-fire {
+        animation: rocket-fire-animation 0.6s infinite none;
+      }
+    }
+  }
+
+  &.hobbies__item--games {
+
+    & #icon-games {
+      perspective: 600px;
+    }
+
+    & #controller {
+      transform-origin: center;
+      will-change: transform;
+    }
+
+    &:hover {
+
+      & #controller {
+        animation: controller-animation 2s infinite linear;
       }
     }
   }
@@ -139,12 +166,39 @@
 
 @keyframes rocket-animation {
   0% {
-    transform: rotate(10deg);
+    transform: translate(-100%, -100%), scale(1);
   }
   50% {
-    transform: rotate(0);
+    transform: scale(0.5);
+  }
+  99% {
+    transform: translate(50%, -50%) scale(0.5) ;
   }
   100% {
-    transform: rotate(-10deg);
+    transform: scale(0.5);
+  }
+}
+
+@keyframes rocket-fire-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes controller-animation {
+  0% {
+    transform: rotateX(0);
+  }
+  50% {
+    transform: rotateX(45deg);
+  }
+  75% {
+    transform: rotateX(45deg) rotate(10deg);
+  }
+  100% {
+    transform: rotateX(45deg) rotate(-10deg);
   }
 }

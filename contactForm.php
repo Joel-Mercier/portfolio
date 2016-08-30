@@ -1,16 +1,14 @@
 <?php
-  header("Access-Control-Allow-Origin: *");
   require __DIR__ . '/vendor/autoload.php';
   date_default_timezone_set('Europe/Paris');
 
-  var_dump($_POST);
   if(isset($_POST['contactName'], $_POST['contactEmail'], $_POST['contactMessage'])) {
 
     $name = filter_var($_POST['contactName'], FILTER_SANITIZE_STRING);
     $email = filter_var($_POST['contactEmail'], FILTER_SANITIZE_EMAIL);
     $message = filter_var($_POST['contactMessage'], FILTER_SANITIZE_STRING);
 
-    if(!empty($name, $message) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if(!empty($name) && !empty($message) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $mail = new PHPMailer;
       $mail->CharSet = 'UTF-8';
       $mail->setFrom($email, $name);

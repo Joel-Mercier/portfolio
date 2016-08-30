@@ -26,7 +26,11 @@
     {% endfor %}
   </div>
   {% else %}
+  {% if current[1] == 'works' %}
+  <div class="header__hero" style="background-image: url('{{ "noisy-texture.png" | prepend: "/img/" | prepend: site.baseurl }}'), linear-gradient(135deg, {{ page.gradient-colors[0] | hex_to_rgba: 1 }} 0%, {{ page.gradient-colors[1] | hex_to_rgba: 1 }} 100%)">
+  {% else %}
   <div class="header__hero">
+  {% endif %}
     <h1 class="header__title animated fade-in">{% if page.page-name %}{{ page.page-name }}{% else %}{{ page.title }}{% endif %}</h1>
     {% for i in (1..16) %}
       <div class="header__bubble header__bubble--small" id="bubble{{ i }}"></div>
@@ -40,9 +44,9 @@
   </div>
   {% endif %}
   {% if page.url == '/' %}
-  <a href="#top" class="site__scroll site__scroll--black"></a>
+  <a href="#page-start" class="site__scroll site__scroll--black"></a>
   {% else %}
-  <a href="#top" class="site__scroll"></a>
+  <a href="#page-start" class="site__scroll"></a>
   {% endif %}
 
 </header>

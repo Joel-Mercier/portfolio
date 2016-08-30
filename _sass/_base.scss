@@ -200,3 +200,29 @@ a {
     transform: rotate(-45deg);
   }
 }
+
+.testimonial__item {
+  width: 70%;
+  margin: 0 auto;
+  padding: $medium-value;
+  background: $gradient;
+  color: #fff;
+}
+
+.testimonial__img {
+  display: inline-block;
+  max-width: 100px;
+  max-height: 100px;
+
+  & img {
+    border-radius: 50%;
+  }
+}
+
+.testimonial__quote {
+  font-weight: 300;
+
+  &:before {
+    color: rgba(255,255,255,0.5);
+  }
+}

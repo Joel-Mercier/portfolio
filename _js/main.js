@@ -65,6 +65,9 @@ $( document ).ready(function() {
     console.log(currentStatus);
     typeTitle('.header__title.type-it', ['Joel Mercier', 'Développeur web']);
     var currentUrlArray = currentStatus.url.split('/');
+    
+    $('.nav-mobile').removeClass('nav-mobile--is-visible');
+
   });
 
   // Barba.Dispatcher.on('initStateChange', function() {
@@ -148,6 +151,8 @@ $( document ).ready(function() {
         $('#contactName').val('');
         $('#contactEmail').val('');
         $('#contactMessage').val('');
+        $('.footer__contact-form-list, .footer__contact-form-controls').css({display:'none'});
+        $('.footer__contact-form-final').text(response).addClass('footer__contact-form-final--is-visible animated fade-in');
       },
       error: function(response) {
         console.log(response);
@@ -186,6 +191,19 @@ $( document ).ready(function() {
         }
       }
 		}
+  });
+
+  $('.nav-mobile__show').on('click', function(){
+    $('.nav-mobile').addClass('nav-mobile--is-visible nav-mobile--animatable');
+    $('.nav-mobile').removeClass('nav-mobile--animatable');
+  });
+
+  $('.nav-mobile__hide').on('click', function(){
+    $('.nav-mobile').removeClass('nav-mobile--is-visible');
+  });
+
+  $('.nav-mobile__link').on('click', function(){
+    $('.nav-mobile').removeClass('nav-mobile--is-visible');
   });
 
 

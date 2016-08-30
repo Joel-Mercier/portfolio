@@ -1,40 +1,53 @@
 ---
 layout: default
 ---
-<div class="wrapper">
-  <article class="post__container" itemscope itemtype="http://schema.org/BlogPosting">
-
-    <header class="post__header">
-      <p class="post__meta">
-        <span>{{ page.categories }}</span>
-        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {% assign m = page.date | date: "%-m" %}
-        {{ page.date | date: "%-d" }}
-        {% case m %}
-          {% when '1' %}janvier
-          {% when '2' %}février
-          {% when '3' %}mars
-          {% when '4' %}avril
-          {% when '5' %}mai
-          {% when '6' %}juin
-          {% when '7' %}juillet
-          {% when '8' %}août
-          {% when '9' %}septembre
-          {% when '10' %}octobre
-          {% when '11' %}novembre
-          {% when '12' %}décembre
-        {% endcase %}
-        {{ page.date | date: "%Y" }}
-        </time>{% if page.author %} •
-        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <span itemprop="name">{{ page.author }}</span>
-        </span>
-        {% endif %}
-      </p>
-    </header>
+<article class="post__container" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="site__altbg">
+    <div class="wrapper">
+      <header class="post__header">
+        <p class="post__meta">
+          <span>Catégorie : {{ page.categories.title | last }}</span> 
+          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+            • Publié le
+          {% assign m = page.date | date: "%-m" %}
+          {{ page.date | date: "%-d" }}
+          {% case m %}
+            {% when '1' %}janvier
+            {% when '2' %}février
+            {% when '3' %}mars
+            {% when '4' %}avril
+            {% when '5' %}mai
+            {% when '6' %}juin
+            {% when '7' %}juillet
+            {% when '8' %}août
+            {% when '9' %}septembre
+            {% when '10' %}octobre
+            {% when '11' %}novembre
+            {% when '12' %}décembre
+          {% endcase %}
+          {{ page.date | date: "%Y" }}
+          </time>
+          {% if page.author %} • Rédigé par
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span itemprop="name">{{ page.author }}</span>
+          </span>
+          {% endif %}
+        </p>
+        <p class="site__lead">{{ page.lead }}</p>
+      </header>
+    </div>
+  </div>
+  {% if page.hero-img %}
+  <div class="post__hero" style="background-image: url('{{ page.hero-img | prepend: "../../../img/" | prepend: site.baseurl }}');"></div>
+  {% if page.hero-img-caption %}
+  <p class="post__hero-caption">{{ page.hero-img-caption }}</p>
+  {% endif %}
+  {% endif %}
+  <div class="wrapper">
     <div class="post__content" itemprop="articleBody">
       {{ content }}
     </div>
+
     <div id="disqus_thread"></div>
 
     <script>
@@ -69,5 +82,5 @@ layout: default
       reset('{{ page.title }}', '{{ page.url | replace:"index.html","" | prepend: "http://localhost:3000" }}', '{{ page.title }}', 'fr');
     </script>
     <noscript>Veuillez activer Javascript sur votre navigateur afin de voir <a href="https://disqus.com/?ref_noscript" rel="nofollow">les commentaires.</a></noscript>
-  </article>
-</div>
+  </div>
+</article>

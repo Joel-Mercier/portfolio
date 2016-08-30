@@ -10,7 +10,15 @@ layout: default
       </div>
       <div class="project__info">
         <h3>Rôle</h3>
-        <p>{{ page.roles }}</p>
+        <p>
+          {% for role in page.roles %}
+          {% if forloop.last %}
+            {{ role }}
+          {% else %}
+            {{ role | append: " / "}}
+          {% endif %} 
+          {% endfor %}
+        </p>
       </div>
       <div class="project__info">
         <h3>Date</h3>

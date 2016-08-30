@@ -9,6 +9,7 @@
 .footer__contact-form {
   position: relative;
   width: 80%;
+  min-height: 100px;
   margin: 0 auto;
   padding: $medium-value 0;
   overflow: hidden;
@@ -98,4 +99,19 @@
 
 .footer__contact-form-steps {
   float: right;
+}
+
+.footer__contact-form-final {
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 100%;
+  font-size: $h3-size;
+  font-weight: 300;
+  text-align: center;
+
+  &.footer__contact-form-final--is-visible {
+    visibility: visible;
+  }
 }
