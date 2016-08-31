@@ -42,17 +42,29 @@
   left: 50%;
   width: 80%;
   color: #fff;
-  font-size: 56px;
+  font-size: 5rem;
   text-align: center;
   transform: translate(-50%, -50%);
   z-index: 1;
 
   &.type-it {
     top: 20%;
+
+    @include media("<small-screen") {
+      top: 30%;
+    }
   }
 
   .header__title--cursor {
     font-style: normal;
+  }
+
+  @include media("<small-screen") {
+    font-size: $h1-size + 1;
+  }
+
+  @include media("<tiny-plus-screen") {
+    font-size: $h1-size;
   }
 }
 
@@ -63,6 +75,10 @@
   right: 10px;
   top: 40%;
   background: url('../img/hero-img.svg') no-repeat center center;
+
+  @include media("<small-screen") {
+    background-position: bottom;
+  }
 }
 
 .header__bubble {
@@ -242,6 +258,9 @@
     width: 100%;
     color: #fff;
 
+    @include media("<medium-screen") {
+      display: none;
+    }
   }
 
   &.nav-mobile {
@@ -286,7 +305,7 @@
 
     & .nav-mobile__container {
       position: relative;
-      width: 90%;
+      width: 80%;
       max-width: 400px;
       background: $beta-background;
       height: 100%;
@@ -381,6 +400,10 @@
     display: block;
     width: 80%;
     margin: auto;
+  }
+
+  @include media(">medium-screen") {
+    display: none;
   }
 }
 

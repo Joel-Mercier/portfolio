@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: À propos
 page-name: Bonjour, je m'appelle Joel Mercier
 permalink: /about/
@@ -14,46 +14,57 @@ permalink: /about/
     <h2>Mon parcours</h2>
     <div class="resume__container">
       <ul class="resume__list">
+        {% assign resumes = site.work_experiences | sort: 'date-begin' %}
+        {% for resume in resumes reversed %}
         <li class="resume__item wow fade-in-up">
-          <div class="grid-1-2">
+          <div class="grid-1-2-small-1-1">
             <div class="resume__infos">
-              <h4 class="resume__position">Developper</h3>
-              <time datetime="" class="resume__date">2015 - Présent</time>
+              <h4 class="resume__position">{{ resume.role }}</h3>
+              <time datetime="{{ resume.date-begin | date_to_xmlschema }}" class="resume__date">
+              {% assign m = resume.date-begin | date: "%-m" %}
+              {% case m %}
+                {% when '1' %}janvier
+                {% when '2' %}février
+                {% when '3' %}mars
+                {% when '4' %}avril
+                {% when '5' %}mai
+                {% when '6' %}juin
+                {% when '7' %}juillet
+                {% when '8' %}août
+                {% when '9' %}septembre
+                {% when '10' %}octobre
+                {% when '11' %}novembre
+                {% when '12' %}décembre
+              {% endcase %}
+              {{ resume.date-begin | date: "%Y" }} -
+              {% assign m = resume.date-end | date: "%-m" %}
+              {% case m %}
+                {% when '1' %}janvier
+                {% when '2' %}février
+                {% when '3' %}mars
+                {% when '4' %}avril
+                {% when '5' %}mai
+                {% when '6' %}juin
+                {% when '7' %}juillet
+                {% when '8' %}août
+                {% when '9' %}septembre
+                {% when '10' %}octobre
+                {% when '11' %}novembre
+                {% when '12' %}décembre
+              {% endcase %}
+              {{ resume.date-end | date: "%Y" }}</time>
             </div>
             <div class="resume__content">
-              <h3 class="resume__company">Almédia</h3>
-              <p class="resume__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <a class="button button--primary" href="#"><span>Voir le site</span></a>
-              <a class="button button--primary" href="#"><span>Voir une réalisation</span></a>
+              <h3 class="resume__title">{{ resume.title }}</h3>
+              {{ resume.content }}
+              <a class="button button--primary" href="{{ resume.company-url }}" target="_blank"><span>Voir le site</span></a>
+              {% if resume.work-url %}
+              <a class="button button--primary" href="{{ resume.work-url | prepend: "../"| prepend: site.baseurl }}"><span>Voir une réalisation</span></a>
+              {% endif %}
             </div>
           </div>
         </li>
-        <li class="resume__item wow fade-in-up">
-          <div class="grid-1-2">
-            <div class="resume__infos">
-              <h4 class="resume__position">Developper</h3>
-              <time datetime="" class="resume__date">2015 - Présent</time>
-            </div>
-            <div class="resume__content">
-              <h3 class="resume__company">Almédia</h3>
-              <a class="button button--primary" href="#"><span>Voir le site</span></a>
-              <a class="button button--primary" href="#"><span>Voir une réalisation</span></a>
-            </div>
-          </div>
-        </li>
-        <li class="resume__item wow fade-in-up">
-          <div class="grid-1-2">
-            <div class="resume__infos">
-              <h4 class="resume__position">Developper</h3>
-              <time datetime="" class="resume__date">2015 - Présent</time>
-            </div>
-            <div class="resume__content">
-              <h3 class="resume__company">Almédia</h3>
-              <a class="button button--primary" href="#"><span>Voir le site</span></a>
-              <a class="button button--primary" href="#"><span>Voir une réalisation</span></a>
-            </div>
-          </div>
-        </li>
+        {% endfor %}
       </ul>
     </div>
   </div>

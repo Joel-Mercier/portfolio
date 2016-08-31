@@ -32,6 +32,14 @@
 
     & .blog__title {
       opacity: 0;
+      text-transform: uppercase;
+      text-align: left;
+      transform: translateX(-40px);
+
+      @include media("<small-screen") {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     & .blog__excerpt {
@@ -43,12 +51,6 @@
       color: $base-color;
       text-align: left;
       transform: none;
-    }
-
-    & .blog__title {
-      text-transform: uppercase;
-      text-align: left;
-      transform: translateX(-40px);
     }
 
     & .blog__dot {
@@ -83,6 +85,10 @@
         }
       }
     }
+
+    @include media("<small-screen") {
+      height: 300px;
+    }
   }
 }
 
@@ -95,12 +101,18 @@
 
 .blog__excerpt {
   text-align: center;
-  padding: 12px 36px;
+  padding: $small-value $medium-value;
   font-size: $base-font-size - 0.2;
   @extend %clearfix;
   opacity: 0;
   transform: translateY(110%);
   transition: all 0.3s ease;
+
+  @include media("<small-screen") {
+    opacity: 1;
+    transform: none;
+    padding: $small-value;
+  }
 }
 
 .blog__lead {
@@ -177,7 +189,7 @@
   margin-top: 0;
   color: $grey-color;
   font-size: $h6-size;
-  font-weight: 300; 
+  font-weight: 300;
   font-style: italic;
   text-align: center;
 }

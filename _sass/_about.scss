@@ -5,6 +5,10 @@
 .resume__list {
   list-style: none;
   border-left: 2px solid $alpha-color;
+
+  @include media("<small-screen") {
+    padding-left: 0;
+  }
 }
 
 .resume__item {
@@ -14,12 +18,10 @@
   &:last-child {
     margin-bottom: 0;
   }
-}
 
-.resume__infos {
-  // display: flex;
-  // justify-content: center;
-  // flex-direction: column;
+  @include media("<small-screen") {
+    padding: 2rem 0 2rem 2rem;
+  }
 }
 
 .resume__position, .resume__date {
@@ -30,22 +32,25 @@
   margin-bottom: $tiny-value;
 }
 
+.resume__content {
+
+  & p {
+    margin-bottom: $medium-value;
+  }
+}
+
 .resume__date {
   font-weight: 300;
   font-style: italic;
 }
 
-.resume__company {
+.resume__title {
   font-size: $h1-size;
   background: $gradient;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: $alpha-color;
   margin-bottom: $small-value;
-}
-
-.resume__description {
-  margin-bottom: $medium-value;
 }
 
 .hobbies__container {
@@ -138,6 +143,10 @@
 
   & h3 {
     text-align: center;
+  }
+
+  @include media("<small-screen") {
+    margin-bottom: $medium-value;
   }
 }
 

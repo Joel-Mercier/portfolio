@@ -49,6 +49,10 @@ a {
   font-weight: 300;
   font-size: $h3-size;
   text-align: center;
+
+  @include media("<small-screen") {
+    width: 100%;
+  }
 }
 
 .site__browserupgrade {
@@ -205,14 +209,18 @@ a {
   width: 70%;
   margin: 0 auto;
   padding: $medium-value;
-  background: $gradient;
+  background: url(../img/noisy-texture.png), $gradient;
   color: #fff;
+
+  @include media("<small-screen") {
+    width: 100%;
+  }
 }
 
 .testimonial__img {
   display: inline-block;
-  max-width: 100px;
-  max-height: 100px;
+  width: 100px;
+  height: 100px;
 
   & img {
     border-radius: 50%;
@@ -224,5 +232,13 @@ a {
 
   &:before {
     color: rgba(255,255,255,0.5);
+
+    @include media("<small-screen") {
+      top: -20px;
+    }
+  }
+
+  @include media("<small-screen") {
+    padding-left: 0;
   }
 }

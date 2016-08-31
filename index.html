@@ -105,7 +105,7 @@ title: Joel Mercier développeur web
       <div class="grid-2-small-1">
         {% for post in site.posts | limit: 1 %}
         <article class="blog__item blog__item--full wow fade-in" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('{{ post.featured-img | prepend: "/img/blog/" | prepend: site.baseurl }}') no-repeat center center;">
-          <time class="blog__date" datetime="{{ post.date }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+          <time class="blog__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
           <h3 class="blog__title">{{ post.title }}</h3>
           <div class="blog__excerpt">
             <p class="blog__lead">{{ post.lead }}</p>

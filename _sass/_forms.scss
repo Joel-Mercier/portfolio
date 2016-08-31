@@ -17,6 +17,10 @@
   & .button {
     display: none;
   }
+
+  @include media("<small-screen") {
+    width: 100%;
+  }
 }
 
 .footer__contact-form-list {
@@ -46,6 +50,7 @@
     border: none;
     padding: 2rem 6rem 2rem 2rem;
     color: #fff;
+    border-radius: 0px;
   }
 }
 

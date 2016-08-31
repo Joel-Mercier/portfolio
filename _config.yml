@@ -23,7 +23,5 @@ collections:
   portfolio:
     permalink: /works/:title/
     output: true
-  skills:
-    output: false
-  work-experiences:
+  work_experiences:
     output: false
