@@ -1,0 +1,9 @@
+{
+  "name": "Portfolio de Joel Mercier, développeur web",
+  "short_name": "Portfolio de Joel Mercier",
+  "theme_color": "#eb6361",
+  "background_color": "#fdfdfd",
+  "display": "minimal-ui",
+  "scope": "/",
+  "start_url": "/"
+}

@@ -1,12 +1,27 @@
 ---
 layout: default
 ---
+{% assign  document = site.posts  %}
+{% for links in document  %}
+  {% if links.title == page.title %}
+    {% unless forloop.first %}
+      {% assign prevurl = prev.url %}
+      {% assign prevtitle = prev.title %}
+    {% endunless %}
+    {% unless forloop.last %}
+      {% assign next = document[forloop.index] %}
+      {% assign nexturl = next.url %}
+      {% assign nexttitle = next.title %}
+    {% endunless %}
+  {% endif %}
+  {% assign prev = links %}
+{% endfor %}
 <article class="post__container" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="site__altbg">
     <div class="wrapper">
       <header class="post__header">
         <p class="post__meta">
-          <span>Catégorie : {{ page.categories.title | last }}</span> 
+          <span>Catégorie : {{ page.categories.title | last }}</span>
           <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
             • Publié le
           {% assign m = page.date | date: "%-m" %}
@@ -47,6 +62,22 @@ layout: default
     <div class="post__content" itemprop="articleBody">
       {{ content }}
     </div>
+    {% if prevurl %}
+    <div class="project__navigation project__navigation--left wow fade-in" data-wow-offset="650">
+      <a href="{{ prevurl | prepend: site.baseurl }}">
+        <span class="project__navigation-direction">Précédent / </span>
+        <span class="project__navigation-name">{{ prevtitle }}</span>
+      </a>
+    </div>
+    {% endif %}
+    {% if nexturl %}
+    <div class="project__navigation project__navigation--right wow fade-in" data-wow-offset="650">
+      <a href="{{ nexturl | prepend: site.baseurl }}">
+        <span class="project__navigation-direction">Prochain / </span>
+        <span class="project__navigation-name">{{ nexttitle }}</span>
+      </a>
+    </div>
+    {% endif %}
 
     <div id="disqus_thread"></div>
 

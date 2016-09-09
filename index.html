@@ -4,27 +4,17 @@ title: Joel Mercier développeur web
 ---
 <div class="site__altbg txtcenter">
   <div class="wrapper">
+    <div class="site__alert site__alert--success">
+      <div class="site__alert-indicator"></div><p>Je suis actuellement à la recherche d'un emploi à Strasbourg.</p>
+    </div>
     <h2>Bienvenue !</h2>
     <p class="site__lead wow fade-in">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, facere corporis voluptatem aspernatur repellendus facilis, earum.</p>
-    <a class="button button--primary" href="{{ '/about' | prepend: site.baseurl }}"><span>Découvrir mes compétences</span></a>
+    <a class="button button--primary" href="{{ '/about' | prepend: site.baseurl }}"><span>Découvrir mon parcours</span></a>
   </div>
 </div>
 <section id="portfolio" class="">
   <div class="portfolio__container">
-    <svg id="js-projects--pattern" class="portfolio__overlay" viewBox="0 0 1596 1000" preserveAspectRatio="xMidYMid slice">
-    	<defs>
-    		<mask id="portfolioMask">
-    			<rect width="1596" height="1000" fill="#fff"></rect>
-    			<path class="js-shape js-shape--top" d="M523.602,499.965c25.555,0,51.004-9.793,70.328-29.062l549.008-549.087
-    				c38.752-38.829,38.752-101.904,0-140.734c-38.855-38.855-101.801-38.855-140.76,0L453.273,329.984
-    				c-39.012,38.961-39.012,101.957,0,140.918C472.648,490.172,498.203,499.965,523.602,499.965z"></path>
-    			<path class="js-shape js-shape--bottom" d="M1002.125,529.158l-548.904,549.035c-38.959,38.934-38.959,101.879,0,140.709
-    				c19.402,19.453,44.852,29.168,70.381,29.168c25.424,0,50.953-9.715,70.406-29.168l548.824-548.904
-    				c38.883-38.961,38.883-101.904,0-140.84C1103.924,490.252,1041.006,490.252,1002.125,529.158z"></path>
-    		</mask>
-    	</defs>
-    	<rect id="js-projects--mask" width="1596" height="1000" style="mask:url(#portfolioMask)"></rect>
-    </svg>
+    <svg id="Calque_1" class="portfolio__overlay" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1596 1000" preserveAspectRatio="xMidYMid slice"><title>portfolio-mask2</title><path d="M1201.29,811.55l-2.21-2.21c-38.89-38.89-38.89-102.53,0-141.42L1596,271V0H1296.08a99.84,99.84,0,0,1-8.15,9.22L885.16,412c-38.89,38.89-102.53,38.89-141.42,0l-2.21-2.21c-38.89-38.89-38.89-102.53,0-141.42L1009.89,0H0V1000H446.21L976.78,469.43c38.89-38.89,102.53-38.89,141.42,0l2.21,2.21c38.89,38.89,38.89,102.53,0,141.42L733.48,1000h564.81l98.5-98.5c38.89-38.89,102.53-38.89,141.42,0l2.21,2.21A100.21,100.21,0,0,1,1566.3,1000H1596V558.25L1342.71,811.55C1303.82,850.44,1240.18,850.44,1201.29,811.55Z" style="fill:#2b2b2b"/></svg>
     <div class="portfolio__image"></div>
     <div class="portfolio__content">
       <div class="wrapper">
@@ -32,17 +22,18 @@ title: Joel Mercier développeur web
         <div class="grid-2-small-1">
           <ul class="portfolio__list">
             {% if site.portfolio %}
-              {% for portfolio_item in site.portfolio | limit: 4 %}
-                <li class="portfolio__item wow fade-in" data-img="img/{{ portfolio_item.cover}}">
-                  <a  class="portfolio__link" href="{{ portfolio_item.url | prepend: site.baseurl }}">{{ portfolio_item.title}}</a>
+              {% assign items = (site.portfolio | sort: 'date') | reverse %}
+              {% for portfolio_item in items limit:4 %}
+                <li class="portfolio__item wow fade-in" data-wow-offset="-80" data-img="{{ portfolio_item.cover }}">
+                  <a  class="portfolio__link" href="{{ portfolio_item.url | prepend: site.baseurl }}">{{ portfolio_item.title }}</a>
                 </li>
               {% endfor %}
             {% endif %}
           </ul>
           <ul class="portfolio__list">
             {% if site.portfolio %}
-              {% for portfolio_item in site.portfolio | offset:4 limit: 4 %}
-                <li class="portfolio__item wow fade-in" data-img="img/{{ portfolio_item.cover}}">
+              {% for portfolio_item in items offset:4 limit: 4 %}
+                <li class="portfolio__item wow fade-in" data-wow-offset="-80" data-img="{{ portfolio_item.cover }}">
                   <a  class="portfolio__link" href="{{ portfolio_item.url | prepend: site.baseurl }}">{{ portfolio_item.title}}</a>
                 </li>
               {% endfor %}
@@ -70,7 +61,7 @@ title: Joel Mercier développeur web
   </div>
 </section>
 <section id="cv-download" class="site__transition site__transition--cv-download">
-  <div class="site__transition__icon wow cv-icon-animation">
+  <div class="site__transition-icon wow cv-icon-animation">
   <svg id="cv-icon" class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95.55 100.77">
     <title>cv-icon</title>
     <g id="page">

@@ -17,7 +17,7 @@ permalink: /about/
         {% assign resumes = site.work_experiences | sort: 'date-begin' %}
         {% for resume in resumes reversed %}
         <li class="resume__item wow fade-in-up">
-          <div class="grid-1-2-small-1-1">
+          <div class="grid-1-2-small-1">
             <div class="resume__infos">
               <h4 class="resume__position">{{ resume.role }}</h3>
               <time datetime="{{ resume.date-begin | date_to_xmlschema }}" class="resume__date">
@@ -119,7 +119,9 @@ permalink: /about/
           </svg>
         </div>
         <h3>Jeux vidéos</h3>
-        <p class="hobbies__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque pariatur rem hic, facilis? Nesciunt qui fuga nemo autem, sit voluptatem amet excepturi iure ab mollitia blanditiis distinctio, eum, quod hic?</p>
+        <p class="hobbies__description">
+          La pratique du jeu vidéo en ligne ou dans un cadre amical me permet de me confronter à la compétition et d'entretenir un esprit d'équipe avec mes amis.
+        </p>
       </div>
       <div class="hobbies__item hobbies__item--technology">
         <div class="hobbies__icon">
@@ -169,7 +171,9 @@ permalink: /about/
           </svg>
         </div>
         <h3>Nouvelles technologies</h3>
-        <p class="hobbies__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, odio cupiditate cumque sit nemo! Consequatur, pariatur, unde excepturi alias accusamus corporis est debitis laudantium inventore reiciendis earum quibusdam animi at!</p>
+        <p class="hobbies__description">
+          Passionné par les dernières avancées technologiques, j'aime me tenir au courant des nouveautés, qu'il s'agisse de code ou encore de la high-tech.
+        </p>
       </div>
       <div class="hobbies__item hobbies__item--music">
         <div class="hobbies__icon">
@@ -204,7 +208,67 @@ permalink: /about/
           </svg>
         </div>
         <h3>Musique</h3>
-        <p class="hobbies__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto deleniti esse, perspiciatis minima quis nostrum. Voluptatibus dolor magni explicabo. Saepe, repellendus recusandae! Ad optio, quaerat totam. Incidunt labore, quos cupiditate.</p>
+        <p class="hobbies__description">
+          Grand amateur de musique depuis mon plus jeune âge, je participe également activement à cette passion en étant batteur. J'aime me rendre à des concerts ou encore des festivals afin de partager mes goûts musicaux.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="skills">
+  <div class="wrapper">
+    <h2>Mes compétences</h2>
+    <div class="skills__caption wow fade-in"><div></div> Connaissances solides <div></div> Bonnes connaissances <div></div> Connaissances</div>
+    <div class="grid-2-small-1">
+      <div class="skills__icon" data-wow-offset="100">
+        <svg id="skills-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129.12 92.46">
+          <title>skills</title>
+          <path id="background" d="M129.12,92.46H0V4A4,4,0,0,1,4,0H125.12a4,4,0,0,1,4,4V92.46Z" transform="translate(0)" style="fill:#efeeee"/>
+          <rect id="expert" y="10.68" width="129.12" height="41.17" style="fill:#eb6361"/>
+          <rect id="intermediate" y="51.85" width="129.12" height="31.84" style="fill:#417b9c"/>
+          <rect id="beginner" y="83.68" width="129.12" height="9.78" style="fill:#419c7e"/>
+          <g id="topbar">
+            <path d="M129.12,4V9.89H0V4A4,4,0,0,1,4,0H125.12A4,4,0,0,1,129.12,4Z" transform="translate(0)" style="fill:#fff"/>
+            <circle cx="8.68" cy="4.95" r="1.7" style="fill:#fe3d50"/>
+            <circle cx="14.55" cy="4.95" r="1.7" style="fill:#f8e71c"/>
+            <circle cx="20.43" cy="4.95" r="1.7" style="fill:#51e4c2"/>
+            <line y1="9.89" x2="129.12" y2="9.89" style="fill:none;stroke:#e8edeb;stroke-miterlimit:10"/>
+          </g>
+          <g id="ui">
+            <rect x="10" y="65.89" width="36.24" height="26.5" style="fill:#ccc;opacity:0.6"/>
+            <rect x="54.45" y="19.89" width="18.63" height="2.75" style="fill:#949393;opacity:0.6"/>
+            <rect x="54.45" y="29.89" width="64.63" height="2.75" style="fill:#949393;opacity:0.6"/>
+            <rect x="54.45" y="39.89" width="64.63" height="2.75" style="fill:#949393;opacity:0.6"/>
+            <rect x="54.45" y="65.89" width="18.63" height="2.75" style="fill:#949393;opacity:0.6"/>
+            <rect x="54.45" y="75.89" width="64.63" height="2.75" style="fill:#949393;opacity:0.6"/>
+            <rect x="54.45" y="85.89" width="64.63" height="2.75" style="fill:#949393;opacity:0.6"/>
+            <rect x="10" y="19.89" width="36.24" height="36.24" style="fill:#ccc;opacity:0.6"/>
+            <rect x="10" y="53.04" width="36.24" height="3.09" style="fill:#252528;opacity:0.4"/>
+            <rect x="68.24" y="50.06" width="20.33" height="6.07" rx="3" ry="3" style="fill:#ccc;opacity:0.6"/>
+            <rect x="98.24" y="50.06" width="20.33" height="6.07" rx="3" ry="3" style="fill:#ccc;opacity:0.6"/>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <div class="skills__list">
+          <h4>HTML5</h4>
+          <h4>CSS3</h4>
+          <h4>Javascript</h4>
+          <h4>jQuery</h4>
+          <h4>Adobe Photoshop</h4>
+        </div>
+        <div class="skills__list">
+          <h4>PHP</h4>
+          <h4>Gulp</h4>
+          <h4>Bootstrap</h4>
+          <h4>Jekyll</h4>
+          <h4>Adobe Illustrator</h4>
+        </div>
+        <div class="skills__list">
+          <h4>WordPress</h4>
+          <h4>ReactJS</h4>
+          <h4>Drupal</h4>
+        </div>
       </div>
     </div>
   </div>

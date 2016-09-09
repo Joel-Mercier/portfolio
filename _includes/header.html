@@ -1,12 +1,20 @@
 <header class="header">
   <nav class="nav nav--transparent">
     <div class="wrapper">
-      <!-- <a class="nav__title" href="{{ site.baseurl }}/">{{ site.title }}</a> -->
+      <a class="nav__logo" href="{{ site.baseurl }}/">
+        <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.03 54"><title>logo</title><g id="logo-m"><polygon points="56.03 54 46.97 54 40 18 49.25 18 56.03 54" style="fill:#673a5d"/><polygon points="27 54 36 54 49.25 18 40 18 27 54" style="fill:#fff"/><polygon points="76.03 36 66.97 36 60 18 69.25 18 76.03 36" style="fill:#673a5d"/><polygon points="47 54 56 54 69.25 18 60 18 47 54" style="fill:#fff"/></g><g id="logo-j"><polygon points="16.03 54 6.97 54 0 36 9.25 36 16.03 54" style="fill:#673a5d"/><polygon id="_Tracé_" data-name="&lt;Tracé&gt;" points="7 54 16 54 29.25 18 20 18 7 54" style="fill:#fff"/><polygon points="23.25 9 32.5 9 35.75 0 26.5 0 23.25 9" style="fill:#fff"/></g></svg>
+      </a>
       <ul class="nav__list">
         {% assign current = page.url | downcase | split: '/' %}
-        <li class="nav__item {% if current[1] == 'about' %}nav__item--current{% endif %}"><a class="nav__link" href="{{ '/about/' | prepend: site.baseurl }}">A propos</a></li>
-        <li class="nav__item {% if current[1] == 'portfolio' %}nav__item--current{% endif %}"><a class="nav__link" href="{{ '/#portfolio' | prepend: site.baseurl }}">Portfolio</a></li>
-        <li class="nav__item {% if current[1] == 'blog' %}nav__item--current{% endif %}"><a class="nav__link" href="{{ '/blog/' | prepend: site.baseurl }}">Blog</a></li>
+        <li class="nav__item {% if current[1] == 'about' %}nav__item--current{% endif %}">
+          <a class="nav__link" href="{{ '/about/' | prepend: site.baseurl }}">À propos</a>
+        </li>
+        <li class="nav__item {% if current[1] == 'portfolio' %}nav__item--current{% endif %}">
+          <a class="nav__link" href="{{ '/#portfolio' | prepend: site.baseurl }}">Portfolio</a>
+        </li>
+        <li class="nav__item {% if current[1] == 'blog' %}nav__item--current{% endif %}">
+          <a class="nav__link" href="{{ '/blog/' | prepend: site.baseurl }}">Blog</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -32,6 +40,30 @@
   <div class="header__hero">
   {% endif %}
     <h1 class="header__title animated fade-in">{% if page.page-name %}{{ page.page-name }}{% else %}{{ page.title }}{% endif %}</h1>
+    {% if page.path contains '_posts' %}
+    <a class="header__backlink" href="{{ '/blog/' | prepend: site.baseurl }}">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32.635 32.635" xml:space="preserve">
+          <g>
+            <path d="M32.135,16.817H0.5c-0.276,0-0.5-0.224-0.5-0.5s0.224-0.5,0.5-0.5h31.635c0.276,0,0.5,0.224,0.5,0.5   S32.411,16.817,32.135,16.817z" fill="#FFFFFF"/>
+            <path d="M19.598,29.353c-0.128,0-0.256-0.049-0.354-0.146c-0.195-0.195-0.195-0.512,0-0.707l12.184-12.184L19.244,4.136   c-0.195-0.195-0.195-0.512,0-0.707s0.512-0.195,0.707,0l12.537,12.533c0.094,0.094,0.146,0.221,0.146,0.354   s-0.053,0.26-0.146,0.354L19.951,29.206C19.854,29.304,19.726,29.353,19.598,29.353z" fill="#FFFFFF"/>
+          </g>
+        </svg>
+      </span>Retour aux articles
+    </a>
+    {% endif %}
+    {% if page.path contains '_portfolio' %}
+    <a class="header__backlink" href="{{ '/#portfolio' | prepend: site.baseurl }}">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32.635 32.635" xml:space="preserve">
+          <g>
+            <path d="M32.135,16.817H0.5c-0.276,0-0.5-0.224-0.5-0.5s0.224-0.5,0.5-0.5h31.635c0.276,0,0.5,0.224,0.5,0.5   S32.411,16.817,32.135,16.817z" fill="#FFFFFF"/>
+            <path d="M19.598,29.353c-0.128,0-0.256-0.049-0.354-0.146c-0.195-0.195-0.195-0.512,0-0.707l12.184-12.184L19.244,4.136   c-0.195-0.195-0.195-0.512,0-0.707s0.512-0.195,0.707,0l12.537,12.533c0.094,0.094,0.146,0.221,0.146,0.354   s-0.053,0.26-0.146,0.354L19.951,29.206C19.854,29.304,19.726,29.353,19.598,29.353z" fill="#FFFFFF"/>
+          </g>
+        </svg>
+      </span>Retour au portfolio
+    </a>
+    {% endif %}
     {% for i in (1..16) %}
       <div class="header__bubble header__bubble--small" id="bubble{{ i }}"></div>
     {% endfor %}

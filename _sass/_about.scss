@@ -47,6 +47,7 @@
 .resume__title {
   font-size: $h1-size;
   background: $gradient;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: $alpha-color;
@@ -209,5 +210,93 @@
   }
   100% {
     transform: rotateX(45deg) rotate(-10deg);
+  }
+}
+
+.skills__container {
+  position: relative;
+}
+
+.skills__caption {
+  margin: $medium-value 0;
+  text-align: center;
+  font-size: $h6-size;
+  color: $grey-color;
+
+  & div {
+    display: inline-block;
+    width: $medium-value;
+    height: 12px;
+    margin: 0 $tiny-value 0 $small-value;
+
+    &:first-child {
+      background: $alpha-color;
+    }
+
+    &:nth-child(2) {
+      background: $beta-color;
+    }
+
+    &:nth-child(3) {
+      background: $gamma-color;
+    }
+  }
+}
+
+.skills__icon {
+  box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  & #intermediate {
+    height: 0;
+    transition: height 1s 1.5s ease;
+  }
+
+  & #beginner {
+    height: 0;
+    transition: height 1s 2.5s ease;
+  }
+
+  & #expert {
+    height: 0;
+    transition: height 1s 0.5s ease;
+  }
+
+  &.skills__icon--animate {
+    opacity: 1;
+
+    & #intermediate {
+      height: 31.84px;
+    }
+
+    & #beginner {
+      height: 9.78px;
+    }
+
+    & #expert {
+      height: 41.17px;
+    }
+  }
+}
+
+.skills__list {
+  text-align: center;
+  color: #fff;
+
+  &:nth-child(2) {
+    background: $alpha-color;
+  }
+
+  &:nth-child(3) {
+    background: $beta-color;
+  }
+
+  &:nth-child(4) {
+    background: $gamma-color;
+  }
+
+  & h4 {
+    margin: $small-value 0;
   }
 }

@@ -61,9 +61,9 @@ gulp.task('sass', function () {
         .pipe(sourcemaps.init())
         .pipe(sass({
             includePaths: ['_sass'],
-            onError: browserSync.notify,
-            errLogToConsole: true
+            onError: browserSync.notify('Error in sass'),
         }))
+        .on('error', sass.logError)
         .pipe(prefix(['last 15 versions', '> 1%'], { cascade: true }))
         .pipe(cssnano())
         .pipe(rename({
@@ -80,7 +80,7 @@ gulp.task('sass', function () {
 // Concatenate & JS build
 // <--
 gulp.task('js', function () {
-    gulp.src(['./_js/barba.js', './_js/picturefill.js', './_js/typeit.js', './_js/wow.js', './_js/main.js'])
+    gulp.src(['./_js/barba.js', './_js/picturefill.js', './_js/typeit.js', './_js/wow.js', './_js/pace.js', './_js/main.js'])
         .pipe(uglify())
         .pipe(concat('bundle.js'))
         .pipe(rename({

@@ -35,11 +35,32 @@ $( document ).ready(function() {
 
   wow.init();
 
+  wowskills = new WOW ({
+    boxClass: 'skills__icon',
+    animateClass: 'skills__icon--animate',
+    offset: 0,
+    mobile: true,
+    live: true
+  });
+
+  wowskills.init();
+
+  function isHighDensity(){
+    return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 124dpi), only screen and (min-resolution: 1.3dppx), only screen and (min-resolution: 48.8dpcm)').matches || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3)').matches)) || (window.devicePixelRatio && window.devicePixelRatio > 1.3));
+  }
+
   $('#barba__wrapper').on('mouseover', '.portfolio__link', function(event) {
     var currentImage = $('.portfolio__image');
     var portfolioImg = $(this).parent().data('img');
-    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-    currentImage.css('background-image', 'url('+ portfolioImg +')');
+    var portfolioImgName = portfolioImg.split('.').shift();
+    var portfolioImgExt = portfolioImg.split('.').pop();
+    console.log(portfolioImgName);
+    console.log(portfolioImgExt);
+    if (isHighDensity()) {
+      currentImage.css('background-image', 'url(img/portfolio/covers/'+ portfolioImgName + '@2x.'+ portfolioImgExt +')');
+    } else {
+      currentImage.css('background-image', 'url(img/portfolio/covers/'+ portfolioImgName + '@1x.'+ portfolioImgExt +')');
+    }
     currentImage.stop().fadeIn(500);
   });
 
@@ -58,14 +79,80 @@ $( document ).ready(function() {
   Barba.Pjax.Dom.containerClass = 'barba__container';
   Barba.Pjax.ignoreClassLink = 'barba__link--ignored';
 
+  var FadeTransition = Barba.BaseTransition.extend({
+    start: function() {
+      /**
+       * This function is automatically called as soon the Transition starts
+       * this.newContainerLoading is a Promise for the loading of the new container
+       * (Barba.js also comes with an handy Promise polyfill!)
+       */
+
+      // As soon the loading is finished and the old page is faded out, let's fade the new page
+      Promise
+        .all([this.newContainerLoading, this.fadeOut()])
+        .then(this.fadeIn.bind(this));
+    },
+
+    fadeOut: function() {
+      /**
+       * this.oldContainer is the HTMLElement of the old Container
+       */
+
+      return $(this.oldContainer).animate({ opacity: 0 }).promise();
+    },
+
+    fadeIn: function() {
+      /**
+       * this.newContainer is the HTMLElement of the new Container
+       * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
+       * Please note, newContainer is available just after newContainerLoading is resolved!
+       */
+
+      var _this = this;
+      var $el = $(this.newContainer);
+
+      $(this.oldContainer).hide();
+
+      $el.css({
+        visibility : 'visible',
+        opacity : 0
+      });
+
+      document.body.scrollTop = 0;
+
+      $el.animate({ opacity: 1 }, 400, function() {
+        /**
+         * Do not forget to call .done() as soon your transition is finished!
+         * .done() will automatically remove from the DOM the old Container
+         */
+        _this.done();
+      });
+    }
+  });
+
+  /**
+   * Next step, you have to tell Barba to use the new Transition
+   */
+
+  Barba.Pjax.getTransition = function() {
+    /**
+     * Here you can use your own logic!
+     * For example you can use different Transition based on the current page or link...
+     */
+
+    return FadeTransition;
+  };
+
   Barba.Prefetch.init();
   Barba.Pjax.start();
 
   Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
-    console.log(currentStatus);
     typeTitle('.header__title.type-it', ['Joel Mercier', 'Développeur web']);
     var currentUrlArray = currentStatus.url.split('/');
-    
+    console.log(currentUrlArray);
+    // if($.inArray('about', currentUrlArray) > -1) {
+    // }
+
     $('.nav-mobile').removeClass('nav-mobile--is-visible');
 
   });
@@ -194,18 +281,39 @@ $( document ).ready(function() {
   });
 
   $('.nav-mobile__show').on('click', function(){
-    $('.nav-mobile').addClass('nav-mobile--is-visible nav-mobile--animatable');
-    $('.nav-mobile').removeClass('nav-mobile--animatable');
+    $('.nav-mobile').addClass('nav-mobile--animatable');
+    $('.nav-mobile').addClass('nav-mobile--is-visible');
+    $('.nav-mobile').on('transitionend', function(){
+      $('.nav-mobile').removeClass('nav-mobile--animatable');
+    });
   });
 
   $('.nav-mobile__hide').on('click', function(){
+    $('.nav-mobile').addClass('nav-mobile--animatable');
     $('.nav-mobile').removeClass('nav-mobile--is-visible');
+    $('.nav-mobile').on('transitionend', function(){
+      $('.nav-mobile').removeClass('nav-mobile--animatable');
+    });
   });
 
   $('.nav-mobile__link').on('click', function(){
+    $('.nav-mobile').addClass('nav-mobile--animatable');
     $('.nav-mobile').removeClass('nav-mobile--is-visible');
+    $('.nav-mobile').on('transitionend', function(){
+      $('.nav-mobile').removeClass('nav-mobile--animatable');
+    });
   });
 
 
+  if(document.body.style.webkitBackgroundClip === undefined) {
+    console.log('-webkit-background-clip not supported');
+    $('.resume__title').css({'background': 'none'});
+  }
+
+  $('#barba__wrapper').on('click', '.project__design-showcase--text', function(){
+    if(window.matchMedia('(max-width:960px)').matches){
+      $(this).toggleClass('project__design-showcase--is-open');
+    }
+  });
 
 });
