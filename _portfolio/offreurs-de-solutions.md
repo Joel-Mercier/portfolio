@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "Offreurs de Solutions: Le Jeu"
+title: "Offreurs de Solutions : Le Jeu"
 date: 2016-06-07
 roles:
   - "Développeur"
