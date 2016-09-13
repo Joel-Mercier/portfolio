@@ -114,6 +114,7 @@
 
   &.project__design-showcase--text {
     position: absolute;
+    top: 0;
     color: #fff;
     width: 35%;
     padding: $medium-value;
@@ -147,7 +148,7 @@
       border-radius: 50%;
       animation: project-pulse 2s infinite;
       cursor: pointer;
-      transition: all 0.2s ease-in-out;
+      transition: width 0.3s ease-in-out, height 0.3s 0.3s ease-in-out;
 
       &::before {
         content: '?';
@@ -161,8 +162,9 @@
       }
 
       & h2, & p {
+        display: none;
         opacity: 0;
-        transition: opacity 0.2s ease;
+        transition: opacity 0.2s 0.6s ease;
       }
     }
 
@@ -171,44 +173,41 @@
       height: auto;
       border-radius: 0;
       animation: none;
+      z-index: 4;
 
       &::before {
         content:'';
       }
 
       & h2, & p {
+        display: inline-block;
         opacity: 1;
       }
     }
   }
 
-  &:nth-child(2) {
-    top: 50px;
-    right: 0;
-  }
-
-  &:nth-child(3) {
-    top: 150px;
-    left: 6%;
-  }
-
-  &:nth-child(4) {
-    top: 450px;
+  &:nth-child(odd) {
     left: 0;
   }
 
-  &:nth-child(5) {
-    top: 850px;
+  &:nth-child(even) {
     right: 0;
   }
 
   &.project__design-showcase--main {
     display: block;
     width: 70%;
-    margin: auto;
-    box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
+    margin: $medium-value auto;
 
     & img {
+      width: 100%;
+    }
+
+    @include media("<medium-screen") {
+      width: 85%;
+    }
+
+    @include media("<small-screen") {
       width: 100%;
     }
   }
@@ -217,6 +216,7 @@
     position: absolute;
     display: block;
     width: 16%;
+    left: 5%;
 
     & img {
       width: 100%;

@@ -196,6 +196,20 @@
       opacity: 1;
     }
   }
+
+  @include media("<small-screen") {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.post__container {
+
+  @include media("<large-screen") {
+    & .project__navigation {
+      display: none;
+    }
+  }
 }
 
 .post__meta {
@@ -208,6 +222,11 @@
   width: 80%;
   margin: 0 auto;
   padding: $medium-value 0;
+
+  @include media("<small-screen") {
+    width: auto;
+    margin: 0;
+  }
 }
 
 .post__hero {

@@ -45,3 +45,5 @@ node_modules
 /vendor/
 
 /sources/
+
+.DS_Store

@@ -150,8 +150,28 @@ $( document ).ready(function() {
     typeTitle('.header__title.type-it', ['Joel Mercier', 'Développeur web']);
     var currentUrlArray = currentStatus.url.split('/');
     console.log(currentUrlArray);
-    // if($.inArray('about', currentUrlArray) > -1) {
-    // }
+    if($.inArray('about', currentUrlArray) > -1) {
+      $('.skills__list:nth-child(2), #expert').connections({
+        'class': 'skills__connection skills__connection--expert',
+        'within': '.skills__container'
+      });
+
+      $('.skills__list:nth-child(3), #intermediate').connections({
+        'class': 'skills__connection skills__connection--intermediate',
+        'within': '.skills__container'
+      });
+
+      $('.skills__list:nth-child(4), #beginner').connections({
+        'class': 'skills__connection skills__connection--beginner',
+        'within': '.skills__container'
+      });
+
+      $(window).on('resize', function() {
+        $('.skills__list:nth-child(2), #expert').connections('update');
+        $('.skills__list:nth-child(3), #intermediate').connections('update');
+        $('.skills__list:nth-child(4), #beginner').connections('update');
+      });
+    }
 
     $('.nav-mobile').removeClass('nav-mobile--is-visible');
 

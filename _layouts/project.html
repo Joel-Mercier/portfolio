@@ -41,7 +41,7 @@ layout: default
       </div>
       <div class="project__info">
         <h3>Date</h3>
-        <p>{% assign m = page.date | date: "%-m" %}
+        <time datetime="{{ page.date }}">{% assign m = page.date | date: "%-m" %}
         {% case m %}
           {% when '1' %}Janvier
           {% when '2' %}Février
@@ -56,7 +56,7 @@ layout: default
           {% when '11' %}Novembre
           {% when '12' %}Décembre
         {% endcase %}
-        {{ page.date | date: "%Y" }}</p>
+        {{ page.date | date: "%Y" }}</time>
       </div>
     </div>
     <p class="site__lead">{{ page.lead }}</p>
@@ -65,16 +65,6 @@ layout: default
 </div>
 <div class="wrapper">
   <div class="project__content">
-    {% if page.content %}
-    {% assign contentArray = page.content | split: site.excerpt_separator %}
-    <picture class="project__design-showcase project__design-showcase--main">
-			<source srcset="{{ page.full-img | prepend: "/img/portfolio/" | prepend: site.baseurl }}@1x.webp 1x, {{ page.full-img | prepend: "/img/portfolio/" | prepend: site.baseurl }}@2x.webp 2x" type="image/webp">
-			<source srcset="{{ page.full-img | prepend: "/img/portfolio/" | prepend: site.baseurl }}@1x.png 1x, {{ page.full-img | prepend: "/img/portfolio/" | prepend: site.baseurl }}@2x.png 2x">
-			<img src="{{ page.full-img | prepend: "/img/portfolio/" | prepend: site.baseurl }}@1x.png" alt="Design de la page d'accueil d'Almedia">
-		</picture>
-    <div class="project__design-showcase project__design-showcase--text">
-      {{ contentArray[0] }}
-    </div>
     {% if page.decorative-img %}
     <picture class="project__design-showcase project__design-showcase--image">
       <source srcset="{{ page.decorative-img | prepend: "/img/portfolio/" | prepend: site.baseurl }}@1x.webp 1x, {{ page.decorative-img | prepend: "/img/portfolio/" | prepend: site.baseurl }}@2x.webp 2x" type="image/webp">
@@ -82,9 +72,26 @@ layout: default
 			<img src="{{ page.decorative-img | prepend: "/img/portfolio/" | prepend: site.baseurl }}@1x.png">
     </picture>
     {% endif %}
-    <div class="project__design-showcase project__design-showcase--text project__design-showcase--text-large">
-      {{ contentArray[1] }}
-    </div>
+    {% if page.text and page.text-top-offset %}
+      {% for text in page.text %}
+        {% assign index = forloop.index0 %}
+        <div class="project__design-showcase project__design-showcase--text" style="top: {{ page.text-top-offset[index]}}">
+          {{ text }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    {% if page.full-img %}
+      {% for full-img in page.full-img%}
+        {% if page.full-img-shadow %}
+        <picture class="project__design-showcase project__design-showcase--main" style="box-shadow: 0 0 5px 2px rgba(0,0,0,.35);">
+        {% else %}
+        <picture class="project__design-showcase project__design-showcase--main">
+        {% endif %}
+    			<source srcset="{{ full-img | prepend: "/img/portfolio/" | prepend: site.baseurl }}@1x.webp 1x, {{ full-img | prepend: "/img/portfolio/" | prepend: site.baseurl }}@2x.webp 2x" type="image/webp">
+    			<source srcset="{{ full-img | prepend: "/img/portfolio/" | prepend: site.baseurl }}@1x.png 1x, {{ full-img | prepend: "/img/portfolio/" | prepend: site.baseurl }}@2x.png 2x">
+    			<img src="{{ full-img | prepend: "/img/portfolio/" | prepend: site.baseurl }}@1x.png">
+    		</picture>
+      {% endfor %}
     {% endif %}
 
     {% if prevurl %}
