@@ -9,6 +9,7 @@ client: "Almédia"
 website-url: "http://www.almedia.fr"
 cover: "almedia.jpg"
 full-img: "almedia/almedia"
+full-img-shadow: true
 decorative-img: "almedia/game-controller"
 gradient-colors:
   - "#d7ba65"
