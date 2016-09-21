@@ -2,18 +2,7 @@
 layout: default
 ---
 
-{% unless page.content == '' %}
-  <p>{{ page.content }}</p>
-{% endunless %}
 
-<ul class="post__list">
 {% for post in site.categories.[page.category] %}
-  <li>
-    <span class="post__meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-    <h2>
-      <a class="post__link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h2>
-  </li>
+<h2>{{ post.title }}</h2>
 {% endfor %}
-</ul>

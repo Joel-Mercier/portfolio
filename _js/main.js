@@ -54,8 +54,6 @@ $( document ).ready(function() {
     var portfolioImg = $(this).parent().data('img');
     var portfolioImgName = portfolioImg.split('.').shift();
     var portfolioImgExt = portfolioImg.split('.').pop();
-    console.log(portfolioImgName);
-    console.log(portfolioImgExt);
     if (isHighDensity()) {
       currentImage.css('background-image', 'url(img/portfolio/covers/'+ portfolioImgName + '@2x.'+ portfolioImgExt +')');
     } else {
@@ -149,7 +147,6 @@ $( document ).ready(function() {
   Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
     typeTitle('.header__title.type-it', ['Joel Mercier', 'Développeur web']);
     var currentUrlArray = currentStatus.url.split('/');
-    console.log(currentUrlArray);
     if($.inArray('about', currentUrlArray) > -1) {
       $('.skills__list:nth-child(2), #expert').connections({
         'class': 'skills__connection skills__connection--expert',
@@ -171,15 +168,24 @@ $( document ).ready(function() {
         $('.skills__list:nth-child(3), #intermediate').connections('update');
         $('.skills__list:nth-child(4), #beginner').connections('update');
       });
+    } else if($.inArray('blog', currentUrlArray) > -1) {
+      // readingTime($('.post__content').text(), 220, $('.post__readtime'));
     }
 
     $('.nav-mobile').removeClass('nav-mobile--is-visible');
-
+    ga('send', 'pageview', currentStatus.url);
   });
 
-  // Barba.Dispatcher.on('initStateChange', function() {
-  //
-  // });
+  Barba.Dispatcher.on('transitionCompleted', function(currentStatus, prevStatus) {
+    var currentUrlArray = currentStatus.url.split('/');
+    if($.inArray('blog', currentUrlArray) > -1) {
+      readingTime($('.post__content').text(), 220, $('.post__readtime'));
+    }
+  });
+
+  Barba.Dispatcher.on('initStateChange', function() {
+
+  });
 
   var form = $('#contactForm');
   var total = $('.footer__contact-form-item').length;
@@ -196,16 +202,12 @@ $( document ).ready(function() {
 
   var validateInput = function(event) {
     activeInput = $('.footer__contact-form-item--current input, .footer__contact-form-item--current textarea');
-    console.log(activeInput);
 
     if (activeInput.prop('type') === 'text' && activeInput.val()) {
-      console.log('text input validated');
       return true;
     } else if (activeInput.prop('type') === 'email' && isEmail(activeInput.val())) {
-      console.log('email input validated');
       return true;
     } else if (activeInput.is('textarea') && activeInput.val()) {
-      console.log('textarea validated');
       return true;
     } else {
       if (step === 1) {
@@ -221,8 +223,6 @@ $( document ).ready(function() {
   };
 
   var nextInput = function(event) {
-    console.log('next input');
-    console.log('step avant fct: '+step);
     itemList = $('.footer__contact-form-item');
     error.text('');
     itemList.each(function() {
@@ -236,7 +236,6 @@ $( document ).ready(function() {
         });
         if(step <= total) {
           step = step + 1;
-          console.log('step après fct: '+step);
           $('.footer__contact-form-steps').text(step + ' / ' + total);
         }
 
@@ -246,7 +245,6 @@ $( document ).ready(function() {
   };
 
   var submitInput = function(event) {
-    console.log('step : '+step);
     nextButton.removeClass('footer__contact-form-next--is-visible');
 
     $.ajax({
@@ -254,7 +252,6 @@ $( document ).ready(function() {
       type: form.prop('method'),
       data: form.serialize(),
       success: function(response) {
-        console.log(response);
         $('#contactName').val('');
         $('#contactEmail').val('');
         $('#contactMessage').val('');
@@ -262,7 +259,6 @@ $( document ).ready(function() {
         $('.footer__contact-form-final').text(response).addClass('footer__contact-form-final--is-visible animated fade-in');
       },
       error: function(response) {
-        console.log(response);
         $('.footer__contact-form-item').removeClass('footer__contact-form-item--current');
         $('.footer__contact-form-item').first().addClass('footer__contact-form-item--current');
         step = 1;
@@ -356,5 +352,22 @@ $( document ).ready(function() {
     $('.skills__list:nth-child(3), #intermediate').connections('update');
     $('.skills__list:nth-child(4), #beginner').connections('update');
   });
+
+  var readingTime = function(text, readingSpeed, dest) {
+    var wordsPerSecond = readingSpeed / 60;
+    var totalWords = text.trim().split(/\s+/g).length;
+    var totalTimeSeconds = totalWords / wordsPerSecond;
+    var totalTimeMinutes = Math.round(totalTimeSeconds / 60);
+    if(totalTimeMinutes === 0) {
+      totalTimeMinutes = 'Moins d\'une minute';
+    } else if(totalTimeMinutes === 1) {
+      totalTimeMinutes = totalTimeMinutes + ' minute';
+    } else {
+      totalTimeMinutes = totalTimeMinutes + ' minutes';
+    }
+    dest.append(totalTimeMinutes);
+  }
+
+  readingTime($('.post__content').text(), 220, $('.post__readtime'));
 
 });

@@ -1,3 +1,3 @@
-ErrorDocument 404 http://jomercier.com/404/
+ErrorDocument 404 https://joelmercier.io/404/
 
 Options -Indexes

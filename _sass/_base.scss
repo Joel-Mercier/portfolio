@@ -1,6 +1,15 @@
 a {
   text-decoration: none;
   color: $alpha-color;
+  transition: color 0.3s ease;
+}
+
+a:focus, a:hover {
+  color: $omega-color;
+}
+
+picture {
+  display: block;
 }
 
 /**

@@ -87,8 +87,8 @@ title: Joel Mercier développeur web
   </svg>
   </div>
   <div class="wrapper txtcenter">
-    <a class="button button--ghost" href="{{ '/downloads/test.pdf' | prepend: site.baseurl }}" target="_blank"><span>Télécharger mon CV</span></a>
-    <p class="button__caption">PDF • 1,7Mo • cv-mercier.pdf</p>
+    <a class="button button--ghost" href="{{ '/downloads/cv-mercier.pdf' | prepend: site.baseurl }}" target="_blank"><span>Télécharger mon CV</span></a>
+    <p class="button__caption">PDF • 930Ko • cv-mercier.pdf</p>
   </div>
 </section>
 <section id="blog" class="blog__container">
@@ -97,7 +97,8 @@ title: Joel Mercier développeur web
     <div class="blog__content">
       <div class="grid-2-small-1">
         {% for post in site.posts | limit: 1 %}
-        <article class="blog__item blog__item--full wow fade-in" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('{{ post.featured-img | prepend: "/img/blog/" | prepend: site.baseurl }}') no-repeat center center;">
+        {% if post.cover-img %}
+        <article class="blog__item blog__item--full wow fade-in" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('{{ post.cover-img | prepend: "/img/blog/" | prepend: site.baseurl }}') no-repeat center center;">
           <time class="blog__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
           <h3 class="blog__title">{{ post.title }}</h3>
           <div class="blog__excerpt">
@@ -110,6 +111,21 @@ title: Joel Mercier développeur web
           </div>
           <a href="{{ post.url | prepend: site.baseurl }}" class="blog__link">&nbsp;</a>
         </article>
+        {% else %}
+        <article class="blog__item blog__item--full wow fade-in" style="background-size: initial!important;">
+          <time class="blog__date" datetime="{{ post.date }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+          <h3 class="blog__title">{{ post.title }}</h3>
+          <div class="blog__excerpt">
+            <p class="blog__lead">{{ post.lead }}</p>
+            <span class="blog__dots">
+              <span class="blog__dot">&nbsp;</span>
+              <span class="blog__dot">&nbsp;</span>
+              <span class="blog__dot">&nbsp;</span>
+            </span>
+          </div>
+          <a href="{{ post.url | prepend: site.baseurl }}" class="blog__link">&nbsp;</a>
+        </article>
+        {% endif %}
         {% endfor %}
         <div>
           {% for post in site.posts | offset:1 limit: 2 %}

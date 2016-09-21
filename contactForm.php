@@ -12,7 +12,7 @@
       $mail = new PHPMailer;
       $mail->CharSet = 'UTF-8';
       $mail->setFrom($email, $name);
-      $mail->addAddress('jomercier@sfr.fr', 'Joel Mercier');
+      $mail->addAddress('hello@joelmercier.io', 'Joel Mercier');
       $mail->addReplyTo($email, $name);
       $mail->Subject = 'Nouveau message de la part de '.$name.' depuis le portfolio';
       $mail->msgHTML($message);

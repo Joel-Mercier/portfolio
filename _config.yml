@@ -1,10 +1,10 @@
 # Site settings
 title: Portfolio de Joel Mercier
-email: jomercier@sfr.fr
+email: hello@joelmercier.io
 description: > # this means to ignore newlines until "baseurl:"
   Joel Mercier - Développeur web
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://jomercier.com" # the base hostname & protocol for your site
+url: "https://joelmercier.io" # the base hostname & protocol for your site
 twitter_username: joelmrcr
 github_username:  Joel-Mercier
 linked_in_id: joel-mercier-a1450388

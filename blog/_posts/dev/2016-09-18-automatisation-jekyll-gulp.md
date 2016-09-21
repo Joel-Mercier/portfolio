@@ -1,3 +1,29 @@
+---
+layout: post
+title:  "Automatiser la génération d’un site statique avec Gulp et Jekyll"
+date:   2016-09-18 19:02:48 +0100
+author: Joel Mercier
+categories: dev
+lead: "Une commande pour les gouverner toutes !"
+---
+[Gulp](http://gulpjs.com/){: target="_blank" rel="noopener"} est un automatiseur de tâches puissant et rapide grâce à l’utilisation des streams NodeJS qui permettent d’effectuer plusieurs tâches simultanément.
+
+Jekyll inclut également cette notion d’automatisation puisqu’il permet, grâce au flag `jekyll build --watch` de regénérer automatiquement le site lors de la modification d’un fichier. Cependant il n’est pas efficace de lancer à la fois des tâches Gulp et Jekyll dans le même dossier.
+
+Ainsi si, comme dans le cas de ce site, on souhaite mélanger Gulp et Jekyll afin de compiler les fichiers SASS, de concaténer et minifier les fichiers javascripts, utiliser les sourcemaps et le très utile Autoprefixer, ne pas avoir à manuellement recharger la page à chaque modification, etc… on peut utiliser le module Child Process inné à NodeJS (comme HTTP ou FS par exemple). Celui-ci permet avec la fonction `spawn()` d’éxecuter une ligne de commande directement depuis un fichier `gulpfile.js` utilisé pour déclarer les tâches.
+
+Ainsi, une tâche permettant de compiler un site Jekyll pourrait ressembler à ceci :
+{% highlight js %}
+gulp.task('jekyll-build', function (done) {
+  return cp.spawn('jekyll', ['build', '--config', '_config.yml'], {stdio: 'inherit'})
+    .on('close', done);
+});
+{% endhighlight %}
+Dans cet exemple, on utilise la fonction `spawn()` afin d'éxecuter la commande `jekyll build --config _config.yml`. Il suffit ensuite de lancer cette tâche à chaque fois qu'un fichier est modifié pour que le site soit à jour.
+
+Une petite subtilité cependant est qu'il faut utiliser un dossier de destination pour Gulp afin que Jekyll n'utilise que les fichiers traités par Gulp afin de générer le site. Pour cela, on peut utiliser des dossiers sources préfixés par un `_`. On aura ainsi un dossier `_js` contenant tous les scripts et un dossier `js` contenant le fichier concaténé et minifié qu'utilisera Jekyll. Il en va de même pour les dossiers `css` ou `sass` et des dossiers d'images si on utilise Gulp afin de les otpimiser.
+
+{% highlight js %}
 var gulp        = require('gulp');
 var browserSync = require('browser-sync');
 var sass        = require('gulp-sass');
@@ -69,7 +95,7 @@ gulp.task('sass', function () {
     .pipe(rename({
       suffix: '.min'
     }))
-    // .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('_site/css'))
     .pipe(browserSync.reload({stream:true}))
     .pipe(gulp.dest('css'));
@@ -120,3 +146,5 @@ gulp.task('default', ['browser-sync', 'watch']);
 gulp.task('deploy', ['jekyll-build-prod'], shell.task([
   'cd _site/ && git add --all && git commit -m "update blog" && git push origin gh-pages'
 ]));
+
+{% endhighlight %}

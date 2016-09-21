@@ -107,7 +107,7 @@
             	</g>
             </svg>
           </i>
-          Email : <a href="mailto:jomercier@sfr.fr">jomercier@sfr.fr</a>
+          Email : <a href="mailto:{{ site.email }}">{{ site.email }}</a>
         </p>
         <p>
           <i class="footer__info-icon">
@@ -129,11 +129,13 @@
     // Picture element HTML5 shiv
     document.createElement( "picture" );
   </script>
-  <!-- <script src="{{ "/js/barba.min.js" | prepend: site.baseurl }}"></script>
-  <script src="{{ "/js/picturefill.min.js" | prepend: site.baseurl }}"></script>
-  <script src="{{ "/js/typeit.min.js" | prepend: site.baseurl }}"></script>
-  <script src="{{ "/js/wow.min.js" | prepend: site.baseurl }}"></script>
-  <script src="{{ "/js/skrollr.min.js" | prepend: site.baseurl }}"></script>
-  <script src="{{ "/js/main.min.js" | prepend: site.baseurl }}"></script> -->
+  <!-- Google Analytics -->
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-84539958-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <!-- End Google Analytics -->
   <script src="{{ "/js/bundle.min.js" | prepend: site.baseurl }}"></script>
 </footer>

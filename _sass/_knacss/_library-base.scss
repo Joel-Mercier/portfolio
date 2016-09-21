@@ -45,6 +45,8 @@ body {
   color: $base-color;
   font-family: $font-stack-common;
   line-height: $line-height;
+  word-wrap: break-word; /* force long words to break */
+  overflow-wrap: break-word; /* newer syntax standard that replaces word-wrap */
 }
 
 a {
