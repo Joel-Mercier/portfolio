@@ -3,14 +3,16 @@
   "short_name": "Portfolio de Joel Mercier",
   "theme_color": "#eb6361",
   "background_color": "#fdfdfd",
-  "display": "minimal-ui",
+  "display": "fullscreen",
   "scope": "/",
   "start_url": "/",
   "icons": [
     {
-      "src": "/img/icons/qndroid-chrome-192x192.png",
+      "src": "/img/icons/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     }
-  ]
+  ],
+  "dir": "ltr",
+  "lang": "fr"
 }

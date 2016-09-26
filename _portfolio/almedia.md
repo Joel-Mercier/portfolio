@@ -20,7 +20,7 @@ text:
   - "<h2>Un contenu riche</h2><p>Le site présente de nombreux contenus facilement catégorisables grâce à Jekyll tels que les services, les jeux, les membres et les actualités qui sont tous générés dynamiquement. Une charte graphique cohérente a été maintenu et des animations et éléments graphiques améliorent la présentation.</p>"
   - "<h2>Mais encore</h2><p>En plus du site et de ses pages, j'ai également pu intégrer trois newsletter reprennant la disposition et le contenu des landing pages du site web. Une documentation expliquant le fonctionnement de Jekyll et comment ajouter des contenus a été rédigée.</p>"
 text-top-offset:
-  - "50px"
-  - "450px"
-  - "800px"
+  - "2%"
+  - "30%"
+  - "50%"
 ---

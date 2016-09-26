@@ -54,6 +54,12 @@
   margin-bottom: $small-value;
 }
 
+@-moz-document url-prefix() {
+  .resume__title {
+    background: none;
+  }
+}
+
 .hobbies__container {
   margin: $medium-plus-value 0;
   background: url('../img/noisy-texture.png'), $complementary-gradient;
@@ -125,19 +131,39 @@
 
   &.hobbies__item--games {
 
-    & #icon-games {
-      perspective: 600px;
-    }
-
-    & #controller {
-      transform-origin: center;
-      will-change: transform;
-    }
-
     &:hover {
 
-      & #controller {
-        animation: controller-animation 2s infinite linear;
+      #redbtn1 {
+        animation: red-button-press 1s infinite linear;
+      }
+      #redbtn2 {
+        animation: red-button-press 1s 0.5s infinite linear;
+      }
+      #redbtn3 {
+        animation: red-button-press 1s 1s infinite linear;
+      }
+
+      #bluebtn1 {
+        animation: blue-button-press 1s infinite linear;
+      }
+      #bluebtn2 {
+        animation: blue-button-press 1s 0.5s infinite linear;
+      }
+      #bluebtn3 {
+        animation: blue-button-press 1s 1s infinite linear;
+      }
+
+      #whitebtn1 {
+        animation: white-button-press 1s infinite linear;
+      }
+      #whitebtn2 {
+        animation: white-button-press 1s 0.5s infinite linear;
+      }
+      #whitebtn3 {
+        animation: white-button-press 1s 1s infinite linear;
+      }
+      #whitebtn4 {
+        animation: white-button-press 1s 1.5s infinite linear;
       }
     }
   }
@@ -176,16 +202,13 @@
 
 @keyframes rocket-animation {
   0% {
-    transform: translate(-100%, -100%), scale(1);
+    transform: scale(1);
   }
   50% {
     transform: scale(0.5);
   }
-  99% {
-    transform: translate(50%, -50%) scale(0.5) ;
-  }
   100% {
-    transform: scale(0.5);
+    transform: translate(50%, -50%) scale(0.5);
   }
 }
 
@@ -198,20 +221,34 @@
   }
 }
 
-@keyframes controller-animation {
+@keyframes red-button-press {
   0% {
-    transform: rotateX(0);
-  }
-  50% {
-    transform: rotateX(45deg);
-  }
-  75% {
-    transform: rotateX(45deg) rotate(10deg);
+    fill: $alpha-color;
   }
   100% {
-    transform: rotateX(45deg) rotate(-10deg);
+    fill: darken($alpha-color, 50%);
   }
 }
+
+@keyframes blue-button-press {
+  0% {
+    fill: $beta-color;
+  }
+  100% {
+    fill: darken($beta-color, 50%);
+  }
+}
+
+@keyframes white-button-press {
+  0% {
+    fill: #fff;
+  }
+  100% {
+    fill: darken(#fff, 50%);
+  }
+}
+
+
 
 .skills__container {
   position: relative;
@@ -325,7 +362,7 @@
     top: 0;
     left: 0;
     background: $alpha-color;
-    transform: translateX(-2rem); 
+    transform: translateX(-2rem);
     transition: all 0.3s 1.5s ease;
   }
 

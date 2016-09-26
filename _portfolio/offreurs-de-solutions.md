@@ -18,6 +18,6 @@ text:
   - "<h2>Une application ludique ...</h2><p>Le jeu s'axe autour du thème de l'industrie du futur et permet aux joueurs développer leur usine grâce à différentes briques technologiques. Le jeu contient sept niveaux accessibles selon un arbre de choix.</p><p>J'ai utilisé pour ce projet la POO en javascript à l'aide des prototypes ainsi que l'API HTML5 Drag & Drop et beaucoup d'interactions en jQuery. Les données du jeu sont chargées depuis un fichier JSON.</p>"
   - "<h2>... couplée à une interface d'administration</h2><p>Le client souhaitait pouvoir récolter des données sur le jeu. J'ai ainsi mis en place un back-office en PHP et MySQL permettant de consulter les données des utilisateurs, d'envoyer des invitations et de gérer les versions du jeu dédiées aux partenaires.</p>"
 text-top-offset:
-  - "50px"
-  - "450px"
+  - "2%"
+  - "30%"
 ---

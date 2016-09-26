@@ -151,7 +151,7 @@
       transition: width 0.3s ease-in-out, height 0.3s 0.3s ease-in-out;
 
       &::before {
-        content: '?';
+        content: '+';
         position: absolute;
         top: 20%;
         font-size: $medium-value;

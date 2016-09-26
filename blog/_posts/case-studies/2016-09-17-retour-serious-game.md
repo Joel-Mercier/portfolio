@@ -5,6 +5,7 @@ date:   2016-09-17 19:02:48 +0100
 author: Joel Mercier
 category: case-studies
 lead: "La mission la plus importante et la plus originale que j'ai pu effectuer est la réalisation d'un serious game."
+cover-img: retour-serious-game.gif
 ---
 La mission la plus importante et la plus originale que j’ai pu effectuer durant
 mon contrat en alternance chez Almédia ont été le développement et la responsabilité technique

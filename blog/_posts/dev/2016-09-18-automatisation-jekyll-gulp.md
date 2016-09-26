@@ -5,6 +5,7 @@ date:   2016-09-18 19:02:48 +0100
 author: Joel Mercier
 categories: dev
 lead: "Une commande pour les gouverner toutes !"
+cover-img: jekyll-gulp.gif
 ---
 [Gulp](http://gulpjs.com/){: target="_blank" rel="noopener"} est un automatiseur de tâches puissant et rapide grâce à l’utilisation des streams NodeJS qui permettent d’effectuer plusieurs tâches simultanément.
 

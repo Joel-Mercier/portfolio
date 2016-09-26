@@ -63,14 +63,11 @@
   transform: translateY(-150%);
 }
 
-// .footer__contact-form-controls {
-//   width: 100%;
-// }
-
 .footer__contact-form-progress {
   width: 0%;
   height: 1rem;
   background: rgba(0,0,0,0.6);
+  transition: width 0.3s ease;
 
   &:before {
     position: absolute;
@@ -108,8 +105,6 @@
 
 .footer__contact-form-final {
   visibility: hidden;
-  position: absolute;
-  top: 50%;
   display: block;
   width: 100%;
   font-size: $h3-size;

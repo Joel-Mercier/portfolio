@@ -268,7 +268,7 @@
 
   &.nav--transparent {
     position: absolute;
-    top: 0px;
+    top: 1rem;
     left: 0px;
     width: 100%;
     color: #fff;
@@ -480,9 +480,10 @@
 
 .nav__item {
   display: inline;
+  margin: 0 $medium-value;
 
   &.nav__item--current .nav__link, &.nav__item--current .nav__link:hover, &.nav__item--current .nav__link:focus {
-    color: #d94f5c;
+    color: #fff;
   }
 
   &.nav__item--current .nav__link:before {
@@ -497,7 +498,6 @@
 
 .nav__link {
 	position: relative;
-	margin: 0 1em;
 	padding-right: 0;
 	padding-left: 0;
 	color: #fff;
