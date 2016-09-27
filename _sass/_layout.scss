@@ -18,7 +18,7 @@
 }
 
 .page__content {
-  margin-top: 450px;
+  margin-top: 75vh;
   z-index: 1;
   background: $base-background;
   padding-bottom: $medium-plus-value;
@@ -45,7 +45,7 @@
 .header__hero {
   position: relative;
   width: 100%;
-  height: 450px;
+  height: 75vh;
   z-index: -1;
   background-image: url('../img/noisy-texture.png'), $gradient ;
   overflow: hidden;
