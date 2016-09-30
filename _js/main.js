@@ -3,14 +3,19 @@ $( document ).ready(function() {
   var typeTitle = function(element, strings) {
     // typeIt jQuery plugin init
     $(element).typeIt({
-      strings: strings,
       speed: 100,
-      lifeLike: false,
-      cursor: true
-    });
+      lifeLike: true,
+      cursor: true,
+      autoStart: false
+    })
+    .tiType(strings[0])
+    .tiDelete()
+    .tiType(strings[1])
+    .tiBreak()
+    .tiType(strings[2]);
   };
 
-  typeTitle('.header__title.type-it', ['Joel Mercier', 'Développeur web']);
+  typeTitle('.header__title.type-it', ['var hello = ', 'Joel Mercier', 'Développeur web']);
 
   $('#barba__wrapper').on('click', 'a[href*="#"]:not([href="#"])', function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -145,7 +150,7 @@ $( document ).ready(function() {
   Barba.Pjax.start();
 
   Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
-    typeTitle('.header__title.type-it', ['Joel Mercier', 'Développeur web']);
+    typeTitle('.header__title.type-it', ['var hello = ', 'Joel Mercier', 'Développeur web']);
     var currentUrlArray = currentStatus.url.split('/');
     if($.inArray('about', currentUrlArray) > -1) {
       $('.skills__list:nth-child(2), #expert').connections({
