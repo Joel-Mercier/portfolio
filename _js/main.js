@@ -121,7 +121,7 @@ $( document ).ready(function() {
         opacity : 0
       });
 
-      document.body.scrollTop = 0;
+      window.scrollTo(0,0);
 
       $el.animate({ opacity: 1 }, 400, function() {
         /**
