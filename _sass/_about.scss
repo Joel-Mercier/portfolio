@@ -54,12 +54,6 @@
   margin-bottom: $small-value;
 }
 
-@-moz-document url-prefix() {
-  .resume__title {
-    background: none;
-  }
-}
-
 .hobbies__container {
   margin: $medium-plus-value 0;
   background: url('../img/noisy-texture.png'), $complementary-gradient;

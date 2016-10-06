@@ -325,12 +325,6 @@ $( document ).ready(function() {
     });
   });
 
-
-  if(document.body.style.webkitBackgroundClip === undefined) {
-    console.log('-webkit-background-clip not supported');
-    $('.resume__title').css({'background': 'none'});
-  }
-
   $('#barba__wrapper').on('click', '.project__design-showcase--text', function(){
     if(window.matchMedia('(max-width:960px)').matches){
       $(this).toggleClass('project__design-showcase--is-open');
