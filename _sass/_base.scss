@@ -270,6 +270,15 @@ picture {
 
     & .site__alert-indicator {
       background: #419C7E;
+      animation: indicator-pulse-success 2s infinite;
+    }
+  }
+
+  &.site__alert--info {
+
+    & .site__alert-indicator {
+      background: #f1c40f;
+      animation: indicator-pulse-info 2s infinite;
     }
   }
 }
@@ -281,13 +290,24 @@ picture {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  animation: indicator-pulse 2s infinite;
   transform: translateY(-50%);
 }
 
-@keyframes indicator-pulse {
+@keyframes indicator-pulse-success {
   0% {
-    box-shadow: 0 0 0 0 transparentize($gamma-color, 0.4);
+    box-shadow: 0 0 0 0 transparentize(#419C7E, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+
+@keyframes indicator-pulse-info {
+  0% {
+    box-shadow: 0 0 0 0 transparentize(#f1c40f, 0.4);
   }
   70% {
     box-shadow: 0 0 0 10px rgba(204,169,44, 0);
