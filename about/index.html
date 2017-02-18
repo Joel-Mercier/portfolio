@@ -262,13 +262,37 @@ permalink: /about/
         </svg>
       </div>
       <div class="skills__list">
-        <p>HTML5 / CSS3 / Javascript / jQuery / Adobe Photoshop</p>
+        <p>
+          {% for skill in site.data.skills.advanced %}
+            {% if forloop.last %}
+              {{ skill.name }}
+            {% else %}
+              {{ skill.name | append: ' / ' }}
+            {% endif %}
+          {% endfor %}
+        </p>
       </div>
       <div class="skills__list">
-        <p>PHP / Gulp / Bootstrap / Jekyll / Adobe Illustrator</p>
+        <p>
+          {% for skill in site.data.skills.experienced %}
+            {% if forloop.last %}
+              {{ skill.name }}
+            {% else %}
+              {{ skill.name | append: ' / ' }}
+            {% endif %}
+          {% endfor %}
+        </p>
       </div>
       <div class="skills__list">
-        <p>WordPress / ReactJS / Drupal</p>
+        <p>
+          {% for skill in site.data.skills.beginner %}
+            {% if forloop.last %}
+              {{ skill.name }}
+            {% else %}
+              {{ skill.name | append: ' / ' }}
+            {% endif %}
+          {% endfor %}
+        </p>
       </div>
     </div>
   </div>

@@ -106,7 +106,7 @@ gulp.task('img', function () {
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
-  gulp.watch(['_sass/*.scss', 'css/*.scss'], ['sass']);
+  gulp.watch(['_sass/**/*.scss', 'css/*.scss'], ['sass']);
   gulp.watch(['_js/*.js'], ['js']);
   gulp.watch(['**/*.html', '_layouts/*.html', '_includes/*.html', 'blog/_posts/*', '_config.yml', '_images/*', 'js/*', '**/*.md'], ['jekyll-rebuild']);
 });
@@ -118,5 +118,5 @@ gulp.task('watch', function () {
 gulp.task('default', ['browser-sync', 'watch']);
 
 gulp.task('deploy', ['jekyll-build-prod'], shell.task([
-  'cd _site/ && git add --all && git commit -m "update blog" && git push origin gh-pages'
+  'cd _site/ && git add --all && git commit -m "update blog" && git push'
 ]));

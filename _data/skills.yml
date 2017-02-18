@@ -1,0 +1,18 @@
+advanced:
+  - name: "HTML5"
+  - name: "CSS3"
+  - name: "Javascript"
+  - name: "jQuery"
+  - name: "Adobe Photoshop"
+  - name: "Ruby on Rails"
+experienced:
+  - name: "PHP"
+  - name: "Ruby"
+  - name: "Gulp"
+  - name: "Bootstrap"
+  - name: "Jekyll"
+  - name: "Adobe Illustrator"
+beginner:
+  - name: "WordPress"
+  - name: "ReactJS"
+  - name: "Drupal"

@@ -12,7 +12,7 @@ $( document ).ready(function() {
     .tiDelete()
     .tiType(strings[1])
     .tiBreak()
-    .tiType(strings[2]);
+    .tiType(strings[2]); 
   };
 
   typeTitle('.header__title.type-it', ['var hello = ', 'Joel Mercier', 'Développeur web']);
