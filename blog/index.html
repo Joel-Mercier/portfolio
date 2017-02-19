@@ -7,7 +7,7 @@ permalink: /blog/
   <h2>Articles</h2>
   <div class="blog__content">
     <div class="grid-2-small-1">
-      {% for post in paginator.posts | limit: 1 %}
+      {% for post in paginator.posts limit: 1 %}
       {% if post.cover-img %}
       <article class="blog__item blog__item--full wow fade-in" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('{{ post.cover-img | prepend: "/img/blog/" | prepend: site.baseurl }}') no-repeat center center;">
         <time class="blog__date" datetime="{{ post.date }}">{{ post.date | date: "%b %-d, %Y" }}</time>
@@ -39,7 +39,7 @@ permalink: /blog/
       {% endif %}
       {% endfor %}
       <div>
-      {% for post in paginator.posts | offset:1 limit: 2 %}
+      {% for post in paginator.posts offset:1 limit: 2 %}
       <article class="blog__item wow fade-in">
         <time class="blog__date" datetime="{{ post.date }}">{{ post.date | date: "%b %-d, %Y" }}</time>
         <h3 class="blog__title">{{ post.title }}</h3>
@@ -58,7 +58,7 @@ permalink: /blog/
     </div>
     <div class="grid-2-small-1">
       <div>
-      {% for post in paginator.posts | offset:3 limit: 2 %}
+      {% for post in paginator.posts offset:3 limit: 2 %}
       <article class="blog__item wow fade-in">
         <time class="blog__date" datetime="{{ post.date }}">{{ post.date | date: "%b %-d, %Y" }}</time>
         <h3 class="blog__title">{{ post.title }}</h3>
@@ -75,7 +75,7 @@ permalink: /blog/
       {% endfor %}
       </div>
     </div>
-    {% for post in paginator.posts | offset:5 limit: 1 %}
+    {% for post in paginator.posts offset:5 limit: 1 %}
     <article class="blog__item blog__item--full wow fade-in" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('{{ post.featured-img | prepend: "/img/blog/" | prepend: site.baseurl }}') no-repeat center center;">
       <time class="blog__date" datetime="{{ post.date }}">{{ post.date | date: "%b %-d, %Y" }}</time>
       <h3 class="blog__title">{{ post.title }}</h3>

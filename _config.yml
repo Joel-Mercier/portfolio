@@ -2,7 +2,7 @@
 title: Portfolio de Joel Mercier
 email: hello@joelmercier.io
 description: > # this means to ignore newlines until "baseurl:"
-  Jeune développeur orienté front-end dynamique et soucieux de fournir un travail performant, je recherche actuellement un emploi à Strasbourg. Sur mon site vous pouvez découvrir mon profil ainsi que les réalisations que j'ai pu accomplir lors de mon apprentissage par exemple.
+  Jeune développeur orienté front-end dynamique et soucieux de fournir un travail performant, je suis actuellement développeur Ruby on Rails chez Idéematic à Strasbourg. Sur mon site vous pouvez découvrir mon profil ainsi que les réalisations que j'ai pu accomplir lors de mon apprentissage par exemple.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://joelmercier.io" # the base hostname & protocol for your site
 twitter_username: joelmrcr

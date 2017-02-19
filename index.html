@@ -96,7 +96,7 @@ title: Développeur Web Front End Strasbourg
     <h2>Mes derniers articles</h2>
     <div class="blog__content">
       <div class="grid-2-small-1">
-        {% for post in site.posts | limit: 1 %}
+        {% for post in site.posts limit: 1 %}
         {% if post.cover-img %}
         <article class="blog__item blog__item--full wow fade-in" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('{{ post.cover-img | prepend: "/img/blog/" | prepend: site.baseurl }}') no-repeat center center;">
           <time class="blog__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
@@ -128,7 +128,7 @@ title: Développeur Web Front End Strasbourg
         {% endif %}
         {% endfor %}
         <div>
-          {% for post in site.posts | offset:1 limit: 2 %}
+          {% for post in site.posts offset:1 limit: 2 %}
           <article class="blog__item wow fade-in">
             <time class="blog__date" datetime="{{ post.date }}">{{ post.date | date: "%b %-d, %Y" }}</time>
             <h3 class="blog__title">{{ post.title }}</h3>
