@@ -13,7 +13,7 @@ d’un serious game commandé par la CCI Alsace dans le cadre de son initiative
 Offreurs de Solutions qui regroupe un bon nombre de grandes entreprises et PME
 afin de se préparer aux changements apportés par le futur à l’industrie.
 
-##Un serious game en ligne
+## Un serious game en ligne
 [Offreurs de Solutions : Industrie du futur](http://smarttech-solutions.eu){: target="_blank" rel="noopener"}, se présente sous la forme d’un jeu web
 en HTML5, CSS3 et Javascript. Il utilise une structure en programmation orientée
 objet et intègre la librairie jQuery pour gérer les nombreuses interactions avec
@@ -22,7 +22,7 @@ nécessaires à son fonctionnement. D’autres technologies du langage javascrip
 L’utilisation de frameworks javascript tels que React ou VueJS aurait pu être un excellent ajout à ce projet du fait de l’interaction forte entre l’interface et le script permettant le déroulement du jeu. Cependant les délais de ce projet étaient restreints. Je ne pouvais pas me permettre de commencer l’apprentissage d’un tel framework afin de pouvoir rester flexible et pouvoir intégrer rapidement de nouvelles fonctionnalités car celles-ci ont évolué
 et certaines ont été remplacées au fur et à mesure de l'avancement du projet.
 
-##Des changements fréquents
+## Des changements fréquents
 Le développement du jeu a été quelque peu difficile car les règles et les objectifs
 du jeu ont souvent évolué entre les différentes réunions entre l’équipe d’Almédia,
 composée de Gilles Noeppel, chef du projet et game designer et de moi même, de
@@ -36,7 +36,7 @@ qu’il élabore. Grâce à ce nouveau système, nous avons obtenu un jeu beauco
 {: .post__caption}
 Le ministre Emmanuel Macron découvre le serious game sur un salon allemand avec le président de 2crsi
 
-##Un succès mérité
+## Un succès mérité
 Depuis son lancement le 22 avril 2016, le serious game que j’ai réalisé au sein
 d’Almédia a eu un fort succès grâce à la communication efficace de la CCI. Celle-ci inclut
 une conférence de presse lors de laquelle Gilles et moi même avons présenté le jeu

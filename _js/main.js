@@ -12,7 +12,7 @@ $( document ).ready(function() {
     .tiDelete()
     .tiType(strings[1])
     .tiBreak()
-    .tiType(strings[2]); 
+    .tiType(strings[2]);
   };
 
   typeTitle('.header__title.type-it', ['var hello = ', 'Joel Mercier', 'Développeur web']);
@@ -153,28 +153,16 @@ $( document ).ready(function() {
     typeTitle('.header__title.type-it', ['var hello = ', 'Joel Mercier', 'Développeur web']);
     var currentUrlArray = currentStatus.url.split('/');
     if($.inArray('about', currentUrlArray) > -1) {
-      $('.skills__list:nth-child(2), #expert').connections({
-        'class': 'skills__connection skills__connection--expert',
-        'within': '.skills__container'
-      });
-
-      $('.skills__list:nth-child(3), #intermediate').connections({
-        'class': 'skills__connection skills__connection--intermediate',
-        'within': '.skills__container'
-      });
-
-      $('.skills__list:nth-child(4), #beginner').connections({
-        'class': 'skills__connection skills__connection--beginner',
-        'within': '.skills__container'
-      });
-
-      $(window).on('resize', function() {
-        $('.skills__list:nth-child(2), #expert').connections('update');
-        $('.skills__list:nth-child(3), #intermediate').connections('update');
-        $('.skills__list:nth-child(4), #beginner').connections('update');
-      });
+      intializeConnections();
     } else if($.inArray('blog', currentUrlArray) > -1) {
-      // readingTime($('.post__content').text(), 220, $('.post__readtime'));
+      // console.log('blog')
+      // // readingTime($('.post__content').text(), 220, $('.post__readtime'));
+      // $(window).on('scroll', function(e){
+      //   if( $(document).height() - $(window).scrollTop() < $('.footer_container').height()) {
+      //     console.log('ok')
+      //   }
+      //   console.log('not ok')
+      // });
     }
 
     $('.nav-mobile').removeClass('nav-mobile--is-visible');
@@ -331,26 +319,30 @@ $( document ).ready(function() {
     }
   });
 
-  $('.skills__list:nth-child(2), #expert').connections({
-    'class': 'skills__connection skills__connection--expert',
-    'within': '.skills__container'
-  });
+  var intializeConnections = function () {
+    $('.skills__list:nth-child(2), #expert').connections({
+      'class': 'skills__connection skills__connection--expert',
+      'within': '.skills__container'
+    });
 
-  $('.skills__list:nth-child(3), #intermediate').connections({
-    'class': 'skills__connection skills__connection--intermediate',
-    'within': '.skills__container'
-  });
+    $('.skills__list:nth-child(3), #intermediate').connections({
+      'class': 'skills__connection skills__connection--intermediate',
+      'within': '.skills__container'
+    });
 
-  $('.skills__list:nth-child(4), #beginner').connections({
-    'class': 'skills__connection skills__connection--beginner',
-    'within': '.skills__container'
-  });
+    $('.skills__list:nth-child(4), #beginner').connections({
+      'class': 'skills__connection skills__connection--beginner',
+      'within': '.skills__container'
+    });
 
-  $(window).on('resize', function() {
-    $('.skills__list:nth-child(2), #expert').connections('update');
-    $('.skills__list:nth-child(3), #intermediate').connections('update');
-    $('.skills__list:nth-child(4), #beginner').connections('update');
-  });
+    $(window).on('resize', function() {
+      $('.skills__list:nth-child(2), #expert').connections('update');
+      $('.skills__list:nth-child(3), #intermediate').connections('update');
+      $('.skills__list:nth-child(4), #beginner').connections('update');
+    });
+  }
+
+  intializeConnections();
 
   var readingTime = function(text, readingSpeed, dest) {
     var wordsPerSecond = readingSpeed / 60;
@@ -368,5 +360,4 @@ $( document ).ready(function() {
   }
 
   readingTime($('.post__content').text(), 220, $('.post__readtime'));
-
 });

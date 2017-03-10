@@ -9,10 +9,10 @@ cover-img: barba-js.gif
 ---
 [Barba.js](http://barbajs.org/){: target="_blank" rel="noopener"} est une petite librairie développée par Luigi de Rosa qui permet de facilement obtenir un effet très en vogue dans le webdesign moderne qui est une transition entre les différentes pages d'un site ou d'une application web.
 
-##À quoi ça sert ?
+## À quoi ça sert ?
 Il n'y a pas si longtemps, créer une expérience utilisateur fluide et fonctionnelle sur un site avec une navigation en AJAX (chargeant le contenu d'une page de façon asynchrone donc) n'était pas chose aisée. La gestion de l'historique du navigateur n'était pas simple à implémenter et il fallait créer un objet `XMLHttpRequest` à chaque changement de page. De plus, l'écran blanc d'un changement de page classique n'est pas la meilleure expérience pour l'utilisateur car il est sorti du contexte et de l'identité visuelle du site qu'il visite.
 
-##Qu'apporte Barba.js ?
+## Qu'apporte Barba.js ?
 La librairie apporte tous les outils afin de résoudre ces problèmes et de permettre un contrôle total des transitions avec une syntaxe moderne intégrant des nouveautés du langage javascript comme les promesses (`new Promise()`).
 Sans nécessiter une configuration importante, Barba.js donne accès à un gestionnaire de transitions et de namespaces, l'API PushState qui permet de modifier dynamiquement l'historique du navigateur, des évènements lancés au clic d'un lien ou au chargement d'une nouvelle page ainsi qu'un système de cache. Le tout sans dépendances et en seulement 4kb minifié et gzippé, chapeau !
 

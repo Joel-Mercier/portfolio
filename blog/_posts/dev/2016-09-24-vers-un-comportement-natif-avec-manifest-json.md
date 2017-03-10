@@ -9,10 +9,10 @@ cover-img: manifest-json.gif
 ---
 Avec l'arrivée du concept de PWA (Progressive Web Applications), fortement initié par Google lors de son évènement Google IO dédié aux développeurs, est apparu le besoin de donner un comportement d'application native aux PWA. Voici des exemples de fonctionnalités que l'on peut obtenir grâce au fichier `manifest.json` pour n'importe quel site.
 
-##Qu'est ce que c'est ?
+## Qu'est ce que c'est ?
 Il s'agit d'un simple fichier json que l'on intègrera de la façon suivante `<link rel="manifest" href="/manifest.json">`. Il permet d'indiquer le comportement à utiliser par votre application web lorsqu'elle est utilisée comme une application native, installée sur l'écran d'accueil de votre smartphone par exemple.
 
-##Les propriétés du manifest.json
+## Les propriétés du manifest.json
 Passons maintenant au contenu de ce fameux fichier json et quels effets ont ses différents champs:
 
  - `name` vous permet d'indiquer le nom complet de votre application.
@@ -28,7 +28,7 @@ Passons maintenant au contenu de ce fameux fichier json et quels effets ont ses 
  - `lang` renseigne la langue utilisée pour les valeurs `name` et `short_name`.
  - `icons` est un tableau permettant de spécifier des icônes à utiliser durant le chargement de l'application ainsi que leurs dimensions et types.
 
-##Un écran d'accueil automatique et autres fonctionnalités
+## Un écran d'accueil automatique et autres fonctionnalités
 L'utilisation des clés `name`, `background_color` et `icons` permet à Chrome de générer un splash screen simple avec l'icône, la couleur de fond et le titre renseignés. De plus, si vous combinez l'utilisation de ce fichier json avec un service worker (afin de créer un cache ou de proposer des fonctionnalités offline par exemple), Chrome va afficher un petit bandeau invitant l'utilisateur à ajouter votre application à l'écran de son smartphone en un clic.
 D'autres versions de votre application (applications natives via Google Play ou l'App Store par exemple) peuvent également être spécifiées dans votre fichier json.
 

@@ -51,7 +51,7 @@ layout: default
           {% endif %}
         </p>
         <p class="site__lead">{{ page.lead }}</p>
-        <p class="post__readtime"> 
+        <p class="post__readtime">
           <span>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 187.852 187.852">
               <g>
@@ -72,7 +72,7 @@ layout: default
   {% endif %}
   <div class="wrapper">
     <div class="post__content" itemprop="articleBody">
-      {{ content }}
+      {{ page.content }}
     </div>
     {% if prevurl %}
     <div class="project__navigation project__navigation--left wow fade-in" data-wow-offset="650">
