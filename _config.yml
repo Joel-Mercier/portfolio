@@ -8,6 +8,7 @@ url: "https://joelmercier.io" # the base hostname & protocol for your site
 twitter_username: joelmrcr
 github_username:  Joel-Mercier
 linked_in_id: joel-mercier-a1450388
+google_analytics_id: "UA-84539958-1"
 
 # Build settings
 markdown: kramdown
