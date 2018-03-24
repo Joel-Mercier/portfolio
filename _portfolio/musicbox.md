@@ -2,13 +2,15 @@
 layout: project
 title: "La Boîte Musicale"
 date: 2015-04-02
+work_id: "musicbox"
 roles:
   - "Webdesigner"
   - "Développeur"
 client: "La Boîte Musicale"
 website-url: "http://laboitemusicale.fr"
 cover: "musicbox.jpg"
-full-img: "musicbox/musicbox"
+full-img:
+  - "musicbox/musicbox"
 full-img-shadow: true
 decorative-img: "musicbox/logo"
 gradient-colors:

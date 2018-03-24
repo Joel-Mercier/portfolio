@@ -9,8 +9,8 @@
         <li class="nav__item {% if current[1] == 'about' %}nav__item--current{% endif %}">
           <a class="nav__link" href="{{ '/about/' | prepend: site.baseurl }}">À propos</a>
         </li>
-        <li class="nav__item {% if current[1] == 'portfolio' %}nav__item--current{% endif %}">
-          <a class="nav__link" href="{{ '/#portfolio' | prepend: site.baseurl }}">Portfolio</a>
+        <li class="nav__item {% if current[1] == 'works' %}nav__item--current{% endif %}">
+          <a class="nav__link" href="{{ '/works/' | prepend: site.baseurl }}">Portfolio</a>
         </li>
         <li class="nav__item {% if current[1] == 'blog' %}nav__item--current{% endif %}">
           <a class="nav__link" href="{{ '/blog/' | prepend: site.baseurl }}">Blog</a>
@@ -21,7 +21,10 @@
 
   {% if page.url == '/' %}
   <div class="header__hero header__hero--full">
-    <h1 class="header__title type-it"></h1>
+    <div style="display: none;">
+      <h1 class="header__title">Joel Mercier développeur web</h1>
+    </div>
+    <h1 class="header__title header__title--type"></h1>
     <div class="header__img animated fade-in-up"></div>
     {% for i in (1..16) %}
       <div class="header__bubble header__bubble--small" id="bubble{{ i }}"></div>
@@ -36,6 +39,8 @@
   {% else %}
   {% if current[1] == 'works' %}
   <div class="header__hero" style="background-image: url('{{ "noisy-texture.png" | prepend: "/img/" | prepend: site.baseurl }}'), linear-gradient(135deg, {{ page.gradient-colors[0] | hex_to_rgba: 1 }} 0%, {{ page.gradient-colors[1] | hex_to_rgba: 1 }} 100%)">
+  {% elsif current[1] == 'blog' %}
+  <div class="header__hero" style="background-image: url('{{ "noisy-texture.png" | prepend: "/img/" | prepend: site.baseurl }}'), linear-gradient(135deg,#eb6361,#673a5d)">
   {% else %}
   <div class="header__hero">
   {% endif %}
@@ -51,9 +56,10 @@
         </svg>
       </span>Retour aux articles
     </a>
+    <div class="header__hero-overlay" style="background-image: url('{{ page.cover-img | prepend: "/img/blog/" | prepend: site.baseurl }}')">
     {% endif %}
     {% if page.path contains '_portfolio' %}
-    <a class="header__backlink" href="{{ '/#portfolio' | prepend: site.baseurl }}">
+    <a class="header__backlink" href="{{ '/works/' | prepend: site.baseurl }}">
       <span>
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32.635 32.635" xml:space="preserve">
           <g>

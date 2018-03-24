@@ -1,8 +1,152 @@
+body.works {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .portfolio__container {
   height: 100vh;
   position: relative;
   color: #fff;
-  background: $gradient;
+  background: url(../img/noisy-texture.png), $gradient;
+}
+
+.portfolio__hero_item {
+  opacity: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  z-index: 1;
+  color: #fff;
+  background: url(../img/noisy-texture.png), $gradient;
+
+  @include media("<small-plus-screen") {
+    flex-direction: column;
+  }
+}
+
+.portfolio__nav {
+	position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+	margin: 0 0 0 $medium-value;
+  z-index: 99;
+
+  @include media("<small-plus-screen") {
+    margin: 0 0 0 $small-value;
+  }
+}
+
+.portfolio__nav_item {
+  line-height: 1;
+	position: relative;
+	display: block;
+  width: $medium-plus-value;
+	padding: 0;
+	letter-spacing: 0;
+	color: #fff;
+	border: 0;
+	background: none;
+	height: $small-plus-value;
+	margin: $small-value 0;
+  cursor: pointer;
+
+  &:focus {
+  	outline: none;
+  }
+
+  &::after {
+    content: '';
+  	position: absolute;
+  	top: 35%;
+  	left: 0;
+  	width: 100%;
+  	height: 30%;
+  	background: #fff;
+  	transform-origin: 0 0;
+  	transition: transform 0.5s, background-color 0.5s;
+  	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+  }
+
+  &:not(.portfolio__nav_item--current):hover::after,
+  &:not(.portfolio__nav_item--current):focus::after {
+  	background: $alpha-color;
+  	transition: background-color 0.3s;
+  }
+
+  &.portfolio__nav_item--current::after {
+  	background: $alpha-color;
+  	transform: scale3d(0.2,1,1);
+  }
+}
+
+.portfolio__nav_item_title {
+	margin: 0 0 0 $large-value;
+  width: 300px;
+  text-align: left;
+	opacity: 0;
+	display: block;
+	transform: translate3d($medium-plus-value,0,0);
+	transition: opacity 0.5s, transform 0.5s;
+	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+
+  @include media("<small-plus-screen") {
+    display: none;
+  }
+}
+
+.portfolio__nav_item--current .portfolio__nav_item_title, .portfolio__nav_item:hover .portfolio__nav_item_title {
+	opacity: 1;
+	transform: translate3d(0,0,0);
+	transition-delay: 0.1s;
+}
+
+.portfolio__hero_img_container, .portfolio__hero_content_container {
+  position: relative;
+  text-align: center;
+  flex: 1;
+}
+
+.portfolio__hero_img_container {
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &:before {
+    display: block;
+    content: '';
+    height: 100%;
+    background-color: rgba(0, 25, 43, 0.3);
+  }
+}
+
+.portfolio__hero_content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 $large-value;
+
+  .portfolio__hero_content_surtitle {
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+
+  .portfolio__hero_content_title {
+    @include media("<small-screen") {
+      margin: $small-value 0 0 0;
+    }
+  }
+
+  .portfolio__hero_content_description {
+    margin-bottom: $medium-value;
+  }
+
+  @include media("<small-plus-screen") {
+    padding: 0 $small-value
+  }
 }
 
 .portfolio__image {

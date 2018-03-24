@@ -262,35 +262,21 @@ permalink: /about/
         </svg>
       </div>
       <div class="skills__list">
-        <p>
-          {% for skill in site.data.skills.advanced %}
-            {% if forloop.last %}
-              {{ skill.name }}
-            {% else %}
-              {{ skill.name | append: ' / ' }}
-            {% endif %}
-          {% endfor %}
-        </p>
+        {% for skill in site.data.skills.advanced %}
+          <div class="site__tag site__tag--about">{{ skill.name }}</div>
+        {% endfor %}
       </div>
       <div class="skills__list">
         <p>
           {% for skill in site.data.skills.experienced %}
-            {% if forloop.last %}
-              {{ skill.name }}
-            {% else %}
-              {{ skill.name | append: ' / ' }}
-            {% endif %}
+            <div class="site__tag site__tag--about">{{ skill.name }}</div>
           {% endfor %}
         </p>
       </div>
       <div class="skills__list">
         <p>
           {% for skill in site.data.skills.beginner %}
-            {% if forloop.last %}
-              {{ skill.name }}
-            {% else %}
-              {{ skill.name | append: ' / ' }}
-            {% endif %}
+            <div class="site__tag site__tag--about">{{ skill.name }}</div>
           {% endfor %}
         </p>
       </div>

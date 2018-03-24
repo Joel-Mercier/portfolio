@@ -47,3 +47,4 @@ node_modules
 /sources/
 
 .DS_Store
+.idea

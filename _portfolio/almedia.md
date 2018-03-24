@@ -2,13 +2,15 @@
 layout: project
 title: "Almédia"
 date: 2016-01-01
+work_id: "almedia"
 roles:
   - "Webdesigner"
   - "Développeur"
 client: "Almédia"
 website-url: "http://www.almedia.fr"
 cover: "almedia.jpg"
-full-img: "almedia/almedia"
+full-img:
+  - "almedia/almedia"
 full-img-shadow: true
 decorative-img: "almedia/game-controller"
 gradient-colors:

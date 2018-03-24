@@ -9,6 +9,7 @@ twitter_username: joelmrcr
 github_username:  Joel-Mercier
 linked_in_id: joel-mercier-a1450388
 google_analytics_id: "UA-84539958-1"
+main_color: "#eb6361"
 
 # Build settings
 markdown: kramdown

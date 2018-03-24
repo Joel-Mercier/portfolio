@@ -67,9 +67,9 @@ picture {
 
 .site__browserupgrade {
   position: fixed;
-  bottom: 0;
+  top: 0;
   width: 100%;
-  padding: 0 0 10px 0;
+  padding: 10px 0;
   border-bottom: 1px solid $alpha-color;
   text-align: center;
   margin: 0;
@@ -215,6 +215,14 @@ picture {
   }
 }
 
+body.works .site__scroll {
+  z-index: 1;
+
+  @include media("<small-plus-screen") {
+    display: none;
+  }
+}
+
 .testimonial__item {
   width: 70%;
   margin: 0 auto;
@@ -314,5 +322,18 @@ picture {
   }
   100% {
     box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+
+.site__tag {
+  display: inline-block;
+  padding: $tiny-value $small-value;
+  font-size: $small-plus-value;
+
+  &.site__tag--about {
+    background-color: $base-background;
+    color: $base-color;
+    border-radius: $medium-value;
+    margin-bottom: $small-value;
   }
 }

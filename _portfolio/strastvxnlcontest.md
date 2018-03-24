@@ -2,13 +2,15 @@
 layout: project
 title: "StrasTV x NL Contest 2015"
 date: 2015-05-15
+work_id: "strastvxnlcontest"
 roles:
   - "Webdesigner"
   - "Développeur"
 client: "StrasTV"
 website-url: "http://strastv-nlcontest.com"
 cover: "strastvxnlcontest.jpg"
-full-img: "strastvxnlcontest/strastvxnlcontest"
+full-img:
+  - "strastvxnlcontest/strastvxnlcontest"
 full-img-shadow: true
 decorative-img: "strastvxnlcontest/skateboard"
 gradient-colors:

@@ -5,7 +5,7 @@
 
   <body>
     <!--[if IE 9]>
-    <p class="site__browserupgrade">Vous utilisez un <strong>ancien navigateur</strong>. <a href="http://browsehappy.com" target="_blank">Mettez votre navigateur à jour</a> pour une meilleure expérience sur le web !</p>
+    <p class="site__browserupgrade site__altbg">Vous utilisez un <strong>ancien navigateur</strong>. <a href="http://browsehappy.com" target="_blank">Mettez votre navigateur à jour</a> pour une meilleure expérience sur le web !</p>
     <![endif]-->
     <button class="nav-mobile__show">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="icon-menu" viewBox="0 0 384.97 384.97" xml:space="preserve">
@@ -31,7 +31,7 @@
         <ul class="nav-mobile__list">
           {% assign current = page.url | downcase | split: '/' %}
           <li class="nav-mobile__item {% if current[1] == 'about' %}nav-mobile__item--current{% endif %}"><a class="nav-mobile__link" href="{{ '/about/' | prepend: site.baseurl }}">À propos</a></li>
-          <li class="nav-mobile__item {% if current[1] == 'portfolio' %}nav-mobile__item--current{% endif %}"><a class="nav-mobile__link" href="{{ '/#portfolio' | prepend: site.baseurl }}">Portfolio</a></li>
+          <li class="nav-mobile__item {% if current[1] == 'works' %}nav-mobile__item--current{% endif %}"><a class="nav-mobile__link" href="{{ '/works/' | prepend: site.baseurl }}">Portfolio</a></li>
           <li class="nav-mobile__item {% if current[1] == 'blog' %}nav-mobile__item--current{% endif %}"><a class="nav-mobile__link" href="{{ '/blog/' | prepend: site.baseurl }}">Blog</a></li>
         </ul>
       </nav>

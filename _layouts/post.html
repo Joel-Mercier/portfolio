@@ -94,35 +94,11 @@ layout: default
     <div id="disqus_thread"></div>
 
     <script>
-      var disqus_config = function () {
-        this.page.url = "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "{{ page.title }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        console.log('disqus config');
-      };
-
-      (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-
-        s.src = '//jomercier.disqus.com/embed.js';
-
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-      })();
-
-      /* * * Disqus Reset Function * * */
-      var reset = function (newIdentifier, newUrl, newTitle, newLanguage) {
-        DISQUS.reset({
-            reload: true,
-            config: function () {
-                this.page.identifier = newIdentifier;
-                this.page.url = newUrl;
-                this.page.title = newTitle;
-                this.language = newLanguage;
-            }
-        });
-      };
-
-      reset('{{ page.title }}', '{{ page.url | replace:"index.html","" | prepend: "http://localhost:3000" }}', '{{ page.title }}', 'fr');
+      var page = {
+        title: "{{ page.title }}",
+        url: "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}",
+        identifier: "{{ page.title }}"
+      }
     </script>
     <noscript>Veuillez activer Javascript sur votre navigateur afin de voir <a href="https://disqus.com/?ref_noscript" rel="nofollow">les commentaires.</a></noscript>
   </div>

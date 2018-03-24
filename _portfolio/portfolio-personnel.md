@@ -2,6 +2,7 @@
 layout: project
 title: "Portfolio personnel"
 date: 2016-09-07
+work_id: "portfolio"
 roles:
   - "Webdesigner"
   - "Développeur"

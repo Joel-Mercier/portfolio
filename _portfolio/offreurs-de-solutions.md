@@ -2,6 +2,7 @@
 layout: project
 title: "Offreurs de Solutions : Le Jeu"
 date: 2016-06-07
+work_id: "cci"
 roles:
   - "Développeur"
 client: "CCI Alsace"

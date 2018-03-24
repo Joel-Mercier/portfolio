@@ -1,0 +1,61 @@
+---
+layout: portfolio
+title: Portfolio
+page-name: Mes travaux
+permalink: /works/
+---
+<div class="portfolio__container portfolio__hero">
+  <nav class="nav nav--transparent">
+    <div class="wrapper" style="padding: 0 3rem;">
+      <a class="nav__logo" href="{{ site.baseurl }}/">
+        <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.03 54"><title>logo</title><g id="logo-m"><polygon points="56.03 54 46.97 54 40 18 49.25 18 56.03 54" style="fill:#673a5d"/><polygon points="27 54 36 54 49.25 18 40 18 27 54" style="fill:#fff"/><polygon points="76.03 36 66.97 36 60 18 69.25 18 76.03 36" style="fill:#673a5d"/><polygon points="47 54 56 54 69.25 18 60 18 47 54" style="fill:#fff"/></g><g id="logo-j"><polygon points="16.03 54 6.97 54 0 36 9.25 36 16.03 54" style="fill:#673a5d"/><polygon id="_Tracé_" data-name="&lt;Tracé&gt;" points="7 54 16 54 29.25 18 20 18 7 54" style="fill:#fff"/><polygon points="23.25 9 32.5 9 35.75 0 26.5 0 23.25 9" style="fill:#fff"/></g></svg>
+      </a>
+      <ul class="nav__list">
+        {% assign current = page.url | downcase | split: '/' %}
+        <li class="nav__item {% if current[1] == 'about' %}nav__item--current{% endif %}">
+          <a class="nav__link" href="{{ '/about/' | prepend: site.baseurl }}">À propos</a>
+        </li>
+        <li class="nav__item {% if current[1] == 'works' %}nav__item--current{% endif %}">
+          <a class="nav__link" href="{{ '/works/' | prepend: site.baseurl }}">Portfolio</a>
+        </li>
+        <li class="nav__item {% if current[1] == 'blog' %}nav__item--current{% endif %}">
+          <a class="nav__link" href="{{ '/blog/' | prepend: site.baseurl }}">Blog</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  {% if site.portfolio %}
+    {% assign items = (site.portfolio | sort: 'date') %}
+    {% for portfolio_item in items %}
+      {% if forloop.last == true %}
+        <div class="portfolio__hero_item fade-in animated" id="{{portfolio_item.work_id}}">
+      {% else %}
+        <div class="portfolio__hero_item" id="{{portfolio_item.work_id}}">
+      {% endif %}
+        <div class="portfolio__hero_img_container" style="background-image: url('../img/portfolio/{{ portfolio_item.full-img[0] }}@2x.png');"></div>
+        <div class="portfolio__hero_content_container">
+          <div class="portfolio__hero_content">
+            <p class="portfolio__hero_content_surtitle">Mes derniers projets</p>
+            <h2 class="portfolio__hero_content_title">{{ portfolio_item.title }}</h2>
+            <p class="portfolio__hero_content_description">{{ portfolio_item.lead }}</p>
+            <a class="button button--primary" href="{{portfolio_item.url}}"><span>En savoir plus</span></a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+    <nav class="portfolio__nav">
+      {% assign items = (site.portfolio | sort: 'date' | reverse) %}
+      {% for portfolio_item in items %}
+        {% if forloop.first == true %}
+      	  <button class="portfolio__nav_item portfolio__nav_item--current" aria-label="{{ portfolio_item.title }}" data-to="{{portfolio_item.work_id}}">
+        {% else %}
+          <button class="portfolio__nav_item" aria-label="{{ portfolio_item.title }}" data-to="{{portfolio_item.work_id}}">
+        {% endif %}
+      	  <span class="portfolio__nav_item_title">{{ portfolio_item.title }}</span>
+      	</button>
+      {% endfor %}
+    </nav>
+  {% endif %}
+  <a href="#" class="site__scroll site__scroll--white js-portfolio-nav-next"></a>
+</div>
