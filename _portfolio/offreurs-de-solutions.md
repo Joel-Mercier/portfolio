@@ -7,7 +7,7 @@ roles:
   - "Développeur"
 client: "CCI Alsace"
 website-url: "http://smarttech-solutions.eu"
-cover: "offreurs-de-solutions.jpg"
+cover: "offreurs-de-solutions"
 full-img:
   - "offreurs-de-solutions/game-responsive"
   - "offreurs-de-solutions/backoffice-responsive"

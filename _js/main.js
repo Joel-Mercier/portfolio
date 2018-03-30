@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
 
   if (document.querySelector('.header__title.header__title--type')) {
-    typeTitle('.header__title.header__title--type', ['var hello = ', 'Joel Mercier<br>Développeur web'])
+    typeTitle('.header__title.header__title--type', ['var hello =', 'var', 'const', 'const hello =', 'Joel Mercier<br>Développeur web'])
   }
 
   // document.getElementById('barba__wrapper').addEventListener('click', 'a[href*="#"]:not([href="#"])', function () {
@@ -52,15 +52,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   document.getElementById('barba__wrapper').addEventListener('mouseover', function portfolioMouseEnterHandler (e) {
     if (e.target.classList.contains('portfolio__link')) {
-      console.log('mouseover')
       var currentImage = document.querySelector('.portfolio__image')
       var portfolioImg = e.target.parentNode.getAttribute('data-img')
-      var portfolioImgName = portfolioImg.split('.').shift()
-      var portfolioImgExt = portfolioImg.split('.').pop()
       if (isHighDensity()) {
-        currentImage.style.backgroundImage = 'url(img/portfolio/covers/' + portfolioImgName + '@2x.' + portfolioImgExt + ')'
+        currentImage.style.backgroundImage = 'url(img/portfolio/covers/' + portfolioImg + '@2x.jpg)'
       } else {
-        currentImage.style.backgroundImage = 'url(img/portfolio/covers/' + portfolioImgName + '@1x.' + portfolioImgExt + ')'
+        currentImage.style.backgroundImage = 'url(img/portfolio/covers/' + portfolioImg + '@1x.jpg)'
       }
       currentImage.classList.remove('animated', 'fade-out')
       currentImage.classList.add('animated', 'fade-in')
@@ -70,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var portfolioLinks = document.querySelectorAll('.portfolio__link')
   for (var i = 0; i < portfolioLinks.length; i++) {
     portfolioLinks[i].addEventListener('mouseleave', function portfolioMouseOutHandler () {
-      console.log('mouseover')
       var currentImage = document.querySelector('.portfolio__image')
       var animationEnd = whichAnimationEvent()
       currentImage.classList.remove('animated', 'fade-in')
@@ -178,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   Barba.Dispatcher.on('newPageReady', function (currentStatus, oldStatus, container) {
     console.log('newPageReady')
+    window.scrollTo(0, 0)
     if (document.querySelector('.header__title.header__title--type')) {
       typeTitle('.header__title.header__title--type', ['var hello = ', 'Joel Mercier<br>Développeur web'])
     }
@@ -373,15 +370,15 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
 
   // Test via a getter in the options object to see if the passive property is accessed
-  var supportsPassiveEventListener = false;
+  var supportsPassiveEventListener = false
   try {
     var opts = Object.defineProperty({}, 'passive', {
-      get: function() {
-        supportsPassiveEventListener = true;
+      get: function () {
+        supportsPassiveEventListener = true
       }
-    });
-    window.addEventListener("testPassive", null, opts);
-    window.removeEventListener("testPassive", null, opts);
+    })
+    window.addEventListener('testPassive', null, opts)
+    window.removeEventListener('testPassive', null, opts)
   } catch (e) {}
   var animationEnd = whichAnimationEvent()
   var worksList = []

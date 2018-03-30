@@ -8,6 +8,14 @@ body.works {
   position: relative;
   color: #fff;
   background: url(../img/noisy-texture.png), $gradient;
+
+  &:not(.portfolio__hero) .button--primary {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+  }
 }
 
 .portfolio__hero_item {
@@ -21,6 +29,10 @@ body.works {
   color: #fff;
   background: url(../img/noisy-texture.png), $gradient;
 
+  &.fade-in {
+    z-index: 2;
+  }
+
   @include media("<small-plus-screen") {
     flex-direction: column;
   }
@@ -31,7 +43,7 @@ body.works {
   top: 50%;
   transform: translateY(-50%);
 	margin: 0 0 0 $medium-value;
-  z-index: 99;
+  z-index: 5;
 
   @include media("<small-plus-screen") {
     margin: 0 0 0 $small-value;

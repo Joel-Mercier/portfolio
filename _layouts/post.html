@@ -90,16 +90,5 @@ layout: default
       </a>
     </div>
     {% endif %}
-
-    <div id="disqus_thread"></div>
-
-    <script>
-      var page = {
-        title: "{{ page.title }}",
-        url: "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}",
-        identifier: "{{ page.title }}"
-      }
-    </script>
-    <noscript>Veuillez activer Javascript sur votre navigateur afin de voir <a href="https://disqus.com/?ref_noscript" rel="nofollow">les commentaires.</a></noscript>
   </div>
 </article>

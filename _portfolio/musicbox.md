@@ -8,7 +8,7 @@ roles:
   - "Développeur"
 client: "La Boîte Musicale"
 website-url: "http://laboitemusicale.fr"
-cover: "musicbox.jpg"
+cover: "musicbox"
 full-img:
   - "musicbox/musicbox"
 full-img-shadow: true

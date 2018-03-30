@@ -81,7 +81,7 @@ gulp.task('sass', function () {
  * Concatenate and minify the js files then rename the bundle
 */
 gulp.task('js', function () {
-  gulp.src(['./_js/barba.js', './_js/picturefill.js', './_js/typed.min.js', './_js/wow.js', './_js/pace.js', './_js/hammer.min.js', './_js/disqusloader.js', './_js/fetch.js', './_js/main.js'])
+  gulp.src(['./_js/barba.js', './_js/picturefill.js', './_js/typed.min.js', './_js/wow.js', './_js/pace.js', './_js/hammer.min.js', './_js/fetch.js', './_js/main.js'])
     // .pipe(sourcemaps.init())
     .pipe(uglify())
     .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()) })

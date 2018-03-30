@@ -8,7 +8,7 @@ roles:
   - "Développeur"
 client: "Projet personnel"
 website-url: "https://joelmercier.io"
-cover: "portfolio.jpg"
+cover: "portfolio"
 full-img:
   - "portfolio/homescreen"
   - "portfolio/screens"

@@ -7,7 +7,7 @@ roles:
 - Développeur
 client: Groupe Fed via l'agence Idéematic
 website-url: https://www.fedfinance.fr
-cover: fedfinance.jpg
+cover: fedfinance
 full-img:
 - fedfinance/fedfinance
 - fedfinance/offers

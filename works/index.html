@@ -4,7 +4,7 @@ title: Portfolio
 page-name: Mes travaux
 permalink: /works/
 ---
-<div class="portfolio__container portfolio__hero">
+<div class="portfolio__container portfolio__hero"> 
   <nav class="nav nav--transparent">
     <div class="wrapper" style="padding: 0 3rem;">
       <a class="nav__logo" href="{{ site.baseurl }}/">
@@ -32,13 +32,13 @@ permalink: /works/
       {% else %}
         <div class="portfolio__hero_item" id="{{portfolio_item.work_id}}">
       {% endif %}
-        <div class="portfolio__hero_img_container" style="background-image: url('../img/portfolio/{{ portfolio_item.full-img[0] }}@2x.png');"></div>
+        <div class="portfolio__hero_img_container" style="background-image: url('../img/portfolio/covers/{{ portfolio_item.cover }}@2x.jpg');"></div>
         <div class="portfolio__hero_content_container">
           <div class="portfolio__hero_content">
             <p class="portfolio__hero_content_surtitle">Mes derniers projets</p>
             <h2 class="portfolio__hero_content_title">{{ portfolio_item.title }}</h2>
             <p class="portfolio__hero_content_description">{{ portfolio_item.lead }}</p>
-            <a class="button button--primary" href="{{portfolio_item.url}}"><span>En savoir plus</span></a>
+            <a class="button button--primary" href="{{portfolio_item.website-url}}"><span>En savoir plus</span></a>
           </div>
         </div>
       </div>

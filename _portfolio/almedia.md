@@ -8,7 +8,7 @@ roles:
   - "Développeur"
 client: "Almédia"
 website-url: "http://www.almedia.fr"
-cover: "almedia.jpg"
+cover: "almedia"
 full-img:
   - "almedia/almedia"
 full-img-shadow: true

@@ -1,6 +1,6 @@
 # joelmercier.io
 
-My personal portfolio built with Jekyll. All the tasks are automated with Gulp. Styles are done with Sass. jQuery is used to interact with the DOM and Barba.js handles the PJAX navigation on the site.
+My personal portfolio built with Jekyll. All the tasks are automated with Gulp. Styles are done with Sass. Barba.js handles the PJAX navigation on the site.
 
 You can see it live [here](https://joelmercier.io)
 

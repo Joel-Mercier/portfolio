@@ -8,7 +8,7 @@ roles:
   - "Développeur"
 client: "StrasTV"
 website-url: "http://strastv-nlcontest.com"
-cover: "strastvxnlcontest.jpg"
+cover: "strastvxnlcontest"
 full-img:
   - "strastvxnlcontest/strastvxnlcontest"
 full-img-shadow: true
