@@ -6,6 +6,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,4 +32,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.mask {
+  background: radial-gradient(
+    600px at var(--mouse-x) var(--mouse-y),
+    rgba(29, 78, 216, 0.15), 
+    transparent 40%
+  );
 }
