@@ -1,14 +1,10 @@
-import { ArrowUpRight } from "lucide-react"
-import Link from "next/link"
-import { Badge } from "./ui/badge"
-import { Experience } from "@/data/experiences"
-import { parseISO } from "date-fns"
-import { Project } from "@/data/projects"
-import Image from "next/image"
-import Test from "../public/portfolio/covers/pixseb.jpg"
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { Project as ProjectType } from "@/data/projects";
+import ExportedImage from "next-image-export-optimizer";
 
 interface Props {
-  project: Project
+  project: ProjectType;
 }
 
 const Project = ({ project }: Props) => {
@@ -17,7 +13,12 @@ const Project = ({ project }: Props) => {
       <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
       <div className="z-10 sm:order-2 sm:col-span-6">
         <h3>
-          <Link href={project.websiteUrl} className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-rose-600 focus-visible:text-rose-600  group/link text-base" target="blank" rel="noreferrer noopener">
+          <Link
+            href={project.websiteUrl}
+            className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-emerald-500 focus-visible:text-emerald-500  group/link text-base"
+            target="blank"
+            rel="noreferrer noopener"
+          >
             <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
             <span>
               {project.title}
@@ -27,12 +28,18 @@ const Project = ({ project }: Props) => {
             </span>
           </Link>
         </h3>
-        <p className="mt-2 text-sm leading-normal whitespace-pre-wrap">{project.lead}</p>
-
+        <p
+          className="mt-2 text-sm leading-normal whitespace-pre-wrap"
+          dangerouslySetInnerHTML={{ __html: project.lead }}
+        ></p>
       </div>
-      <Image src={project.cover} alt={project.title} className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1" />
+      <ExportedImage
+        src={project.cover}
+        alt={project.title}
+        className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+      />
     </div>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;

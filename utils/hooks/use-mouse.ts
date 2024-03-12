@@ -19,13 +19,13 @@ export function useMouse() {
     elementPositionY: 0,
   });
 
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       let newState: Partial<State> = {
-        x: event.pageX,
-        y: event.pageY,
+        x: event.clientX,
+        y: event.clientY,
       };
 
       if (ref.current?.nodeType === Node.ELEMENT_NODE) {

@@ -1,3 +1,4 @@
+// @ts-ignore
 import { interpolate } from "flubber";
 import { MotionValue, useTransform } from "framer-motion";
 

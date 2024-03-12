@@ -7,13 +7,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <div className="relative">
       <Mask />
       <main
         className={`mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 ${inter.className}`}
       >
         <Component {...pageProps} />
       </main>
-    </>
+    </div>
   );
 }
