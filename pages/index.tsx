@@ -12,9 +12,9 @@ import experiences from "@/data/experiences";
 import { useIntersectionObserver } from "@/utils/hooks/use-intersection-observer";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
-import projects from "@/data/projects";
 import Project from "@/components/project";
 import Head from "next/head";
+import projects from "@/data/projects";
 
 export default function Home() {
   const { isIntersecting: isAboutSectionIntersecting, ref: aboutSectionRef } =
@@ -224,7 +224,7 @@ export default function Home() {
             </h2>
           </div>
           <ol className="group/list">
-            {projects.map((project, index) => (
+            {projects.slice(0, 4).map((project, index) => (
               <li className="mb-12" key={index}>
                 <Project project={project} />
               </li>
@@ -267,7 +267,7 @@ export default function Home() {
               className="font-medium text-slate-400 hover:text-emerald-300 focus-visible:text-emerald-300"
               href="https://ui.shadcn.com/"
             >
-              Shadn/ui
+              Shadcn/ui
             </Link>{" "}
             ♥️. Hébérgé chez{" "}
             <Link

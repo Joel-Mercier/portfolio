@@ -6,14 +6,6 @@ const Mask = () => {
   useEffect(() => {
     let x = (mouse.x / window.innerWidth) * 100;
     let y = (mouse.y / window.innerHeight) * 100;
-    console.log(
-      mouse,
-      "window :",
-      { height: window.innerHeight, width: window.innerWidth },
-      "beam %",
-      { x, y },
-      "y %"
-    );
     ref.current?.style.setProperty("--mouse-x", x + "%");
     ref.current?.style.setProperty("--mouse-y", y + "%");
   }, [mouse, ref]);

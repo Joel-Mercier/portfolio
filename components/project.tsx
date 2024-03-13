@@ -14,17 +14,19 @@ const Project = ({ project }: Props) => {
       <div className="z-10 sm:order-2 sm:col-span-6">
         <h3>
           <Link
-            href={project.websiteUrl}
+            href={project.path || project.websiteUrl}
             className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-emerald-500 focus-visible:text-emerald-500  group/link text-base"
-            target="blank"
-            rel="noreferrer noopener"
+            target={!project.path ? "blank" : undefined}
+            rel={!project.path ? "noreferrer noopener" : undefined}
           >
             <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
             <span>
               {project.title}
-              <span className="inline-block">
-                <ArrowUpRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" />
-              </span>
+              {!project.path && (
+                <span className="inline-block">
+                  <ArrowUpRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" />
+                </span>
+              )}
             </span>
           </Link>
         </h3>
@@ -36,7 +38,7 @@ const Project = ({ project }: Props) => {
       <ExportedImage
         src={project.cover}
         alt={project.title}
-        className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+        className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1 aspect-square object-cover"
       />
     </div>
   );

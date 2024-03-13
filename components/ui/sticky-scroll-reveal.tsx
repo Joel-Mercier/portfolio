@@ -13,17 +13,14 @@ interface Props {
   contentClassName?: string;
 }
 
-const StickyScrollReveal = ({
-  content,
-  contentClassName,
-}: Props) => {
+const StickyScrollReveal = ({ content, contentClassName }: Props) => {
   const [activeCard, setActiveCard] = useState<number>(0);
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     // uncomment line 22 and comment line 23 if you DONT want the overflow container and want to have it change on the entire page scroll
     target: ref,
     // container: ref,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end end"],
   });
   const cardLength = content.length;
 
@@ -60,15 +57,19 @@ const StickyScrollReveal = ({
       <div className="flex items-start px-4">
         <div className="max-w-2xl">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-20">
+            <div
+              key={item.title + index}
+              className="my-20 cursor-pointer group"
+              onMouseOver={() => setActiveCard(index)}
+            >
               <motion.h2
                 initial={{
                   opacity: 0,
                 }}
                 animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
+                  opacity: activeCard === index ? 1 : 0.4,
                 }}
-                className="text-2xl font-bold text-slate-100"
+                className="text-2xl font-bold text-slate-100 group-hover:opacity-100"
               >
                 {item.title}
               </motion.h2>
@@ -80,9 +81,8 @@ const StickyScrollReveal = ({
                   opacity: activeCard === index ? 1 : 0.3,
                 }}
                 className=" max-w-sm mt-10"
-              >
-                {item.description}
-              </motion.p>
+                dangerouslySetInnerHTML={{ __html: item.description }}
+              ></motion.p>
             </div>
           ))}
           <div className="h-40" />
@@ -103,4 +103,4 @@ const StickyScrollReveal = ({
   );
 };
 
-export default StickyScrollReveal
+export default StickyScrollReveal;
