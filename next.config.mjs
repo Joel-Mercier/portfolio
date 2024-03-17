@@ -1,4 +1,5 @@
 import MDX from "@next/mdx";
+
 const withMDX = MDX({
   extension: /\.mdx?$/,
 });

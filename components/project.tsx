@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { Project as ProjectType } from "@/data/projects";
 import ExportedImage from "next-image-export-optimizer";
+import { Badge } from "./ui/badge";
 
 interface Props {
   project: ProjectType;
@@ -14,7 +15,7 @@ const Project = ({ project }: Props) => {
       <div className="z-10 sm:order-2 sm:col-span-6">
         <h3>
           <Link
-            href={project.path || project.websiteUrl}
+            href={project.path || project.websiteUrl || "#"}
             className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-emerald-500 focus-visible:text-emerald-500  group/link text-base"
             target={!project.path ? "blank" : undefined}
             rel={!project.path ? "noreferrer noopener" : undefined}
@@ -34,6 +35,18 @@ const Project = ({ project }: Props) => {
           className="mt-2 text-sm leading-normal whitespace-pre-wrap"
           dangerouslySetInnerHTML={{ __html: project.lead }}
         ></p>
+        {project.technologies && (
+          <ul
+            className="mt-2 flex flex-wrap"
+            aria-label="Technologies utilisées"
+          >
+            {project.technologies.split(", ").map((technology, index) => (
+              <li className="mr-1.5 mt-2" key={index}>
+                <Badge>{technology}</Badge>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
       <ExportedImage
         src={project.cover}

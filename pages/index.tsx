@@ -113,41 +113,49 @@ export default function Home() {
             </li>
           </ul>
         </nav>
-        <ul className="ml-1 mt-8 flex items-center" aria-label="Social media">
-          <li className="mr-5 text-xs shrink-0">
-            <a
-              href="#"
-              className="block hover:text-slate-200"
-              rel="noreferrer noopener"
-              target="_blank"
-              aria-label="GitHub (opens in a new tab)"
-            >
-              <Github />
-            </a>
-          </li>
-          <li className="mr-5 text-xs shrink-0">
-            <a
-              href="#"
-              className="block hover:text-slate-200"
-              rel="noreferrer noopener"
-              target="_blank"
-              aria-label="Gitlab (opens in a new tab)"
-            >
-              <Gitlab />
-            </a>
-          </li>
-          <li className="mr-5 text-xs shrink-0">
-            <a
-              href="#"
-              className="block hover:text-slate-200"
-              rel="noreferrer noopener"
-              target="_blank"
-              aria-label="Instagram (opens in a new tab)"
-            >
-              <Instagram />
-            </a>
-          </li>
-        </ul>
+        <div>
+          <a
+            href="mailto:hello@joelmercier.io"
+            className="font-medium text-slate-200 hover:text-emerald-300 focus-visible:text-emerald-300"
+          >
+            hello@joelmercier.io
+          </a>
+          <ul className="ml-1 mt-8 flex items-center" aria-label="Social media">
+            <li className="mr-5 text-xs shrink-0">
+              <a
+                href="https://github.com/Joel-Mercier"
+                className="block hover:text-slate-200"
+                rel="noreferrer noopener"
+                target="_blank"
+                aria-label="GitHub (opens in a new tab)"
+              >
+                <Github />
+              </a>
+            </li>
+            <li className="mr-5 text-xs shrink-0">
+              <a
+                href="https://gitlab.com/SireCuit"
+                className="block hover:text-slate-200"
+                rel="noreferrer noopener"
+                target="_blank"
+                aria-label="Gitlab (opens in a new tab)"
+              >
+                <Gitlab />
+              </a>
+            </li>
+            <li className="mr-5 text-xs shrink-0">
+              <a
+                href="https://www.instagram.com/adventuresincode/"
+                className="block hover:text-slate-200"
+                rel="noreferrer noopener"
+                target="_blank"
+                aria-label="Instagram (opens in a new tab)"
+              >
+                <Instagram />
+              </a>
+            </li>
+          </ul>
+        </div>
       </header>
       <div className="pt-24 lg:w-1/2 lg:py-24">
         <section

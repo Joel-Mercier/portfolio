@@ -1,4 +1,3 @@
-"use client";
 import { cn } from "@/utils/cn";
 import { getIndex, useFlubber } from "@/utils/hooks/use-flubber";
 import { animate, motion, useMotionValue, useTransform } from "framer-motion";
