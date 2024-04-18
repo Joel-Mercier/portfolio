@@ -2,12 +2,14 @@ import React, { useRef, useState } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
+import Link from "next/link";
 
 interface Props {
   content: {
     title: string;
     description: string;
     content?: React.ReactNode | any;
+    path: string;
   }[];
   contentClassName?: string;
 }
@@ -56,9 +58,10 @@ const StickyScrollReveal = ({ content, contentClassName }: Props) => {
       <div className="flex items-start px-4">
         <div className="max-w-2xl">
           {content.map((item, index) => (
-            <div
+            <Link
               key={item.title + index}
-              className="my-20 cursor-pointer group"
+              href={item.path}
+              className="block my-20 cursor-pointer group"
               onMouseOver={() => setActiveCard(index)}
             >
               <motion.h2
@@ -82,7 +85,7 @@ const StickyScrollReveal = ({ content, contentClassName }: Props) => {
                 className=" max-w-sm mt-10"
                 dangerouslySetInnerHTML={{ __html: item.description }}
               ></motion.p>
-            </div>
+            </Link>
           ))}
           <div className="h-40" />
         </div>

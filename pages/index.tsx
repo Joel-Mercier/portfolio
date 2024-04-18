@@ -181,8 +181,8 @@ export default function Home() {
               Idéematic
             </Link>{" "}
             à Strasbourg. Qu&apos;il s&apos;agisse de proposer de la logique et
-            de l&apos;administration de données avec Ruby on Rails ou des
-            expériences utilisateur avec React et React Native, j&apos;investi
+            de l&apos;administration de données avec <strong>Ruby on Rails</strong> ou des
+            expériences utilisateur avec <strong>React</strong> et <strong>React Native</strong>, j&apos;investi
             mes connaissances dans chaque projet.
           </p>
           <p className="mb-4">
@@ -280,9 +280,9 @@ export default function Home() {
             ♥️. Hébérgé chez{" "}
             <Link
               className="font-medium text-slate-400 hover:text-emerald-300 focus-visible:text-emerald-300"
-              href="https://www.digitalocean.com/"
+              href="https://vercel.com/"
             >
-              DigitalOcean
+              Vercel
             </Link>
             . Tous les textes utilisent la police d&apos;écriture{" "}
             <Link

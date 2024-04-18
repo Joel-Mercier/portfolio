@@ -16,6 +16,7 @@ const content = projects.map((project) => ({
       />
     </div>
   ),
+  path: project.path || project.websiteUrl || "#",
 }));
 
 const Works = () => {

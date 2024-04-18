@@ -42,9 +42,9 @@ const projects: Project[] = [
     date: "2018-08-01",
     roles: "Développeur",
     client: "Global MA via l'agence Idéematic",
-    websiteUrl: "https://globalma.com/",
+    websiteUrl: "https://www.globalma.com/",
     cover: GlobalmaCover,
-    technologies: "Ruby on Rails, Bootstrap, CSS, Javascript",
+    technologies: "Ruby on Rails, Bootstrap 5, CSS, Javascript",
     lead: "lorem ipsum dolor sit amet",
   },
   {
