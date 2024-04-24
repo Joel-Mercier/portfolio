@@ -23,7 +23,7 @@ const Experience = ({ experience }: Props) => {
         <h3 className="font-medium leading-snug text-slate-200">
           <Link
             href={experience.companyUrl}
-            className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-emerald-500 focus-visible:text-emerald-500  group/link text-base"
+            className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-red-500 focus-visible:text-red-500  group/link text-base"
             target="blank"
             rel="noreferrer noopener"
           >

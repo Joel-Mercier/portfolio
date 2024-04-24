@@ -1,11 +1,15 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { Project as ProjectType } from "@/data/projects";
 import ExportedImage from "next-image-export-optimizer";
 import { Badge } from "./ui/badge";
+import { Metadata } from "@/utils/mdx";
 
 interface Props {
-  project: ProjectType;
+  project: {
+    slug: string;
+    metadata: Metadata;
+    content: string;
+  }
 }
 
 const Project = ({ project }: Props) => {
@@ -15,15 +19,15 @@ const Project = ({ project }: Props) => {
       <div className="z-10 sm:order-2 sm:col-span-6">
         <h3>
           <Link
-            href={project.path || project.websiteUrl || "#"}
-            className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-emerald-500 focus-visible:text-emerald-500  group/link text-base"
-            target={!project.path ? "blank" : undefined}
-            rel={!project.path ? "noreferrer noopener" : undefined}
+            href={project.metadata.websiteUrl || `/works/${project.slug}` || "#"}
+            className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-red-500 focus-visible:text-red-500  group/link text-base"
+            target={project.metadata.websiteUrl ? "blank" : undefined}
+            rel={project.metadata.websiteUrl ? "noreferrer noopener" : undefined}
           >
             <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
             <span>
-              {project.title}
-              {!project.path && (
+              {project.metadata.title}
+              {project.metadata.websiteUrl && (
                 <span className="inline-block">
                   <ArrowUpRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" />
                 </span>
@@ -33,14 +37,13 @@ const Project = ({ project }: Props) => {
         </h3>
         <p
           className="mt-2 text-sm leading-normal whitespace-pre-wrap"
-          dangerouslySetInnerHTML={{ __html: project.lead }}
-        ></p>
-        {project.technologies && (
+        >{project.metadata.lead}</p>
+        {project.metadata.technologies && (
           <ul
             className="mt-2 flex flex-wrap"
             aria-label="Technologies utilisées"
           >
-            {project.technologies.split(", ").map((technology, index) => (
+            {project.metadata.technologies.split(", ").map((technology, index) => (
               <li className="mr-1.5 mt-2" key={index}>
                 <Badge>{technology}</Badge>
               </li>
@@ -48,11 +51,11 @@ const Project = ({ project }: Props) => {
           </ul>
         )}
       </div>
-      <ExportedImage
-        src={project.cover}
-        alt={project.title}
+      {/* <ExportedImage
+        src={project.metadata.cover}
+        alt={project.metadata.title}
         className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1 aspect-square object-cover"
-      />
+      /> */}
     </div>
   );
 };

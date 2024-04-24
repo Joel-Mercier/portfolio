@@ -1,3 +1,4 @@
+"use client"
 import React, { useRef, useState } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
@@ -83,8 +84,7 @@ const StickyScrollReveal = ({ content, contentClassName }: Props) => {
                   opacity: activeCard === index ? 1 : 0.3,
                 }}
                 className=" max-w-sm mt-10"
-                dangerouslySetInnerHTML={{ __html: item.description }}
-              ></motion.p>
+              >{item.description}</motion.p>
             </Link>
           ))}
           <div className="h-40" />

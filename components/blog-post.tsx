@@ -21,7 +21,7 @@ const BlogPost = ({ blogPost }: Props) => {
         <h3 className="-mt-1">
           <Link
             href={"#"}
-            className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-emerald-500 focus-visible:text-emerald-500  group/link text-base"
+            className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-red-500 focus-visible:text-red-500  group/link text-base"
           >
             <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
             <span>Integrating Algolia Search with WordPress</span>

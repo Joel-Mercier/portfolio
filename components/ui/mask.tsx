@@ -1,3 +1,4 @@
+"use client"
 import { useMouse } from "@/utils/hooks/use-mouse";
 import { useEffect } from "react";
 

@@ -56,7 +56,7 @@ const projects: Project[] = [
     websiteUrl: "https://pixseb.com/",
     cover: PixsebCover,
     technologies: "Ruby on Rails, JQuery",
-    lead: "J'ai eu l'opportunité d'être le principal développeur d'un nouveau projet mené par l'agence <a class='text-slate-400 hover:text-emerald-300 focus-visible:text-emerald-300' href='https://ideematic.com' target='_blank' rel='noreferrer noopener'>Idéematic</a> pour leur partenaire l'INSA de Strasbourg. J'ai ainsi pu développer la majeure partie d'une application de traitement de données industrielles",
+    lead: "J'ai eu l'opportunité d'être le principal développeur d'un nouveau projet mené par l'agence Idéematic pour leur partenaire l'INSA de Strasbourg. J'ai ainsi pu développer la majeure partie d'une application de traitement de données industrielles",
   },
 ];
 
