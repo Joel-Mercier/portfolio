@@ -53,7 +53,7 @@ const StickyScrollReveal = ({ content, contentClassName }: Props) => {
   ];
   return (
     <motion.div
-      className="flex justify-between relative space-x-10 rounded-md"
+      className="flex justify-between space-x-10 rounded-md"
       ref={ref}
     >
       <div className="flex items-start px-4">
@@ -95,7 +95,7 @@ const StickyScrollReveal = ({ content, contentClassName }: Props) => {
           background: linearGradients[activeCard % linearGradients.length],
         }}
         className={cn(
-          "hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden",
+          "hidden lg:block w-96 h-96 rounded-md bg-white sticky top-1/2 -translate-y-1/2 overflow-hidden",
           contentClassName
         )}
       >

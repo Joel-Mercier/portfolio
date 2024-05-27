@@ -19,19 +19,12 @@ const Project = ({ project }: Props) => {
       <div className="z-10 sm:order-2 sm:col-span-6">
         <h3>
           <Link
-            href={project.metadata.websiteUrl || `/works/${project.slug}` || "#"}
+            href={`/works/${project.slug}`}
             className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-red-500 focus-visible:text-red-500  group/link text-base"
-            target={project.metadata.websiteUrl ? "blank" : undefined}
-            rel={project.metadata.websiteUrl ? "noreferrer noopener" : undefined}
           >
             <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
             <span>
               {project.metadata.title}
-              {project.metadata.websiteUrl && (
-                <span className="inline-block">
-                  <ArrowUpRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" />
-                </span>
-              )}
             </span>
           </Link>
         </h3>

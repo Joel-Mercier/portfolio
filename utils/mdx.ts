@@ -6,18 +6,21 @@ export type Metadata = {
   date: string;
   roles: string;
   client: string;
-  websiteUrl?: string;
+  url?: string;
+  code?: string;
   lead: string;
   technologies?: string;
+  published?: string;
+  cover: string;
 };
 
 function parseFrontmatter(fileContent: string) {
-  let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
-  let match = frontmatterRegex.exec(fileContent);
-  let frontMatterBlock = match![1];
-  let content = fileContent.replace(frontmatterRegex, "").trim();
-  let frontMatterLines = frontMatterBlock.trim().split("\n");
-  let metadata: Partial<Metadata> = {};
+  const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
+  const match = frontmatterRegex.exec(fileContent);
+  const frontMatterBlock = match![1];
+  const content = fileContent.replace(frontmatterRegex, "").trim();
+  const frontMatterLines = frontMatterBlock.trim().split("\n");
+  const metadata: Partial<Metadata> = {};
 
   frontMatterLines.forEach((line) => {
     let [key, ...valueArr] = line.split(": ");
@@ -34,15 +37,15 @@ function getMDXFiles(dir: string) {
 }
 
 function readMDXFile(filePath: string) {
-  let rawContent = fs.readFileSync(filePath, "utf-8");
+  const rawContent = fs.readFileSync(filePath, "utf-8");
   return parseFrontmatter(rawContent);
 }
 
 function getMDXData(dir: string) {
-  let mdxFiles = getMDXFiles(dir);
-  return mdxFiles.map((file) => {
-    let { metadata, content } = readMDXFile(path.join(dir, file));
-    let slug = path.basename(file, path.extname(file));
+  const mdxFiles = getMDXFiles(dir);
+  const parsedMDXFiles = mdxFiles.map((file) => {
+    const { metadata, content } = readMDXFile(path.join(dir, file));
+    const slug = path.basename(file, path.extname(file));
 
     return {
       metadata,
@@ -50,6 +53,14 @@ function getMDXData(dir: string) {
       content,
     };
   });
+  return parsedMDXFiles
+    .filter((file) => file.metadata.published !== "false")
+    .sort((a, b) => {
+      return (
+        new Date(b.metadata.date).getTime() -
+        new Date(a.metadata.date).getTime()
+      );
+    });
 }
 
 export function getWorks() {

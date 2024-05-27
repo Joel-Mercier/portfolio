@@ -13,14 +13,15 @@ const Works = () => {
       description: metadata.lead,
       content: (
         <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--red-500))] flex items-center justify-center text-white p-4 object-cover">
-          {/* <ExportedImage
+          <ExportedImage
+            fill
             src={metadata.cover}
             alt={metadata.title}
             className="object-cover"
-          /> */}
+          />
         </div>
       ),
-      path: metadata.websiteUrl || `/works/${slug}` || "#",
+      path: `/works/${slug}`,
     }));
   }, [projects])
   return (

@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "~react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 html,
 body {

@@ -1,13 +1,3 @@
-import WorksLayout from "@/components/works-layout"
-import PixsebCover from "@/public/images/portfolio/covers/pixseb.jpg";
-import Project from "@/public/images/portfolio/pixseb/project.jpg";
-import Diagram from "@/public/images/portfolio/pixseb/diagram.jpg";
-import List from "@/public/images/portfolio/pixseb/list.jpg";
-import ExportedImage from "next-image-export-optimizer";
-import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
-import LiteYouTubeEmbed from "react-lite-youtube-embed";
-
 ---
 title: Pixseb
 date: 2018-08-01
@@ -15,16 +5,10 @@ roles: Développeur
 client: INSA Strasbourg via l'agence Idéematic
 technologies: Ruby on Rails, JQuery
 lead: J'ai eu l'opportunité d'être le principal développeur d'un nouveau projet mené par l'agence Idéematic pour leur partenaire l'INSA de Strasbourg. J'ai ainsi pu développer la majeure partie d'une application de traitement de données industrielles
+cover: /images/portfolio/covers/pixseb.jpg
 ---
 
-# Pixseb
-
-<div className="mb-8">
-  <LiteYouTubeEmbed
-    id="To-Yr5Gt3Jk"
-    title="Innovation : PIXSEB, un logiciel innovant pour une stratégie R&D pleine d’intelligence !"
-  />
-</div>
+<YouTube id="To-Yr5Gt3Jk"/>
 
 ## Un projet novateur
 
@@ -32,13 +16,13 @@ Pixseb permet de créer des projets découpés en étapes durant lesquelles l'ut
 
 J'ai pu développer un back-office permettant aux administrateur de gérer les utilisateurs, le parcours de création d'un projet décomposé en plusieurs étapes et enfin le service permettant d'interagir avec une API fournie par l'INSA contenant des brevets et du machine learning qui analyse des brevets afin d'en extraire des informations utiles pour la génération du diagramme final.
 
-<ExportedImage src={Project} className="mb-8" />
+![Project](/images/portfolio/pixseb/project.jpg)
 
 ## Le diagramme SUN
 
 Le résultat d'un projet Pixseb est le diagramme SUN qui présente les brevets disposés en arc de cercle autour d'un centre représentant la solution idéale à l'innovation voulue.
 
-<ExportedImage src={Diagram} className="mb-8" />
+![Diagram](/images/portfolio/pixseb/diagram.jpg)
 
 Pour pouvoir générer ce diagramme j'ai dû créer des fonctions permettant de produire des éléments SVG, de placer dans un repère cartésien des données radiales et d'attribuer un score aux différents brevets placés sur ce diagramme en fonctions des éléments saisis par l'utilisateur.
 
@@ -46,8 +30,4 @@ Un export au format PNG et au format PDF avec un résumé du projet est égaleme
 
 La lisibilité et le placement des objets SVG ont été les challenges les plus importants de ce projets.
 
-<ExportedImage src={List} className="mb-8" />
-
-export default function Pixseb({ children }) {
-  return <WorksLayout>{children}</WorksLayout>
-}
+![List](/images/portfolio/pixseb/list.jpg)

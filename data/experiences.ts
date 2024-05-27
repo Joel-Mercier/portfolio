@@ -5,7 +5,6 @@ export interface Experience {
   dateBegin: string;
   dateEnd: string;
   companyUrl: string;
-  workUrl?: string;
   location: string;
   technologies: string;
 }
@@ -18,8 +17,7 @@ const experiences: Experience[] = [
     dateBegin: "2016-10-16",
     dateEnd: "Aujourd'hui",
     companyUrl: "https://ideematic.com/",
-    workUrl: "/works/fedfinance",
-    location: "Strasbourg",
+    location: "Strasbourg, FR",
     technologies: "Ruby on Rails, React, React Native",
   },
   {
@@ -29,7 +27,6 @@ const experiences: Experience[] = [
     dateBegin: "2015-10-01",
     dateEnd: "2016-07-03",
     companyUrl: "https://almedia.fr",
-    workUrl: "/works/almedia/",
     location: "Strasbourg, FR",
     technologies: "HTML, CSS, JavaScript, Jekyll",
   },

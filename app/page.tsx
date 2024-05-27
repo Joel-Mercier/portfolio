@@ -9,32 +9,13 @@ import {
   Instagram,
 } from "lucide-react";
 import experiences from "@/data/experiences";
-import { useIntersectionObserver } from "@/utils/hooks/use-intersection-observer";
-import { cn } from "@/utils/cn";
 import Link from "next/link";
-import Project from "@/components/project";
-import { getWorks } from "@/utils/mdx";
+import Projects from "@/components/projects";
+import HomeNav from "@/components/home-nav";
 
 export default function Home() {
-  // const { isIntersecting: isAboutSectionIntersecting, ref: aboutSectionRef } =
-  //   useIntersectionObserver({
-  //     threshold: 0.1,
-  //   });
-  // const {
-  //   isIntersecting: isExperienceSectionIntersecting,
-  //   ref: experienceSectionRef,
-  // } = useIntersectionObserver({
-  //   threshold: 0.1,
-  // });
-  // const {
-  //   isIntersecting: isProjectsSectionIntersecting,
-  //   ref: projectsSectionRef,
-  // } = useIntersectionObserver({
-  //   threshold: 0.1,
-  // });
-  const projects = getWorks()
   return (
-    <div className="lg:flex lg:justify-between lg:gap-4">
+    <div className="lg:flex lg:justify-between lg:gap-4" id="root">
       <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
         <div>
           <div className="absolute top-0 left-0 -z-10">
@@ -51,49 +32,7 @@ export default function Home() {
             React et React Native.
           </p>
         </div>
-        {/* <nav className="nav hidden lg:block" aria-label="In-page jump links">
-          <ul className="mt-16 w-max">
-            <li>
-              <a
-                className={cn("group flex items-center py-3", {
-                  active: isAboutSectionIntersecting,
-                })}
-                href="#about"
-              >
-                <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
-                <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
-                  À propos
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                className={cn("group flex items-center py-3", {
-                  active: isExperienceSectionIntersecting,
-                })}
-                href="#experience"
-              >
-                <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
-                <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
-                  Expériences
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                className={cn("group flex items-center py-3", {
-                  active: isProjectsSectionIntersecting,
-                })}
-                href="#projects"
-              >
-                <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
-                <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
-                  Projets
-                </span>
-              </a>
-            </li>
-          </ul>
-        </nav> */}
+        <HomeNav />
         <div>
           <a
             href="mailto:hello@joelmercier.io"
@@ -140,7 +79,6 @@ export default function Home() {
       </header>
       <div className="pt-24 lg:w-1/2 lg:py-24">
         <section
-          // ref={aboutSectionRef}
           id="about"
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
         >
@@ -173,8 +111,7 @@ export default function Home() {
           </p>
         </section>
         <section
-          // ref={experienceSectionRef}
-          id="experience"
+          id="experiences"
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
         >
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
@@ -203,7 +140,6 @@ export default function Home() {
           </Button>
         </section>
         <section
-          // ref={projectsSectionRef}
           id="projects"
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
         >
@@ -212,13 +148,8 @@ export default function Home() {
               Projets
             </h2>
           </div>
-          <ol className="group/list">
-            {projects.slice(0, 4).map((project, index) => (
-              <li className="mb-12" key={index}>
-                <Project project={project} />
-              </li>
-            ))}
-          </ol>
+          <Projects />
+
           <Button variant="link" className="group/link" asChild>
             <Link href="/works">
               Voir tous les projets archivés
@@ -272,7 +203,6 @@ export default function Home() {
             >
               Inter
             </Link>
-            .
           </p>
         </footer>
       </div>
