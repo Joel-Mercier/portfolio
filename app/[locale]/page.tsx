@@ -12,8 +12,15 @@ import experiences from "@/data/experiences";
 import Link from "next/link";
 import Projects from "@/components/projects";
 import HomeNav from "@/components/home-nav";
+import { setStaticParamsLocale } from "next-international/server";
 
-export default function Home() {
+export default function Home({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  setStaticParamsLocale(locale);
+
   return (
     <div className="lg:flex lg:justify-between lg:gap-4" id="root">
       <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
@@ -100,9 +107,10 @@ export default function Home() {
               Idéematic
             </Link>{" "}
             à Strasbourg. Qu&apos;il s&apos;agisse de proposer de la logique et
-            de l&apos;administration de données avec <strong>Ruby on Rails</strong> ou des
-            expériences utilisateur avec <strong>React</strong> et <strong>React Native</strong>, j&apos;investi
-            mes connaissances dans chaque projet.
+            de l&apos;administration de données avec{" "}
+            <strong>Ruby on Rails</strong> ou des expériences utilisateur avec{" "}
+            <strong>React</strong> et <strong>React Native</strong>,
+            j&apos;investi mes connaissances dans chaque projet.
           </p>
           <p className="mb-4">
             Dans mon temps libre je fais de la musique, je code toutes sortes de

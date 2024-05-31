@@ -64,5 +64,7 @@ function getMDXData(dir: string) {
 }
 
 export function getWorks() {
-  return getMDXData(path.join(process.cwd(), "app", "works", "works"));
+  return getMDXData(
+    path.join(process.cwd(), "app", "[locale]", "works", "works")
+  );
 }
