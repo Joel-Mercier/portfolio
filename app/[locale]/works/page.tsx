@@ -4,8 +4,9 @@ import Link from "next/link";
 import ExportedImage from "next-image-export-optimizer";
 import { getWorks } from "@/utils/mdx";
 import { useMemo } from "react";
+import { getI18n } from "@/locales/server";
 
-const Works = () => {
+const Works = async () => {
   const projects = getWorks()
   const content = useMemo(() => {
     return projects.map(({ slug, metadata }) => ({
@@ -24,6 +25,7 @@ const Works = () => {
       path: `/works/${slug}`,
     }));
   }, [projects])
+  const t = await getI18n()
   return (
     <div className="lg:py-24">
       <Link
@@ -31,10 +33,10 @@ const Works = () => {
         className="group mb-2 inline-flex items-center font-semibold leading-tight text-red-500"
       >
         <ArrowLeft className="mr-1 h-4 w-4 transition-transform group-hover:-translate-x-2" />
-        Retour
+        {t('shared.back')}
       </Link>
       <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-        Tous les projets
+        {t('works.title')}
       </h1>
       <StickyScrollReveal content={content} />
     </div>

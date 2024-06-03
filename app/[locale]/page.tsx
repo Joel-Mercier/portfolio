@@ -13,14 +13,16 @@ import Link from "next/link";
 import Projects from "@/components/projects";
 import HomeNav from "@/components/home-nav";
 import { setStaticParamsLocale } from "next-international/server";
+import LocaleSelect from "@/components/locale-select";
+import { getScopedI18n } from "@/locales/server";
 
-export default function Home({
+export default async function Home({
   params: { locale },
 }: {
   params: { locale: string };
 }) {
   setStaticParamsLocale(locale);
-
+  const t = await getScopedI18n('home')
   return (
     <div className="lg:flex lg:justify-between lg:gap-4" id="root">
       <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
@@ -32,11 +34,10 @@ export default function Home({
             Joël Mercier
           </h1>
           <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
-            Développeur web
+            {t('intro.title')}
           </h2>
           <p className="mt-4 max-w-xs leading-normal">
-            Je conçois et développe des sites et applications web avec Rails,
-            React et React Native.
+            {t('intro.summary')}
           </p>
         </div>
         <HomeNav />
@@ -81,6 +82,9 @@ export default function Home({
                 <Instagram />
               </a>
             </li>
+            <li className="mr-5 text-xs shrink-0">
+              <LocaleSelect />
+            </li>
           </ul>
         </div>
       </header>
@@ -90,10 +94,7 @@ export default function Home({
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
         >
           <p className="mb-4">
-            En 2013 j&apos;ai pris la décision de comprendre comment
-            fonctionnaient les sites sur lesquels je passais beaucoup (trop ?)
-            de temps. Une fois attéri dans l&apos;univers du développement web,
-            cette passion ne m&apos;a pas quitté.
+            {t('intro.paragraph1')}
           </p>
           <p className="mb-4">
             Aujourd&apos;hui mes efforts se concentrent sur la création
@@ -113,9 +114,7 @@ export default function Home({
             j&apos;investi mes connaissances dans chaque projet.
           </p>
           <p className="mb-4">
-            Dans mon temps libre je fais de la musique, je code toutes sortes de
-            projets qui me passent par la tête et je me bagarre sur Azeroth dans
-            World of Warcraft.
+            {t('intro.paragraph3')}
           </p>
         </section>
         <section

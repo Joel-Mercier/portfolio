@@ -6,6 +6,7 @@ import React from "react"
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Markdown } from "@/mdx-components"
 import { Button } from "@/components/ui/button"
+import { getI18n } from "@/locales/server"
 
 export async function generateStaticParams() {
   const projects = getWorks()
@@ -21,13 +22,15 @@ interface Props {
   }
 }
 
-const Work = ({ params }: Props) => {
+const Work = async ({ params }: Props) => {
 
   const project = getWorks().find((project) => project.slug === params.slug)
 
   if (!project) {
     notFound()
   }
+
+  const t = await getI18n()
 
   return (
     <div className="lg:py-24">
@@ -36,7 +39,7 @@ const Work = ({ params }: Props) => {
         className="group mb-2 inline-flex items-center font-semibold leading-tight text-red-500 cursor-pointer"
       >
         <ArrowLeft className="mr-1 h-4 w-4 transition-transform group-hover:-translate-x-2" />
-        Retour
+        {t('shared.back')}
       </Link>
       <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl mb-12">{project.metadata.title}</h1>
       <div className="flex">
@@ -57,7 +60,7 @@ const Work = ({ params }: Props) => {
                 target="blank"
                 rel="noopener noreferrer"
               >
-                Voir le projet
+                {t('works.see_website')}
                 <span className="inline-block">
                   <ArrowUpRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" />
                 </span>
@@ -71,7 +74,7 @@ const Work = ({ params }: Props) => {
                 target="blank"
                 rel="noopener noreferrer"
               >
-                Voir le code
+                {t('works.see_source')}
                 <span className="inline-block">
                   <ArrowUpRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" />
                 </span>
