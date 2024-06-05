@@ -1,3 +1,4 @@
+import { Locale } from "@/locales/client";
 import fs from "fs";
 import path from "path";
 
@@ -63,8 +64,8 @@ function getMDXData(dir: string) {
     });
 }
 
-export function getWorks() {
+export function getWorks(locale: Locale) {
   return getMDXData(
-    path.join(process.cwd(), "app", "[locale]", "works", "works")
+    path.join(process.cwd(), "app", "[locale]", "works", "works", locale)
   );
 }

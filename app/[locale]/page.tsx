@@ -4,17 +4,14 @@ import { WavyBackground } from "@/components/ui/wavy-background";
 import {
   ArrowRight,
   ArrowUpRight,
-  Github,
-  Gitlab,
-  Instagram,
 } from "lucide-react";
 import experiences from "@/data/experiences";
 import Link from "next/link";
 import Projects from "@/components/projects";
 import HomeNav from "@/components/home-nav";
 import { setStaticParamsLocale } from "next-international/server";
-import LocaleSelect from "@/components/locale-select";
 import { getScopedI18n } from "@/locales/server";
+import Footer from "@/components/footer";
 
 export default async function Home({
   params: { locale },
@@ -41,52 +38,7 @@ export default async function Home({
           </p>
         </div>
         <HomeNav />
-        <div>
-          <a
-            href="mailto:hello@joelmercier.io"
-            className="font-medium text-slate-200 hover:text-red-300 focus-visible:text-red-300"
-          >
-            hello@joelmercier.io
-          </a>
-          <ul className="ml-1 mt-8 flex items-center" aria-label="Social media">
-            <li className="mr-5 text-xs shrink-0">
-              <a
-                href="https://github.com/Joel-Mercier"
-                className="block hover:text-slate-200"
-                rel="noreferrer noopener"
-                target="_blank"
-                aria-label="GitHub (opens in a new tab)"
-              >
-                <Github />
-              </a>
-            </li>
-            <li className="mr-5 text-xs shrink-0">
-              <a
-                href="https://gitlab.com/SireCuit"
-                className="block hover:text-slate-200"
-                rel="noreferrer noopener"
-                target="_blank"
-                aria-label="Gitlab (opens in a new tab)"
-              >
-                <Gitlab />
-              </a>
-            </li>
-            <li className="mr-5 text-xs shrink-0">
-              <a
-                href="https://www.instagram.com/adventuresincode/"
-                className="block hover:text-slate-200"
-                rel="noreferrer noopener"
-                target="_blank"
-                aria-label="Instagram (opens in a new tab)"
-              >
-                <Instagram />
-              </a>
-            </li>
-            <li className="mr-5 text-xs shrink-0">
-              <LocaleSelect />
-            </li>
-          </ul>
-        </div>
+        <Footer />
       </header>
       <div className="pt-24 lg:w-1/2 lg:py-24">
         <section
@@ -97,21 +49,16 @@ export default async function Home({
             {t('intro.paragraph1')}
           </p>
           <p className="mb-4">
-            Aujourd&apos;hui mes efforts se concentrent sur la création
-            d&apos;applications à valeur ajoutée au sein de l&apos;agence{" "}
-            <Link
-              className="font-medium text-slate-200 hover:text-red-300 focus-visible:text-red-300"
-              href="https://ideematic.com"
-              target="blank"
-              rel="noopener noreferrer"
-            >
-              Idéematic
-            </Link>{" "}
-            à Strasbourg. Qu&apos;il s&apos;agisse de proposer de la logique et
-            de l&apos;administration de données avec{" "}
-            <strong>Ruby on Rails</strong> ou des expériences utilisateur avec{" "}
-            <strong>React</strong> et <strong>React Native</strong>,
-            j&apos;investi mes connaissances dans chaque projet.
+            {
+              t('intro.paragraph2',
+                {
+                  link: <Link className="font-medium text-slate-200 hover:text-red-300 focus-visible:text-red-300" href="https://ideematic.com" target="blank" rel="noopener noreferrer">Idéematic</Link>,
+                  technology1: <strong>Ruby on Rails</strong>,
+                  technology2: <strong>React</strong>,
+                  technology3: <strong>React Native</strong>,
+                }
+              )
+            }
           </p>
           <p className="mb-4">
             {t('intro.paragraph3')}
@@ -123,7 +70,7 @@ export default async function Home({
         >
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-              Expériences
+              {t('experiences.title')}
             </h2>
           </div>
           <ol className="group/list">
@@ -139,7 +86,7 @@ export default async function Home({
               target="blank"
               rel="noopener noreferrer"
             >
-              Voir le CV complet
+              {t('experiences.ctaLabel')}
               <span className="inline-block">
                 <ArrowUpRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" />
               </span>
@@ -152,14 +99,13 @@ export default async function Home({
         >
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-              Projets
+              {t('projects.title')}
             </h2>
           </div>
           <Projects />
-
           <Button variant="link" className="group/link" asChild>
             <Link href="/works">
-              Voir tous les projets archivés
+              {t('projects.ctaLabel')}
               <span className="inline-block">
                 <ArrowRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" />
               </span>
@@ -168,48 +114,16 @@ export default async function Home({
         </section>
         <footer className="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
           <p>
-            Produit et édité avec{" "}
-            <Link
-              className="font-medium text-slate-400 hover:text-red-300 focus-visible:text-red-300"
-              href="https://code.visualstudio.com/"
-            >
-              Visual Studio Code
-            </Link>
-            . Construit avec{" "}
-            <Link
-              className="font-medium text-slate-400 hover:text-red-300 focus-visible:text-red-300"
-              href="https://nextjs.org/"
-            >
-              NextJS
-            </Link>
-            ,{" "}
-            <Link
-              className="font-medium text-slate-400 hover:text-red-300 focus-visible:text-red-300"
-              href="https://tailwindcss.com/"
-            >
-              TailwindCSS
-            </Link>{" "}
-            et{" "}
-            <Link
-              className="font-medium text-slate-400 hover:text-red-300 focus-visible:text-red-300"
-              href="https://ui.shadcn.com/"
-            >
-              Shadcn/ui
-            </Link>{" "}
-            ♥️. Hébérgé chez{" "}
-            <Link
-              className="font-medium text-slate-400 hover:text-red-300 focus-visible:text-red-300"
-              href="https://vercel.com/"
-            >
-              Vercel
-            </Link>
-            . Tous les textes utilisent la police d&apos;écriture{" "}
-            <Link
-              className="font-medium text-slate-400 hover:text-red-300 focus-visible:text-red-300"
-              href="https://rsms.me/inter/"
-            >
-              Inter
-            </Link>
+            {
+              t('footer.content', {
+                link1: <Link className="font-medium text-slate-400 hover:text-red-300 focus-visible:text-red-300" href="https://code.visualstudio.com/">Visual Studio Code</Link>,
+                link2: <Link className="font-medium text-slate-400 hover:text-red-300 focus-visible:text-red-300" href="https://nextjs.org/">NextJS</Link>,
+                link3: <Link className="font-medium text-slate-400 hover:text-red-300 focus-visible:text-red-300" href="https://tailwindcss.com/">TailwindCSS</Link>,
+                link4: <Link className="font-medium text-slate-400 hover:text-red-300 focus-visible:text-red-300" href="https://ui.shadcn.com/">Shadcn/ui</Link>,
+                link5: <Link className="font-medium text-slate-400 hover:text-red-300 focus-visible:text-red-300" href="https://vercel.com/">Vercel</Link>,
+                link6: <Link className="font-medium text-slate-400 hover:text-red-300 focus-visible:text-red-300" href="https://rsms.me/inter/">Inter</Link>,
+              })
+            }
           </p>
         </footer>
       </div>

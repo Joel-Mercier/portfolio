@@ -31,13 +31,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className="dark bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-emerald-100 selection:text-emerald-900">
+      <body className="dark bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-red-100 selection:text-red-900">
         <div className="relative">
           <Mask />
           <main
             className={`mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 ${inter.className}`}
           >
-            <I18nProviderClient locale={locale}> {children}</I18nProviderClient>
+            <I18nProviderClient locale={locale}>{children}</I18nProviderClient>
           </main>
         </div>
       </body>

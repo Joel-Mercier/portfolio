@@ -6,10 +6,11 @@ import React from "react"
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Markdown } from "@/mdx-components"
 import { Button } from "@/components/ui/button"
-import { getI18n } from "@/locales/server"
+import { getCurrentLocale, getI18n } from "@/locales/server"
+import Footer from "@/components/footer"
 
 export async function generateStaticParams() {
-  const projects = getWorks()
+  const projects = getWorks("fr")
 
   return projects.map((project) => ({
     slug: project.slug,
@@ -23,8 +24,8 @@ interface Props {
 }
 
 const Work = async ({ params }: Props) => {
-
-  const project = getWorks().find((project) => project.slug === params.slug)
+  const locale = getCurrentLocale()
+  const project = getWorks(locale).find((project) => project.slug === params.slug)
 
   if (!project) {
     notFound()
@@ -42,7 +43,7 @@ const Work = async ({ params }: Props) => {
         {t('shared.back')}
       </Link>
       <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl mb-12">{project.metadata.title}</h1>
-      <div className="flex">
+      <div className="flex mb-24">
         <div className="prose text-slate-200 prose-h2:font-semibold prose-h3:font-semibold prose-h4:font-semibold prose-h5:font-semibold prose-h6:font-semibold prose-a:font-medium prose-a:text-slate-200 hover:prose-a:text-red-300 focus-visible:prose-a:text-red-300">
           <MDXRemote
             source={project.content}
@@ -83,7 +84,7 @@ const Work = async ({ params }: Props) => {
           }
         </div>
       </div>
-
+      <Footer />
     </div>
   )
 }

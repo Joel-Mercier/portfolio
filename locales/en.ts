@@ -5,16 +5,28 @@ export default {
       summary:
         "I conceive and develop websites and web apps with Rails, React and React Native.",
       paragraph1:
-        "En 2013 j'ai pris la décision de comprendre comment fonctionnaient les sites sur lesquels je passais beaucoup (trop ?) de temps. Une fois attéri dans l'univers du développement web, cette passion ne m'a pas quitté.",
+        "In 2013, I made the decision to try and understand how the websites I used to spend so much time on (too much?) worked. Once I had discovered this passion for web development it never left me.",
       paragraph2:
-        "Aujourd'hui mes efforts se concentrent sur la création d'applications à valeur ajoutée au sein de l'agence {link} à Strasbourg. Qu&apos;il s&apos;agisse de proposer de la logique et de l&apos;administration de données avec <strong>Ruby on Rails</strong> ou des expériences utilisateur avec <strong>React</strong> et <strong>React Native</strong>, j'investi mes connaissances dans chaque projet.",
+        "Today my efforts are focused on building high value applications in collaboration with the {link} agency in Strasbourg, France. Wether it is about business logic and data administration with {technology1} or building nice user experiences with {technology2} or {technology3}, I am fully invested in every project.",
       paragraph3:
-        "Dans mon temps libre je fais de la musique, je code toutes sortes de projets qui me passent par la tête et je me bagarre sur Azeroth dans World of Warcraft.",
+        "In my free time i make music, I code all sorts of side projects that go through my head and I fight on Azeroth in World of Warcraft.",
     },
     nav: {
       about: "About",
       experiences: "Experiences",
       projects: "Projects",
+    },
+    experiences: {
+      title: "Resume",
+      ctaLabel: "See my complete resume",
+    },
+    projects: {
+      title: "Projects",
+      ctaLabel: "See all archived projetcs",
+    },
+    footer: {
+      content:
+        "Produced and edited with {link1}. Built with {link2}, {link3} and {link4}. Hosted by {link5}. All texts use the {link6} typeface.",
     },
   },
   works: {

@@ -2,7 +2,7 @@ import { getWorks } from "@/utils/mdx";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const projects = getWorks();
+  const projects = getWorks("fr");
   const projectsSitemap: MetadataRoute.Sitemap = projects.map((project) => {
     return {
       url: "https://joelmercier.io/works/" + project.slug,

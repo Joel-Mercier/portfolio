@@ -1,12 +1,12 @@
 "use client"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useChangeLocale, useCurrentLocale } from "@/locales/client";
+import { Locale, useChangeLocale, useCurrentLocale } from "@/locales/client";
 
 const LocaleSelect = () => {
   const changeLocale = useChangeLocale()
   const currentLocale = useCurrentLocale()
   return (
-    <Select onValueChange={(locale: 'fr' | 'en') => changeLocale(locale)} value={currentLocale}>
+    <Select onValueChange={(locale: Locale) => changeLocale(locale)} value={currentLocale}>
       <SelectTrigger>
         <SelectValue placeholder={currentLocale.toUpperCase()} />
       </SelectTrigger>
