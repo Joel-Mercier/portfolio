@@ -1,32 +1,31 @@
-import { getWorks } from "@/utils/mdx"
-import { ArrowLeft, ArrowUpRight } from "lucide-react"
-import Link from "next/link"
-import { notFound } from "next/navigation"
-import React from "react"
+import { getWorks } from "@/utils/mdx";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import React from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { Markdown } from "@/mdx-components"
-import { Button } from "@/components/ui/button"
+import { Markdown } from "@/mdx-components";
+import { Button } from "@/components/ui/button";
 
 export async function generateStaticParams() {
-  const projects = getWorks()
+  const projects = getWorks();
 
   return projects.map((project) => ({
     slug: project.slug,
-  }))
+  }));
 }
 
 interface Props {
   params: {
-    slug: string
-  }
+    slug: string;
+  };
 }
 
 const Work = ({ params }: Props) => {
-
-  const project = getWorks().find((project) => project.slug === params.slug)
+  const project = getWorks().find((project) => project.slug === params.slug);
 
   if (!project) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -38,8 +37,10 @@ const Work = ({ params }: Props) => {
         <ArrowLeft className="mr-1 h-4 w-4 transition-transform group-hover:-translate-x-2" />
         Retour
       </Link>
-      <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl mb-12">{project.metadata.title}</h1>
-      <div className="flex">
+      <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl mb-12">
+        {project.metadata.title}
+      </h1>
+      <div className="flex flex-col-reverse lg:flex-row">
         <div className="prose text-slate-200 prose-h2:font-semibold prose-h3:font-semibold prose-h4:font-semibold prose-h5:font-semibold prose-h6:font-semibold prose-a:font-medium prose-a:text-slate-200 hover:prose-a:text-red-300 focus-visible:prose-a:text-red-300">
           <MDXRemote
             source={project.content}
@@ -49,9 +50,13 @@ const Work = ({ params }: Props) => {
             components={Markdown}
           />
         </div>
-        <div className="flex flex-col items-end w-full">
-          {project.metadata.url &&
-            <Button variant="link" className="group/link text-lg font-bold" asChild>
+        <div className="flex flex-col lg:items-end w-full mb-8 lg:mb-0">
+          {project.metadata.url && (
+            <Button
+              variant="link"
+              className="group/link text-lg font-bold"
+              asChild
+            >
               <a
                 href={project.metadata.url}
                 target="blank"
@@ -63,9 +68,13 @@ const Work = ({ params }: Props) => {
                 </span>
               </a>
             </Button>
-          }
-          {project.metadata.code &&
-            <Button variant="link" className="group/link text-lg font-bold" asChild>
+          )}
+          {project.metadata.code && (
+            <Button
+              variant="link"
+              className="group/link text-lg font-bold"
+              asChild
+            >
               <a
                 href={project.metadata.code}
                 target="blank"
@@ -77,12 +86,11 @@ const Work = ({ params }: Props) => {
                 </span>
               </a>
             </Button>
-          }
+          )}
         </div>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Work
+export default Work;
