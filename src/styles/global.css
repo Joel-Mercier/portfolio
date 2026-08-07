@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+/* Cursor spotlight — driven by Mask.astro, which writes --mouse-x / --mouse-y. */
+.mask {
+  background: radial-gradient(
+    600px at var(--mouse-x) var(--mouse-y),
+    rgba(29, 78, 216, 0.15),
+    transparent 80%
+  );
+}
+
+/* In-page nav active state — HomeNav.astro toggles `.active` on the anchor. */
+.active .nav-indicator {
+  width: 4rem;
+  background-color: #e2e8f0;
+}
+
+.active .nav-text {
+  color: #e2e8f0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+}

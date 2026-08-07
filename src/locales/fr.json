@@ -1,0 +1,112 @@
+{
+  "site": {
+    "title": "Joël Mercier",
+    "description": "Développeur web dynamique et soucieux de fournir un travail performant.",
+    "titleTemplate": "{{title}} — Joël Mercier"
+  },
+  "home": {
+    "name": "Joël Mercier",
+    "role": "Développeur web",
+    "tagline": "Je conçois et développe des sites et applications web avec Rails, React et React Native.",
+    "email": "jmercier37@gmail.com",
+    "about": {
+      "p1": "En 2013 j'ai pris la décision de comprendre comment fonctionnaient les sites sur lesquels je passais beaucoup (trop ?) de temps. Une fois atterri dans l'univers du développement web, cette passion ne m'a pas quitté.",
+      "p2": "Aujourd'hui mes efforts se concentrent sur la création d'applications à valeur ajoutée au sein de l'agence {{ideematic}} à Strasbourg. Qu'il s'agisse de proposer de la logique et de l'administration de données avec <strong>Ruby on Rails</strong> ou des expériences utilisateur avec <strong>React</strong> et <strong>React Native</strong>, j'investis mes connaissances dans chaque projet.",
+      "p3": "Dans mon temps libre je fais de la musique, je code toutes sortes de projets qui me passent par la tête et je me bagarre sur Azeroth dans World of Warcraft."
+    },
+    "ideematicLabel": "Idéematic",
+    "cvLink": "Voir le CV complet",
+    "allProjectsLink": "Voir tous les projets archivés",
+    "footer": "Produit et édité avec {{vscode}}. Construit avec {{astro}} et {{tailwind}} ♥️. Hébergé chez {{vercel}}. Tous les textes utilisent la police d'écriture {{inter}}",
+    "footerLinks": {
+      "vscode": "Visual Studio Code",
+      "astro": "Astro",
+      "tailwind": "TailwindCSS",
+      "vercel": "Vercel",
+      "inter": "Inter"
+    }
+  },
+  "nav": {
+    "about": "À propos",
+    "experiences": "Expériences",
+    "projects": "Projets"
+  },
+  "works": {
+    "back": "Retour",
+    "indexTitle": "Tous les projets",
+    "indexDescription": "L'ensemble des projets web et mobiles réalisés par Joël Mercier, développeur web à Strasbourg.",
+    "viewProject": "Voir le projet",
+    "viewCode": "Voir le code"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "heading": "404",
+    "lead": "Cette page n'existe pas ou a été déplacée.",
+    "back": "Retour à l'accueil"
+  },
+  "a11y": {
+    "socialMedia": "Réseaux sociaux",
+    "inPageNav": "Navigation dans la page",
+    "newTab": "{{name}} (ouvre dans un nouvel onglet)",
+    "technologies": "Technologies utilisées",
+    "period": "De {{begin}} à {{end}}",
+    "videoTitle": "Vidéo de présentation du projet {{title}}"
+  },
+  "social": {
+    "github": "GitHub",
+    "gitlab": "Gitlab"
+  },
+  "present": "Aujourd'hui",
+  "experiences": [
+    {
+      "body": "Apprentissage et utilisation du framework Ruby on Rails.\nDéveloppement d'applications web et d'application mobiles avec (React / React Native).\nTravail en équipe sous la tutelle d'un chef de projet.",
+      "title": "Idéematic",
+      "role": "Développeur web",
+      "dateBegin": "2016-10-16",
+      "dateEnd": "Aujourd'hui",
+      "companyUrl": "https://ideematic.com/",
+      "location": "Strasbourg, FR",
+      "technologies": "Ruby on Rails, React, React Native"
+    },
+    {
+      "body": "Refonte du site web de l'entreprise (blog, portfolio, services, etc...) - almedia.fr.\nRéalisation d'un serious game pour la CCI Alsace - smarttech-solutions.eu.\nUtilisation de Javascript et de Jekyll.\nTravail en autonomie et responsabilité technique de projets.",
+      "title": "Almédia",
+      "role": "Développeur web apprenti",
+      "dateBegin": "2015-10-01",
+      "dateEnd": "2016-07-03",
+      "companyUrl": "https://almedia.fr",
+      "location": "Strasbourg, FR",
+      "technologies": "HTML, CSS, JavaScript, Jekyll"
+    },
+    {
+      "body": "Approfondissement des compétences en développement web vues au cours du DUT. Back-end, front-end, React, Drupal, arts visuels, UI & UX Design.",
+      "title": "IUT de Haguenau",
+      "role": "Etudiant en Licence Professionnelle Techniques et Activités de l'Image et du Son",
+      "dateBegin": "2015-09-01",
+      "dateEnd": "2016-07-01",
+      "companyUrl": "https://iuthaguenau.unistra.fr/licence-pro/lp-tais-techniques-et-activites-de-l-image-et-du-son/",
+      "location": "Haguenau, FR",
+      "technologies": "HTML, CSS, JavaScript, React, Drupal"
+    },
+    {
+      "body": "Stage de fin de parcours de DUT. Développeur web / cadre international (FR / DE / EN). Développement PHP, Intégration de template email, utilisation d'API. Travail sur le site principal de l'entreprise",
+      "title": "Dalim Software",
+      "role": "Développeur web stagiaire",
+      "dateBegin": "2015-04-07",
+      "dateEnd": "2015-06-26",
+      "companyUrl": "https://www.dalim.com/fr/",
+      "location": "Kehl, DE",
+      "technologies": "HTML, CSS, JavaScript, PHP"
+    },
+    {
+      "body": "Acquisition de compétences dans le développement web, le design, le multimédia et l'informatique en général.",
+      "title": "IUT de Haguenau",
+      "role": "Etudiant en DUT Métiers du Multimédia et de l'Internet",
+      "dateBegin": "2013-09-01",
+      "dateEnd": "2015-07-01",
+      "companyUrl": "https://formations.unistra.fr/fr/formations/but-BT/but-metiers-du-multimedia-et-de-l-internet-ME343.html",
+      "location": "Haguenau, FR",
+      "technologies": "HTML, CSS, JavaScript, PHP, WordPress"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+---
+import Badge from "./Badge.astro";
+import ArrowUpRight from "./icons/ArrowUpRight.astro";
+import { t, type ExperienceEntry } from "../i18n";
+
+interface Props {
+  experience: ExperienceEntry;
+}
+const { experience } = Astro.props;
+
+function year(date: string): string {
+  const parsed = Number(date.slice(0, 4));
+  return Number.isNaN(parsed) ? date : String(parsed);
+}
+
+const begin = year(experience.dateBegin);
+const end = year(experience.dateEnd);
+---
+
+<div
+  class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:opacity-100! lg:group-hover/list:opacity-50"
+>
+  <div
+    class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"
+  >
+  </div>
+  <header
+    class="z-10 mb-2 mt-1 flex flex-col justify-between text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2"
+    aria-label={t("a11y.period", { begin, end })}
+  >
+    <span>{begin} — {end}</span>
+    <span>{experience.location}</span>
+  </header>
+  <div class="z-10 sm:col-span-6">
+    <h3 class="font-medium leading-snug text-slate-200">
+      <a
+        href={experience.companyUrl}
+        class="group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-200 hover:text-red-500 focus-visible:text-red-500"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <span
+          class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"
+        ></span>
+        <span>
+          {experience.role}
+          {" · "}
+          <span class="inline-block">
+            {experience.title}
+            <ArrowUpRight
+              class="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none"
+            />
+          </span>
+        </span>
+      </a>
+    </h3>
+    <p class="mt-2 whitespace-pre-wrap text-sm leading-normal">{experience.body}</p>
+    <ul class="mt-2 flex flex-wrap" aria-label={t("a11y.technologies")}>
+      {
+        experience.technologies.split(", ").map((technology) => (
+          <li class="mr-1.5 mt-2">
+            <Badge>{technology}</Badge>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

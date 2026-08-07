@@ -1,0 +1,11 @@
+---
+title: WoW Companion Hub
+date: 2024-06-01
+roles: Développeur
+client: Projet personnel
+code: https://gitlab.com/SireCuit/wow-companion-hub
+technologies: NextJS, tRPC, Prisma
+lead: "Projet personnel me permettant d'expérimenter avec de nouvelles technologies et de mélanger deux de mes passions : le développement web et World of Warcraft."
+cover: ../../assets/works/covers/wow-companion-hub.jpg
+published: false
+---

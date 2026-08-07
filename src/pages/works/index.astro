@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import StickyScrollReveal from "../../components/StickyScrollReveal.astro";
+import ArrowLeft from "../../components/icons/ArrowLeft.astro";
+import { getWorks } from "../../lib/works";
+import { t } from "../../i18n";
+
+const works = await getWorks();
+---
+
+<BaseLayout
+  title={t("works.indexTitle")}
+  description={t("works.indexDescription")}
+>
+  <div class="lg:py-24">
+    <a
+      href="/"
+      class="group mb-2 inline-flex items-center font-semibold leading-tight text-red-500"
+    >
+      <ArrowLeft
+        class="mr-1 h-4 w-4 transition-transform group-hover:-translate-x-2 motion-reduce:transition-none"
+      />
+      {t("works.back")}
+    </a>
+    <h1 class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
+      {t("works.indexTitle")}
+    </h1>
+    <StickyScrollReveal works={works} />
+  </div>
+</BaseLayout>

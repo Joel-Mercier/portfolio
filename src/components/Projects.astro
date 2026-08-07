@@ -1,0 +1,16 @@
+---
+import Project from "./Project.astro";
+import { getWorks } from "../lib/works";
+
+const projects = (await getWorks()).slice(0, 4);
+---
+
+<ol class="group/list">
+  {
+    projects.map((project) => (
+      <li class="mb-12">
+        <Project project={project} />
+      </li>
+    ))
+  }
+</ol>

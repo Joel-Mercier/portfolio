@@ -1,0 +1,171 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+import HomeNav from "../components/HomeNav.astro";
+import WavyBackground from "../components/WavyBackground.astro";
+import LinkButton from "../components/LinkButton.astro";
+import ArrowRight from "../components/icons/ArrowRight.astro";
+import ArrowUpRight from "../components/icons/ArrowUpRight.astro";
+import Github from "../components/icons/Github.astro";
+import Gitlab from "../components/icons/Gitlab.astro";
+import { t, link, experiences } from "../i18n";
+
+const socials = [
+  { key: "github", href: "https://github.com/Joel-Mercier", Icon: Github },
+  { key: "gitlab", href: "https://gitlab.com/SireCuit", Icon: Gitlab },
+];
+
+const footerLinkClass =
+  "font-medium text-slate-400 hover:text-red-300 focus-visible:text-red-300";
+
+const arrowClass =
+  "ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none";
+---
+
+<BaseLayout>
+  <div class="lg:flex lg:justify-between lg:gap-4" id="root">
+    <header
+      class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24"
+    >
+      <div>
+        <div class="absolute left-0 top-0 -z-10" transition:persist>
+          <WavyBackground />
+        </div>
+        <h1
+          class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl"
+        >
+          {t("home.name")}
+        </h1>
+        <h2
+          class="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl"
+        >
+          {t("home.role")}
+        </h2>
+        <p class="mt-4 max-w-xs leading-normal">{t("home.tagline")}</p>
+      </div>
+      <HomeNav />
+      <div>
+        <a
+          href={`mailto:${t("home.email")}`}
+          class="font-medium text-slate-200 hover:text-red-300 focus-visible:text-red-300"
+        >
+          {t("home.email")}
+        </a>
+        <ul class="ml-1 mt-8 flex items-center" aria-label={t("a11y.socialMedia")}>
+          {
+            socials.map(({ key, href, Icon }) => (
+              <li class="mr-5 shrink-0 text-xs">
+                <a
+                  href={href}
+                  class="block hover:text-slate-200"
+                  rel="noreferrer noopener"
+                  target="_blank"
+                  aria-label={t("a11y.newTab", { name: t(`social.${key}`) })}
+                >
+                  <Icon />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </header>
+    <div class="pt-24 lg:w-1/2 lg:py-24">
+      <section
+        id="about"
+        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+      >
+        <p class="mb-4">{t("home.about.p1")}</p>
+        <p
+          class="mb-4"
+          set:html={t("home.about.p2", {
+            ideematic: link("https://ideematic.com", t("home.ideematicLabel")),
+          })}
+        />
+        <p class="mb-4">{t("home.about.p3")}</p>
+      </section>
+      <section
+        id="experiences"
+        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+      >
+        <div
+          class="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 lg:sr-only"
+        >
+          <h2
+            class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
+          >
+            {t("nav.experiences")}
+          </h2>
+        </div>
+        <ol class="group/list">
+          {
+            experiences.map((experience) => (
+              <li class="mb-12">
+                <Experience experience={experience} />
+              </li>
+            ))
+          }
+        </ol>
+        <LinkButton href="/cv-joel-mercier-developpeur-web.pdf" external>
+          {t("home.cvLink")}
+          <span class="inline-block"><ArrowUpRight class={arrowClass} /></span>
+        </LinkButton>
+      </section>
+      <section
+        id="projects"
+        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+      >
+        <div
+          class="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 lg:sr-only"
+        >
+          <h2
+            class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
+          >
+            {t("nav.projects")}
+          </h2>
+        </div>
+        <Projects />
+        <LinkButton href="/works">
+          {t("home.allProjectsLink")}
+          <span class="inline-block"
+            ><ArrowRight
+              class="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:translate-x-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none"
+            /></span
+          >
+        </LinkButton>
+      </section>
+      <footer class="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
+        <p
+          set:html={t("home.footer", {
+            vscode: link(
+              "https://code.visualstudio.com/",
+              t("home.footerLinks.vscode"),
+              footerLinkClass,
+            ),
+            astro: link(
+              "https://astro.build/",
+              t("home.footerLinks.astro"),
+              footerLinkClass,
+            ),
+            tailwind: link(
+              "https://tailwindcss.com/",
+              t("home.footerLinks.tailwind"),
+              footerLinkClass,
+            ),
+            vercel: link(
+              "https://vercel.com/",
+              t("home.footerLinks.vercel"),
+              footerLinkClass,
+            ),
+            inter: link(
+              "https://rsms.me/inter/",
+              t("home.footerLinks.inter"),
+              footerLinkClass,
+            ),
+          })}
+        />
+      </footer>
+    </div>
+  </div>
+</BaseLayout>

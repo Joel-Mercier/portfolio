@@ -1,0 +1,79 @@
+---
+import { t } from "../i18n";
+
+const sections = ["about", "experiences", "projects"];
+---
+
+<nav class="nav hidden lg:block" aria-label={t("a11y.inPageNav")} data-home-nav>
+  <ul class="mt-16 w-max">
+    {
+      sections.map((id) => (
+        <li>
+          <a class="group flex items-center py-3" href={`#${id}`} data-nav-link={id}>
+            <span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none" />
+            <span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
+              {t(`nav.${id}`)}
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  function initHomeNav() {
+    const nav = document.querySelector<HTMLElement>("[data-home-nav]");
+    if (!nav) return;
+
+    const links = Array.from(
+      nav.querySelectorAll<HTMLAnchorElement>("[data-nav-link]"),
+    );
+    const sections = links
+      .map((link) =>
+        document.querySelector<HTMLElement>(
+          `section[id="${link.dataset.navLink}"]`,
+        ),
+      )
+      .filter((section): section is HTMLElement => section !== null);
+
+    if (sections.length === 0) return;
+
+    const activeIndex = () => {
+      const threshold = window.innerHeight * 0.2;
+      let index = 0;
+      sections.forEach((section, i) => {
+        if (section.getBoundingClientRect().top <= threshold) index = i;
+      });
+      return index;
+    };
+
+    let frame = 0;
+    const update = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const active = sections[activeIndex()].id;
+        links.forEach((link) =>
+          link.classList.toggle("active", link.dataset.navLink === active),
+        );
+      });
+    };
+
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+    update();
+
+    document.addEventListener(
+      "astro:before-swap",
+      () => {
+        window.removeEventListener("scroll", update);
+        window.removeEventListener("resize", update);
+        cancelAnimationFrame(frame);
+      },
+      { once: true },
+    );
+  }
+
+  document.addEventListener("astro:page-load", initHomeNav);
+</script>

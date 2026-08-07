@@ -1,0 +1,45 @@
+---
+import Badge from "./Badge.astro";
+import { t } from "../i18n";
+import type { Work } from "../lib/works";
+
+interface Props {
+  project: Work;
+}
+const { project } = Astro.props;
+const { title, lead, technologies } = project.data;
+---
+
+<div
+  class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:opacity-100! lg:group-hover/list:opacity-50"
+>
+  <div
+    class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"
+  >
+  </div>
+  <div class="z-10 sm:order-2 sm:col-span-6">
+    <h3>
+      <a
+        href={`/works/${project.id}`}
+        class="group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-200 hover:text-red-500 focus-visible:text-red-500"
+      >
+        <span
+          class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"
+        ></span>
+        <span>{title}</span>
+      </a>
+    </h3>
+    <p class="mt-2 whitespace-pre-wrap text-sm leading-normal">{lead}</p>
+    {
+      technologies && (
+        <ul class="mt-2 flex flex-wrap" aria-label={t("a11y.technologies")}>
+          {technologies.split(", ").map((technology) => (
+            <li class="mr-1.5 mt-2">
+              <Badge>{technology}</Badge>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</div>

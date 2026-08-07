@@ -1,0 +1,99 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+
+const shapeA =
+  "M165.905 27.7277C221.579 16.8725 281.397 -18.5989 328.876 12.4572C379.562 45.6109 406.878 116.841 391.918 175.563C378.095 229.823 306.302 237.359 262.655 272.393C227.928 300.266 210.402 355.681 165.905 356.974C121.129 358.275 93.6083 311.26 63.3696 278.183C35.1814 247.35 1.49251 217.331 0.0599772 175.563C-1.40562 132.831 24.1777 94.0849 56.0802 65.6469C86.1427 38.849 126.39 35.4323 165.905 27.7277Z";
+const shapeB =
+  "M133.89 0.824337C187.116 9.38302 186.575 88.2336 220.153 130.466C246.366 163.436 301.24 174.937 305.644 216.849C310.173 259.958 270.552 292.407 240.439 323.546C209.599 355.439 178.078 390.872 133.89 394.463C87.0121 398.272 34.0834 381.925 8.52073 342.392C-15.1745 305.747 17.9546 260.492 19.0418 216.849C20.0731 175.448 -4.81167 133.974 14.6232 97.4173C39.6018 50.4336 81.4085 -7.61451 133.89 0.824337Z";
+const colorA = "#FF0066";
+const colorB = "#0F62FE";
+---
+
+<div
+  class:list={[
+    "flex h-screen flex-col items-center justify-center opacity-20",
+    className,
+  ]}
+>
+  <svg width="400" height="400" aria-hidden="true">
+    <path
+      d={shapeA}
+      fill={colorA}
+      data-blob
+      data-shape-a={shapeA}
+      data-shape-b={shapeB}
+      data-color-a={colorA}
+      data-color-b={colorB}></path>
+  </svg>
+</div>
+
+<script>
+  import { interpolate } from "flubber";
+
+  const DURATION = 6000;
+
+  const easeInOut = (t: number) =>
+    t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+  function parseHex(hex: string): [number, number, number] {
+    const value = parseInt(hex.slice(1), 16);
+    return [(value >> 16) & 255, (value >> 8) & 255, value & 255];
+  }
+
+  function mixColor(from: string, to: string, t: number): string {
+    const a = parseHex(from);
+    const b = parseHex(to);
+    const channels = a.map((channel, i) =>
+      Math.round(channel + (b[i] - channel) * t),
+    );
+    return `rgb(${channels.join(", ")})`;
+  }
+
+  function initWavyBackground() {
+    const blob = document.querySelector<SVGPathElement>("[data-blob]");
+    if (!blob) return;
+
+    const { shapeA, shapeB, colorA, colorB } = blob.dataset;
+    if (!shapeA || !shapeB || !colorA || !colorB) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const shapes = [shapeA, shapeB, shapeA];
+    const colors = [colorA, colorB, colorA];
+    const legs = shapes
+      .slice(0, -1)
+      .map((shape, i) => interpolate(shape, shapes[i + 1], { maxSegmentLength: 10 }));
+
+    let leg = 0;
+    let start: number | null = null;
+    let frame = 0;
+
+    const step = (now: number) => {
+      if (start === null) start = now;
+      const raw = Math.min((now - start) / DURATION, 1);
+      const t = easeInOut(raw);
+
+      blob.setAttribute("d", legs[leg](t));
+      blob.setAttribute("fill", mixColor(colors[leg], colors[leg + 1], t));
+
+      if (raw === 1) {
+        leg = (leg + 1) % legs.length;
+        start = now;
+      }
+      frame = requestAnimationFrame(step);
+    };
+
+    frame = requestAnimationFrame(step);
+
+    document.addEventListener(
+      "astro:before-swap",
+      () => cancelAnimationFrame(frame),
+      { once: true },
+    );
+  }
+
+  document.addEventListener("astro:page-load", initWavyBackground);
+</script>
