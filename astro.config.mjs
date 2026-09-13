@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://joelmercier.io",
+  site: "https://joelmercier.fr",
   compressHTML: true,
   integrations: [
     sitemap({
