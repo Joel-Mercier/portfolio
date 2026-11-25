@@ -1,0 +1,120 @@
+---
+import { Image } from "astro:assets";
+import Badge from "./Badge.astro";
+import Github from "./icons/Github.astro";
+import Globe from "./icons/Globe.astro";
+import Star from "./icons/Star.astro";
+import { t } from "../i18n";
+import { getStars, type OpenSourceProject } from "../lib/opensource";
+
+interface Props {
+  project: OpenSourceProject;
+}
+const { project } = Astro.props;
+const { title, lead, technologies, cover, code, url } = project.data;
+const stars = getStars(project);
+const formattedStars =
+  stars === undefined
+    ? undefined
+    : new Intl.NumberFormat("fr-FR", {
+        notation: stars >= 10000 ? "compact" : "standard",
+        maximumFractionDigits: 1,
+      }).format(stars);
+
+const quickLinkClass =
+  "inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 transition-colors hover:text-red-300 focus-visible:text-red-300";
+---
+
+<article
+  class="group relative pb-1 transition-all lg:hover:opacity-100! lg:group-hover/list:opacity-50"
+>
+  <div
+    class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"
+  >
+  </div>
+  <div class="relative z-10">
+    <div
+      class="overflow-hidden rounded-md border-2 border-slate-200/10 transition group-hover:border-slate-200/30 motion-reduce:transition-none"
+    >
+      <Image
+        src={cover}
+        alt=""
+        widths={[480, 960, 1440]}
+        sizes="(min-width: 1024px) 480px, 100vw"
+        class="aspect-2/1 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none"
+      />
+    </div>
+    <div class="mt-4 flex items-baseline justify-between gap-4">
+      <h3>
+        <a
+          href={`/open-source/${project.id}`}
+          class="group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-200 hover:text-red-500 focus-visible:text-red-500"
+        >
+          <span
+            class="absolute -inset-x-4 -inset-y-2.5 rounded md:-inset-x-6 md:-inset-y-4"
+          ></span>
+          <span
+            class="vt-title inline-block"
+            transition:name={`opensource-${project.id}`}>{title}</span
+          >
+        </a>
+      </h3>
+      {
+        formattedStars && (
+          <span class="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-slate-300">
+            <Star class="h-4 w-4 fill-yellow-400/20 text-yellow-400" />
+            <span aria-hidden="true">{formattedStars}</span>
+            <span class="sr-only">
+              {t("opensource.stars", { count: stars })}
+            </span>
+          </span>
+        )
+      }
+    </div>
+    <p class="mt-2 text-sm leading-normal">{lead}</p>
+    {
+      technologies && (
+        <ul class="mt-2 flex flex-wrap" aria-label={t("a11y.technologies")}>
+          {technologies.split(", ").map((technology) => (
+            <li class="mr-1.5 mt-2">
+              <Badge>{technology}</Badge>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+    <ul
+      class="relative z-20 mt-4 flex flex-wrap gap-x-5 gap-y-2"
+      aria-label={t("a11y.projectLinks", { title })}
+    >
+      <li>
+        <a
+          href={code}
+          class={quickLinkClass}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={t("a11y.newTab", { name: t("opensource.github") })}
+        >
+          <Github class="h-4 w-4" />
+          {t("opensource.github")}
+        </a>
+      </li>
+      {
+        url && (
+          <li>
+            <a
+              href={url}
+              class={quickLinkClass}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t("a11y.newTab", { name: t("opensource.website") })}
+            >
+              <Globe class="h-4 w-4" />
+              {t("opensource.website")}
+            </a>
+          </li>
+        )
+      }
+    </ul>
+  </div>
+</article>

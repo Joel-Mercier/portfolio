@@ -1,0 +1,43 @@
+name: Update GitHub stars
+
+on:
+  schedule:
+    # Every night at 02:00 UTC (03:00/04:00 in Paris)
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-stars
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch star counts
+        run: node scripts/update-github-stars.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Pushing to main triggers the Vercel production deployment.
+      # Nothing is committed (so nothing is deployed) when counts are unchanged.
+      - name: Commit and push changes
+        run: |
+          if git diff --quiet -- src/data/github-stars.json; then
+            echo "Star counts unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git add src/data/github-stars.json
+          git commit -m "chore: update GitHub star counts"
+          git push

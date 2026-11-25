@@ -20,4 +20,25 @@ const works = defineCollection({
     }),
 });
 
-export const collections = { works };
+const opensource = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/opensource" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      date: z.coerce.date(),
+      lead: z.string(),
+      // GitHub repository URL, also used to fetch the star count
+      // (see scripts/update-github-stars.mjs).
+      code: z.url().regex(/^https:\/\/github\.com\/[^/]+\/[^/]+\/?$/),
+      url: z.url().optional(),
+      technologies: z.string().optional(),
+      published: z.boolean().default(true),
+      cover: image(),
+      video: z.string().optional(),
+      gallery: z
+        .array(z.object({ src: image(), alt: z.string() }))
+        .optional(),
+    }),
+});
+
+export const collections = { works, opensource };

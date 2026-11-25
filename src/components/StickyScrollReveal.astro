@@ -28,9 +28,11 @@ const gradients = [
             <h2
               class="text-2xl font-bold text-slate-100 opacity-40 transition-opacity duration-300 group-hover:opacity-100"
               data-card-title
-              transition:name={`work-${work.id}`}
             >
-              {work.data.title}
+              <span
+                class="vt-title inline-block"
+                transition:name={`work-${work.id}`}>{work.data.title}</span
+              >
             </h2>
             <p
               class="mt-10 max-w-sm opacity-30 transition-opacity duration-300 group-hover:opacity-100"

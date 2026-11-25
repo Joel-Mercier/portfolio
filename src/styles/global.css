@@ -41,3 +41,42 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/*
+ * Project title morph between list pages and detail pages.
+ * The named element is an inline-block span hugging the text on both sides, so
+ * the old and new boxes keep the same aspect ratio and the text scales cleanly
+ * instead of being stretched to the full width of the heading.
+ */
+.vt-title {
+  view-transition-class: project-title;
+}
+
+::view-transition-group(*.project-title) {
+  animation-duration: 450ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(*.project-title),
+::view-transition-new(*.project-title) {
+  width: auto;
+  height: 100%;
+  /* Overrides Astro's 180ms fade so the crossfade spans most of the move */
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+}
+
+/*
+ * Titles without a counterpart on the other page (the other cards of a list)
+ * just fade out with the rest of the page instead of lingering.
+ */
+::view-transition-old(*.project-title):only-child,
+::view-transition-new(*.project-title):only-child {
+  animation-duration: 250ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*.project-title) {
+    animation: none;
+  }
+}

@@ -1,0 +1,16 @@
+---
+import OpenSourceProject from "./OpenSourceProject.astro";
+import { getOpenSourceProjects } from "../lib/opensource";
+
+const projects = await getOpenSourceProjects();
+---
+
+<ol class="group/list">
+  {
+    projects.map((project) => (
+      <li class="mb-16">
+        <OpenSourceProject project={project} />
+      </li>
+    ))
+  }
+</ol>

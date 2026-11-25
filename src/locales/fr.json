@@ -29,7 +29,8 @@
   "nav": {
     "about": "À propos",
     "experiences": "Expériences",
-    "projects": "Projets"
+    "projects": "Projets",
+    "open-source": "Open source"
   },
   "works": {
     "back": "Retour",
@@ -37,6 +38,12 @@
     "indexDescription": "L'ensemble des projets web et mobiles réalisés par Joël Mercier, développeur web à Strasbourg.",
     "viewProject": "Voir le projet",
     "viewCode": "Voir le code"
+  },
+  "opensource": {
+    "github": "GitHub",
+    "website": "Site web",
+    "stars_one": "{{count}} étoile sur GitHub",
+    "stars_other": "{{count}} étoiles sur GitHub"
   },
   "notFound": {
     "title": "Page introuvable",
@@ -50,7 +57,9 @@
     "newTab": "{{name}} (ouvre dans un nouvel onglet)",
     "technologies": "Technologies utilisées",
     "period": "De {{begin}} à {{end}}",
-    "videoTitle": "Vidéo de présentation du projet {{title}}"
+    "videoTitle": "Vidéo de présentation du projet {{title}}",
+    "gallery": "Captures d'écran",
+    "projectLinks": "Liens du projet {{title}}"
   },
   "social": {
     "github": "GitHub",

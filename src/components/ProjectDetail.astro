@@ -1,0 +1,95 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import LinkButton from "./LinkButton.astro";
+import BackLink from "./BackLink.astro";
+import ArrowUpRight from "./icons/ArrowUpRight.astro";
+import { t } from "../i18n";
+
+interface Props {
+  title: string;
+  transitionName: string;
+  backHref: string;
+  url?: string;
+  code?: string;
+  video?: string;
+  gallery?: { src: ImageMetadata; alt: string }[];
+}
+
+const { title, transitionName, backHref, url, code, video, gallery } =
+  Astro.props;
+
+const arrowClass =
+  "ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none";
+---
+
+<div class="lg:py-24">
+  <BackLink fallbackHref={backHref} label={t("works.back")} />
+  <h1
+    class="mb-12 text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl"
+  >
+    <span class="vt-title inline-block" transition:name={transitionName}
+      >{title}</span
+    >
+  </h1>
+  <div class="flex flex-col-reverse lg:flex-row">
+    <div
+      class="prose text-slate-200 prose-headings:text-slate-200 prose-h2:font-semibold prose-h3:font-semibold prose-h4:font-semibold prose-h5:font-semibold prose-h6:font-semibold prose-p:mb-4 prose-a:font-medium prose-a:text-slate-200 hover:prose-a:text-red-300 focus-visible:prose-a:text-red-300 prose-strong:text-slate-200 prose-img:rounded-md"
+    >
+      {
+        video && (
+          <iframe
+            class="aspect-video w-full"
+            src={`https://www.youtube.com/embed/${video}`}
+            title={t("a11y.videoTitle", { title })}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          />
+        )
+      }
+      <slot />
+      {
+        gallery && gallery.length > 0 && (
+          <ul
+            class="not-prose mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3"
+            aria-label={t("a11y.gallery")}
+          >
+            {gallery.map(({ src, alt }) => (
+              <li>
+                <Image
+                  src={src}
+                  alt={alt}
+                  widths={[240, 480]}
+                  sizes="(min-width: 640px) 240px, 50vw"
+                  class="w-full rounded-md"
+                />
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+    <div class="mb-8 flex w-full flex-col lg:mb-0 lg:items-end">
+      {
+        url && (
+          <LinkButton href={url} external class="text-lg font-bold">
+            {t("works.viewProject")}
+            <span class="inline-block">
+              <ArrowUpRight class={arrowClass} />
+            </span>
+          </LinkButton>
+        )
+      }
+      {
+        code && (
+          <LinkButton href={code} external class="text-lg font-bold">
+            {t("works.viewCode")}
+            <span class="inline-block">
+              <ArrowUpRight class={arrowClass} />
+            </span>
+          </LinkButton>
+        )
+      }
+    </div>
+  </div>
+</div>

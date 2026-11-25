@@ -26,7 +26,10 @@ const { title, lead, technologies } = project.data;
         <span
           class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"
         ></span>
-        <span>{title}</span>
+        <span
+          class="vt-title inline-block"
+          transition:name={`work-${project.id}`}>{title}</span
+        >
       </a>
     </h3>
     <p class="mt-2 whitespace-pre-wrap text-sm leading-normal">{lead}</p>

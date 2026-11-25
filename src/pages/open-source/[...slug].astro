@@ -1,0 +1,39 @@
+---
+import { render } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectDetail from "../../components/ProjectDetail.astro";
+import {
+  getOpenSourceProjects,
+  type OpenSourceProject,
+} from "../../lib/opensource";
+
+interface Props {
+  project: OpenSourceProject;
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const projects = await getOpenSourceProjects();
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+};
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<BaseLayout title={project.data.title} description={project.data.lead}>
+  <ProjectDetail
+    title={project.data.title}
+    transitionName={`opensource-${project.id}`}
+    backHref="/#open-source"
+    url={project.data.url}
+    code={project.data.code}
+    video={project.data.video}
+    gallery={project.data.gallery}
+  >
+    <Content />
+  </ProjectDetail>
+</BaseLayout>
